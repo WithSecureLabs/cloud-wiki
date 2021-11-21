@@ -79,7 +79,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/FSecureLABS/cloud-wiki/tree/main/docs',
+            'https://github.com/FSecureLABS/cloud-wiki/tree/main',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
