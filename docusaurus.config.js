@@ -7,7 +7,7 @@ module.exports = {
   tagline: 'Securing All the Cloud Things, by F-Secure Consulting',
   url: 'https://confident-wilson-c4de9b.netlify.app',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'FSecureLabs', // Usually your GitHub org/user name.
@@ -57,10 +57,6 @@ module.exports = {
         {
           title: 'More',
           items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
             {
               label: 'GitHub',
               href: 'https://github.com/facebook/docusaurus',
