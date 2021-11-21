@@ -33,7 +33,7 @@ We thank the following for their contributions to the wiki:
 | Mariusz Banach |  |  |
 | Masande Mtintsilana |  |  |
 | Mohit Gupta |  |  |
-| Nick Jones |  |  |
+| Nick Jones | [@NJonesUK](https://github.com/NJonesUK) | [@nojonesuk](https://twitter.com/nojonesuk) |
 | Robert Petesic |  |  |
 | Sebastian Edmead |  |  |
 | Szymon Grzybowski |  |  |

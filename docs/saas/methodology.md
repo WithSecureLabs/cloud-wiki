@@ -1,6 +1,6 @@
 # SaaS Review Methodology
 
-This methodology exists to suggest areas of potential review for SaaS applications/platforms. It is intended for use as a fallback, should a more specific methodology not be available.
+This methodology exists to suggest areas of potential review for SaaS applications/platforms. It is intended for use as a guide when more specific guidance isn't available, or to support the development of service-specific guidance.
 
 ## Authentication
 
@@ -31,7 +31,7 @@ Ensure that at least two users have the highest privilege administrator role, in
 
 ## Credential and Secrets Management
 
-* Where the SaaS interacts with third party systems, how is the authentication between them handled? 
+* Where the SaaS interacts with third party systems, how is the authentication between them handled?
 * How does the SaaS store the credentials?
   * Which users have access to read or change them?
 
@@ -62,7 +62,7 @@ Webhooks are calls made by the SaaS to third party platforms in order to trigger
 
 ## Design review considerations
 
-If reviewing the SaaS within the broader business context, there are a number of risk management and governance 
+If reviewing the SaaS within the broader business context, there are a number of risk management and governance.
 
 ### Availability
 

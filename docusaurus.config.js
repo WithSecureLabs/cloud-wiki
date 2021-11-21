@@ -26,7 +26,11 @@ module.exports = {
           position: 'left',
           label: 'Wiki',
         },
-        {to: '/contributing', label: 'Contributing', position: 'left'},
+        {
+          to: '/contributing',
+          label: 'Contributing',
+          position: 'left'
+        },
         {
           href: 'https://github.com/fsecurelabs/cloud-wiki',
           label: 'GitHub',
@@ -45,12 +49,8 @@ module.exports = {
               href: 'https://stackoverflow.com/questions/tagged/docusaurus',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
               label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              href: 'https://twitter.com/fsecurelabs',
             },
           ],
         },
@@ -59,7 +59,7 @@ module.exports = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/fsecurelabs/cloud-wiki',
             },
           ],
         },
@@ -79,13 +79,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/blog/',
+            'https://github.com/FSecureLABS/cloud-wiki/tree/main/docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
