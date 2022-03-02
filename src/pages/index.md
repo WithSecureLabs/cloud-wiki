@@ -2,9 +2,7 @@
 
 A repository of all kinds of cloud security knowledge, curated by F-Secure Consulting.
 
-<Link className={clsx("button button--outline button--secondary button--lg", styles.getStarted)} to={useBaseUrl("docs/")}>
-    Click here for the wiki
-</Link>
+<Button class="button button-outline button-secondary button-lg" href={useBaseUrl("docs/") }>Click here for the wiki</Button>
 
 ## Contributing
 
