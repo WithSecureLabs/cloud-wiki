@@ -1,24 +1,11 @@
 # GuardDuty
 
-#### General Security Notes
-
-| *Service Type* | *Can Pentest* | *Security Focused* | *VPC Endpoint* | *KMS Support*  |
-|:---------------|:--------------|:-------------------|:---------------|:---------------|
-| PaaS           | No            | Yes                | No             | No             |
-
-#### IAM Support
-
-| *Resource-level permissions* | *Resource-based policies* | *Service-Linked Roles*  |
-|:-----------------------------|:--------------------------|:------------------------|
-| Yes                          | No                        | Yes                     |
-
 ## Service Details
 
 From AWS:
 
 Amazon GuardDuty is a threat detection service that continuously monitors for malicious or unauthorized behavior to help you protect your AWS accounts and workloads. It monitors for activity such as unusual API calls or potentially unauthorized deployments that indicate a possible account compromise. GuardDuty also detects potentially compromised instances or reconnaissance by attackers.
 
-Enabled with a few clicks in the AWS Management Console, Amazon GuardDuty can immediately begin analyzing billions of events across your AWS accounts for signs of risk. GuardDuty identifies suspected attackers through integrated threat intelligence feeds and uses machine learning to detect anomalies in account and workload activity. When a potential threat is detected, the service delivers a detailed security alert to the GuardDuty console and AWS CloudWatch Events. This makes alerts actionable and easy to integrate into existing event management and workflow systems.
 
 ## Assessment Notes
 

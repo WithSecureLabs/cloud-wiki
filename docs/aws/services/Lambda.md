@@ -1,19 +1,5 @@
 # Lambda
 
-#### General Security Notes
-
-| *Service Type* | *Can Pentest* | *Security Focused* | *VPC Endpoint* | *KMS Support*  |
-|:---------------|:--------------|:-------------------|:---------------|:---------------|
-| PaaS (FaaS)    | Yes           | No                 | ?              | ?              |
-
-
-#### IAM Support
-
-| *Resource-level permissions* | *Resource-based policies* | *Service-Linked Roles*  |
-|:-----------------------------|:--------------------------|:------------------------|
-| ?                            | ?                         | Yes                       |
-
-
 ## Service Details
 
 * Functions as a service

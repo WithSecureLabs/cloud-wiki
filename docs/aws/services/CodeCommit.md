@@ -1,22 +1,8 @@
 # CodeCommit
 
-#### General Security Notes
-
-| *Service Type* | *Can Pentest* | *Security Focused* | *VPC Endpoint* | *KMS Support*                   |
-|:---------------|:--------------|:-------------------|:---------------|:--------------------------------|
-| PaaS           | No            | No                 | Yes            | Partial (AWS-managed keys only) |
-
-
-#### IAM Support
-
-| *Resource-level permissions* | *Resource-based policies* | *Service-Linked Roles*  |
-|:-----------------------------|:--------------------------|:------------------------|
-| ?                            | ?                         | ?                       |
-
-
 ## Service Details
 
-Git repositories in the cloud, essentially.
+Git repositories in the cloud.
 
 ## Assessment Notes
 

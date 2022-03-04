@@ -1,17 +1,5 @@
 # Redshift
 
-#### General Security Notes
-
-| *Service Type* | *Can Pentest* | *Security Focused* | *VPC Endpoint* | *KMS Support*  |
-|:---------------|:--------------|:-------------------|:---------------|:---------------|
-| PaaS           | No            | No                 | Yes            | Yes            |
-
-#### IAM Support
-
-| *Resource-level permissions* | *Resource-based policies* | *Service-Linked Roles*  |
-|:-----------------------------|:--------------------------|:------------------------|
-| Yes                          | No                        | Yes                     |
-
 ## Service Details
 
 A cloud "data warehouse" - large scale SQL-based data store designed for holding terabytes or petabytes of data.
@@ -20,10 +8,10 @@ A cloud "data warehouse" - large scale SQL-based data store designed for holding
 
 ### Authentication
 
-* Use IAM-backed authentication for Redshift users, either by using the Redshift JDBC or ODBC drivers which handle it natively, or by making use of the  `GetClusterCredentials` API call to request database credentials associated with the current IAM user or role
+* IAM-backed authentication should be used for Redshift users, either by using the Redshift JDBC or ODBC drivers which handle it natively, or by making use of the  `GetClusterCredentials` API call to request database credentials associated with the current IAM user or role
 * Ensure the IAM roles that have access to the cluster are supposed to, and that they're configured with sensible permissions according to the principle of least privilege
 * IAM roles assigned to Redshift can be used to access [S3](./S3), [Athena](./Athena), [Glue](./Glue), and [Lambda](./Lambda). Ensure any roles assigned to the cluster only grant permissions to the specific buckets, functions etc that are required for the cluster to function.
-* Rename the master user when you create the cluster
+* Master user should be renamed when cluster is created.
   * Default master user username is `awsuser`
   * `aws redshift create-cluster --master-username [USERNAME]` to specify a different master user on creation
 
