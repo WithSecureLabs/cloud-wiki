@@ -77,6 +77,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
+          showLastUpdateTime: true,
           // Please change this to your repo.
           editUrl:
             'https://github.com/FSecureLABS/cloud-wiki/tree/main',

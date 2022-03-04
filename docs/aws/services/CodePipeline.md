@@ -1,19 +1,5 @@
 # CodePipeline
 
-#### General Security Notes
-
-| *Service Type* | *Can Pentest* | *Security Focused* | *VPC Endpoint* | *KMS Support*                                   |
-|:---------------|:--------------|:-------------------|:---------------|:------------------------------------------------|
-| PaaS           | No            | No                 | Yes            | Partial (source code/artefact encryption on S3) |
-
-
-#### IAM Support
-
-| *Resource-level permissions* | *Resource-based policies* | *Service-Linked Roles*  |
-|:-----------------------------|:--------------------------|:------------------------|
-| ?                            | ?                         | ?                       |
-
-
 ## Service Details
 
 Service for tying together multiple build steps into a pipeline.

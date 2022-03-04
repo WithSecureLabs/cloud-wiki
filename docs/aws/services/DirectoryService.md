@@ -1,17 +1,5 @@
 # Directory Service
 
-#### General Security Notes
-
-| *Service Type* | *Can Pentest* | *Security Focused* | *VPC Endpoint* | *KMS Support*  |
-|:---------------|:--------------|:-------------------|:---------------|:---------------|
-| PaaS           | No            | Yes                | Yes            | ?              |
-
-#### IAM Support
-
-| *Resource-level permissions* | *Resource-based policies* | *Service-Linked Roles*  |
-|:-----------------------------|:--------------------------|:------------------------|
-| ?                            | ?                         | ?                       |
-
 ## Service Details
 
 AWS' Managed Active Directory Service (LDAP+Kerberos+etc). Built on the Microsoft implementation on windows servers, only the servers are managed by AWS themselves.

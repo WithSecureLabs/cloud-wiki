@@ -1,19 +1,5 @@
 # CodeBuild
 
-#### General Security Notes
-
-| *Service Type* | *Can Pentest* | *Security Focused* | *VPC Endpoint* | *KMS Support*  |
-|:---------------|:--------------|:-------------------|:---------------|:---------------|
-| PaaS           | No            | No                 | Yes            | No             |
-
-
-#### IAM Support
-
-| *Resource-level permissions* | *Resource-based policies* | *Service-Linked Roles*  |
-|:-----------------------------|:--------------------------|:------------------------|
-| Yes                          | No                        | No                      |
-
-
 ## Service Details
 
 Service for executing build processes - compiling applications etc. Commonly deployed as part of a CodePipeline CI/CD set up.
