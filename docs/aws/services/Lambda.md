@@ -7,6 +7,19 @@
 * When executed, AWS spins up a container with the code and runtimes and executes the function
 
 ## Assessment Notes
+### Lambda Security Model
+
+#### Isolation
+* Each function invocation executes inside a FireCracker MicroVM
+* MicroVMs reused between invocation, if still alive. Commonly kept running in a "warm" state for 10/15 minutes after function finishes executing
+* Read [Firecracker internals: a deep dive inside the technology powering AWS Lambda](https://www.talhoffman.com/2021/07/18/firecracker-internals/) for a deep dive on the internal security model.
+
+#### Credential Management
+ * Credentials associated with roles are loaded in as environment variables
+ * Lambda calls `sts:AssumeRole` under the hood to acquire them, requests for 12 hour validity.
+ * Credentials are not rotated for the duration of the MicroVM's existence, but [experimentation suggests they live for up to 2 hours if continually invoked](https://www.keithrozario.com/2020/06/access-keys-in-aws-lambda.html):
+
+### Configuration review
 
 * Review all IAM policies attached to Lambda roles and ensure they meet principle of least privilege
 * The same IAM role shouldn't be shared between Lambda functions requiring different permission sets
@@ -20,11 +33,23 @@
 * Review your Lambda functions’ security groups, ensuring they have minimal privilege policies
 * Review how your Lambda functions connect to DynamoDB and S3, use VPC-enabled Lambda functions and VPC endpoints where possible
 * Where VPC endpoints are used, avoid associating all subnets with VPC endpoints, associate only subnets that need access to required endpoint resources
-* Lock down VPC endpoint policies to only permitted actions or resources
+* Lock down VPC endpoint policies to only allow access to permitted resources
+* Are they using [code signing](https://aws.amazon.com/blogs/aws/new-code-signing-a-trust-and-integrity-control-for-aws-lambda/)? Probably not worth it if the project team's not already set up for it, but worth considering as part of long-term security improvements for sensitive environments or highly privileged functions
 
 ## Operational Notes
 
-Any content related to operational considerations (I.E useful to know but not directly to be checked as part of an assessment) goes here. Good examples include how the service interacts with other services within AWS, or common deployment architectures/considerations.
+### Lambda URLs
+Call Lambdas directly via URL, instead of invoking via an AWS API call or integration with other service.
+
+#### IAM and SCP Configuration
+-   To prevent an account’s principals from invoking functions via URLs, deny:
+	- `lambda:InvokeFunctionUrl` 
+-   To prevent creation of function URL configs altogether, deny:
+	- `lambda:CreateFunctionUrlConfig` 
+	- `lambda:UpdateFunctionUrlConfig` 
+-   The `lambda:FunctionUrlAuthType` policy condition key applies to the above actions and can be used to limit how they're used
+
+This is documented in the AWS documentation at [https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html#urls-governance](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html#urls-governance)
 
 ## External Links
 

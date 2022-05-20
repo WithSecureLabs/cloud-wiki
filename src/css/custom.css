@@ -7,13 +7,36 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  /* 
+  WithSecure Colors
+  */
+  --dark-blue: #0E163F;
+  --midnight-blue: #142D64;
+  --sky-blue: #233C8C;
+  --ui-primary: #344ABE;
+  --liberty-blue: #4B5FBE;
+  --soft-blue: #5F73C8;
+  --daylight-blue: #788CD2;
+  --light-blue: #A0AFF0;
+  --ice-blue: #C6CEFF;
+  
+  --charcoal-black: #001423;
+  --dark-gray-1: #23323C;
+  --dark-gray-2: #41505A;
+  --gray-1: #646E78;
+  --gray-2: #828C91;
+  --light-gray-1: #A0A5AA;
+  --light-gray-2: #BEC3C8;
+  --light-gray-3: #E6E6F0;
+  --white: #FFFFFF;
+
+  --ifm-color-primary: var(--ui-primary);
+  --ifm-color-primary-dark: var(--sky-blue);
+  --ifm-color-primary-darker: var(--midnight-blue);
+  --ifm-color-primary-darkest: var(--dark-blue);
+  --ifm-color-primary-light: var(--liberty-blue);
+  --ifm-color-primary-lighter: var(--soft-blue);
+  --ifm-color-primary-lightest: var(--daylight-blue);
   --ifm-code-font-size: 95%;
 }
 
@@ -25,5 +48,9 @@
 }
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: var(--charcoal-black);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: var(--light-blue);
 }

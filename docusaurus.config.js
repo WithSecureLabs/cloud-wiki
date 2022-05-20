@@ -4,35 +4,49 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'Cloud Security Wiki',
-  tagline: 'Securing All the Cloud Things, by F-Secure Consulting',
+  tagline: 'Securing the Cloud, by WithSecure',
   url: 'https://confident-wilson-c4de9b.netlify.app',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'FSecureLabs', // Usually your GitHub org/user name.
+  organizationName: 'WithsecureLabs', // Usually your GitHub org/user name.
   projectName: 'cloud-wiki', // Usually your repo name.
   themeConfig: {
+    defaultMode: 'dark',
     navbar: {
       title: 'Cloud Security Wiki',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'WithSecure Logo',
+        src: "img/logo-dark.svg",
+        srcDark: "img/logo-light.svg"
       },
       items: [
         {
           type: 'doc',
+          docId: 'aws/index',
+          position: 'left',
+          label: 'AWS',
+        },
+        {
+          type: 'doc',
+          docId: 'azure/index',
+          position: 'left',
+          label: 'Azure',
+        },
+        {
+          type: 'doc',
           docId: 'home',
           position: 'left',
-          label: 'Wiki',
+          label: 'Saas',
         },
         {
           to: '/contributing',
           label: 'Contributing',
-          position: 'left'
+          position: 'right'
         },
         {
-          href: 'https://github.com/fsecurelabs/cloud-wiki',
+          href: 'https://github.com/withsecurelabs/cloud-wiki',
           label: 'GitHub',
           position: 'right',
         },
@@ -45,12 +59,8 @@ module.exports = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
               label: 'Twitter',
-              href: 'https://twitter.com/fsecurelabs',
+              href: 'https://twitter.com/withsecure',
             },
           ],
         },
@@ -59,7 +69,7 @@ module.exports = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/fsecurelabs/cloud-wiki',
+              href: 'https://github.com/withsecurelabs/cloud-wiki',
             },
           ],
         },
@@ -78,6 +88,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           showLastUpdateTime: true,
+          routeBasePath: '/',
           // Please change this to your repo.
           editUrl:
             'https://github.com/FSecureLABS/cloud-wiki/tree/main',

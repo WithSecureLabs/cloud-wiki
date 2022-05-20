@@ -1,0 +1,135 @@
+:root {
+    /*
+    Blue Clouds
+  
+    Each of our six color combinations – such as “Blue Clouds” – consists of one dark shade, one light shade and one highly saturated mid-shade. The dark and light shades can be used as background colors. It gives you the freedom to use various color combinations, depending on occasion and what suits the purpose best. Never use the mid-shades as a background color. Instead, the mid-shades function as accent colors for use in graphical elements. 
+  
+    Blue Clouds - Dark Blue
+    Blue Clouds - UI Primary
+    Blue Clouds - Ice Blue
+
+    */
+    --blueclouds-darkblue: #0E163F;
+    --blueclouds-uiprimary: #344ABE;
+    --blueclouds-iceblue: #C6CEFF;
+  
+    /*
+    Arctic Mountain
+  
+    The beautiful purple colors that radiate from the arctic scenery in Finnish Lapland are the inspiration for this color combination. 
+  
+    Arctic Mountain - Dark Violet
+    Arctic Mountain - Violet
+    Arctic Mountain - Light Violet
+    */
+    --arcticmountain-darkviolet: #200055;
+    --arcticmountain-violet: #9F77E0;
+    --arcticmountain-lightviolet: #D8C9F1;
+  
+    /*
+    Sunset
+
+    This color combination is inspired by the sun setting at night after a sunny, warm day in Finland.  
+
+    Sunset - Dark Red
+    Sunset - Peach
+    Sunset - Misty Rose
+    */
+    --sunset-darkred: #2D0303;
+    --sunset-peach: #FF7070;
+    --sunset-mistyrose: #FFD8D8;
+  
+    /*
+    Grain Fields
+  
+    The inspiration behind this color combination are the grain fields in Finland and their beautiful, warm, yellow colors.
+
+    Grain Fields - Dark Brown
+    Grain Fields - Yellow
+    Grain Fields - Light Yellow
+    */
+    --grainfields-darkbrown: #281914;
+    --grainfields-yellow: #FFB950;
+    --grainfields-lightyellow: #FFF1D2;
+  
+    /*
+    Deep Forest
+  
+    The inspiration behind this color combination are the deep forests of Finland and their beautiful, green pine trees.
+    
+    Deep Forest - Dark Green
+    Deep Forest - Green
+    Deep Forest - Light Green
+    */
+    --deepforest-darkgreen: #1F2F06;
+    --deepforest-green: #8CB44C;
+    --deepforest-lightgreen: #DBEBC2;
+
+    /*
+    Northern Lights
+  
+    The inspiration for this color combination is the spectacular phenomenon of the Northern Lights, Aurora Borealis, seen in Finnish Lapland on any clear night.
+    
+    
+    Northern Lights - Dark Forest
+    Northern Lights - Toxic Green
+    Northern Lights - Mint Cream
+    */
+    --northernlights-darkforest: #07281C;
+    --northernlights-toxicgreen: #5DC99F;
+    --northernlights-mintcream: #C8F3E3;
+
+    /*
+    User Interface Primary and Tints
+  
+    Our user interface primary color “UI Primary” is accompanied by eight additional tints. The main area of color usage for these are in user interface design, web, presentations and infographics. There is also a color combination as well as a gradient based on this color palette (see Blue Clouds, and pg 37-38 of the brand book)
+
+    However, they should not be seen as a primary color combination or primary gradient but instead at the same hierarchical level as all the other color combinations and gradients, and should therefore be applied accordingly. 
+    
+    Dark Blue
+    Midnight Blue
+    Sky Blue
+    UI Primary
+    Liberty Blue
+    Soft Blue
+    Daylight Blue
+    Light Blue
+    Ice Blue
+    */
+    --dark-blue: #0E163F;
+    --midnight-blue: #142D64;
+    --sky-blue: #233C8C;
+    --ui-primary: #344ABE;
+    --liberty-blue: #4B5FBE;
+    --soft-blue: #5F73C8;
+    --daylight-blue: #788CD2;
+    --light-blue: #A0AFF0;
+    --ice-blue: #C6CEFF;
+    
+    /*
+    Base Colors and Tints  
+    
+    Our base colors consist of nine tints – going from Charcoal Black to White. The main area of color usage for these is in user interface design, web use, presentations, applications and illustrations. 
+    
+    Charcoal Black
+    Dark Gray 1
+    Dark Gray 2
+    Gray 1
+    Gray 2
+    Light Gray 1
+    Light Gray 2
+    Light Gray 3
+    White
+
+    */
+    --charcoal-black: #001423;
+    --dark-gray-1: #23323C;
+    --dark-gray-2: #41505A;
+    --gray-1: #646E78;
+    --gray-2: #828C91;
+    --light-gray-1: #A0A5AA;
+    --light-gray-2: #BEC3C8;
+    --light-gray-3: #E6E6F0;
+    --white: #FFFFFF;
+    
+  }
