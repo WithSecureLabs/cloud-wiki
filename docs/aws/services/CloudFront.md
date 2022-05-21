@@ -19,7 +19,6 @@ Content deliverty network (CDN), used to provide low latency and high transfer s
 - Ensure the Redshift cluster has a security group configured that restricts access to only those IP ranges or EC2 security groups that need access
 	- Do _not_ expose these to the internet
 		- `aws redshift describe-clusters --cluster-identifier [CLUSTERNAME]` , `PubliclyAccessible` should be false
-
 - Ensure a VPC Endpoint for Redshift is deployed in any VPCs accessing the service
 	- These VPC endpoints should have policies configured to block access to all Redshift clusters to which access is not required, to block data exfiltration to attacker-controlled clusters
 
