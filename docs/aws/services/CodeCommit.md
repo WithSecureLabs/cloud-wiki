@@ -8,16 +8,16 @@ Git repositories in the cloud.
 
 * Repositories encrypted at rest by default, not user configurable
 * Authentication typically managed in one of three ways:
-    * Git credentials over HTTPS - https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html
-    * SSH keys over ssh, as you'd expect. These SSH keys are tied to IAM users, normally
-    * Temporary access via SAML, role assumption etc - https://docs.aws.amazon.com/codecommit/latest/userguide/temporary-access.html
-    * Recommendation: SSH keys if IAM users in use, if not then temporary access
+  * Git credentials over HTTPS - <https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html>
+  * SSH keys over ssh, as you'd expect. These SSH keys are tied to IAM users, normally
+  * Temporary access via SAML, role assumption etc - <https://docs.aws.amazon.com/codecommit/latest/userguide/temporary-access.html>
+  * Recommendation: SSH keys if IAM users in use, if not then temporary access
 * Review cross account access by looking for roles that have permissions to the repo and have cross account access configured in the AssumeRolePolicyDocument
 * Access controls applied at the IAM level
-    * https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html
-*  Triggers 
-    * Allow actions to happen off the back of commits being pushed up - lambda functions, SNS notifications etc
-    * For each trigger, review what its triggering, make sure it's sane and appropriate access policies are applied
+  * <https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html>
+* Triggers
+  * Allow actions to happen off the back of commits being pushed up - lambda functions, SNS notifications etc
+  * For each trigger, review what its triggering, make sure it's sane and appropriate access policies are applied
 
 ### IAM Notes
 
@@ -48,6 +48,7 @@ To alter the contents of the repo:
 * codecommit:UpdatePullRequestTitle
 
 To modify the repository itself:
+
 * codecommit:CancelUploadArchive
 * codecommit:CreateRepository
 * codecommit:DeleteRepository
@@ -66,4 +67,4 @@ Commonly deployed alongside CodePipeline, CodeBuild and CodeDeploy to build an A
 
 ## External Links
 
-* https://aws.amazon.com/blogs/devops/secure-aws-codecommit-with-multi-factor-authentication/
+* <https://aws.amazon.com/blogs/devops/secure-aws-codecommit-with-multi-factor-authentication/>

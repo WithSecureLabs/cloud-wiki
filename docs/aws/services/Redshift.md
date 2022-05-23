@@ -66,7 +66,6 @@ This depends on use case, but the following should be considered:
 * Ensure version upgrades are enabled
   * `aws redshift describe-clusters --cluster-identifier [CLUSTERNAME]` , look for `AllowVersionUpgrade` parameter. It should be set to `true`.
 
-
 ## Operational Notes
 
 * Redshift has a service-linked role associated with it, but the role configuration cannot be altered by AWS users.

@@ -13,16 +13,17 @@ In addition, Azure supports more methods like FIDO2 security keys, app passwords
 
 **The pre-2020s & SSPR-MFA days**
 To have some context, it's before mid-2020, organizations could have _Multi-Factor Authentication (MFA)_ and _self-service password reset (SSPR)_ configured and required on account setup.
-- Users would have had to configure separate authentication methods 
-- One would give access to features/resources in general
-- The other was related to actually (re)gaining access to their account
+
+* Users would have had to configure separate authentication methods
+* One would give access to features/resources in general
+* The other was related to actually (re)gaining access to their account
 
 **The "Combined security information registration experience"**
 Microsoft decided that it made more sense to enforce method registration in one, combining the two methods together. The title above is the actual name. It can be found at:
 `Azure Active Directory > User settings > Manage user feature preview settings"`
 
-- Enabled by default on all new tenants created after 08/2020, disabled on all older ones
-- Just for some context, if during login you are prompted for additional verification, then your account is sent through this flow: [link](https://docs.microsoft.com/en-us/azure/active-directory/authentication/media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
+* Enabled by default on all new tenants created after 08/2020, disabled on all older ones
+* Just for some context, if during login you are prompted for additional verification, then your account is sent through this flow: [link](https://docs.microsoft.com/en-us/azure/active-directory/authentication/media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
 Albeit useful for context, the above was mostly to ease into what the general flow is and to raise awareness that there are several locations where you might either get details on your MFA status or setup/change MFA configurations:
 
@@ -91,4 +92,4 @@ Now, to clarify the confusion, here is what is the status for all four accounts:
 * The test4 account has MFA enforced using the Azure per-user MFA requirement. As such, on every login they would be prompted to use 2FA.
 * The test3 account is a Microsoft account used to login to the environment. It has 2FA enabled at the Microsoft account level and each login requires a 2FA prompt from the user's Authenticator app.
 * The test1 account does not have Azure per-user MFA enabled nor does it have MFA enforced by a Conditional Access policy. As such, this account does not need a second-factor authentication when login in and is truly vulnerable.
-* The test2 account has been configured to have MFA enforced from a Conditional Access policy. As such, the user may be registered for MFA (*has methods registered*) but is not enforced on every authentication, but rather MFA is enforced based on what the policy is and uses the sign-in state and policies to invoke MFA. The confusing bit is that CA policies can, and often will invoke MFA on all logins if a certain condition is fulfilled, however as it does not ***technically*** enforce mandatory MFA for every auth, I guess it doesn't count as being enforced on the platform.
+* The test2 account has been configured to have MFA enforced from a Conditional Access policy. As such, the user may be registered for MFA (_has methods registered_) but is not enforced on every authentication, but rather MFA is enforced based on what the policy is and uses the sign-in state and policies to invoke MFA. The confusing bit is that CA policies can, and often will invoke MFA on all logins if a certain condition is fulfilled, however as it does not _technically_ enforce mandatory MFA for every auth, I guess it doesn't count as being enforced on the platform.

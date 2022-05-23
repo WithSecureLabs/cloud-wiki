@@ -35,7 +35,7 @@ Unusual API call rates or error rates can be logged by CloudTrail Insights, if e
 
 An example Cloudtrail log is included below.
 
-```
+```json
 {"Records": [{
     "eventVersion": "1.0",
     "userIdentity": {
@@ -73,11 +73,10 @@ Key fields from a security perspective include:
 - `requestParameters` - the API call parameters
 - `responseElements` - the results of the API call
 
-
 ### Key Caveats for CloudTrail
 
 - Delivery of events to S3 buckets is not real time. Events are delivered every 5 minutes, up to 15 minutes delay, for a theoretical max delay of 20 minutes. In practice, longer times have been observed on occasion.
-- CloudTrail is enabled for most recent 7 days as the account's event history, but it's not logged to somewhere you can access it out of the UI and cloudtrail APIs. 
+- CloudTrail is enabled for most recent 7 days as the account's event history, but it's not logged to somewhere you can access it out of the UI and cloudtrail APIs.
 
 ## Assessment Notes
 
@@ -91,7 +90,7 @@ The best option is to have all AWS accounts owned by an organization in an [AWS 
 - Is configured to retain for at least 3 months
   - S3 object lifecycle management can be used to to purge or to move to glacier for long-term storage on a set schedule, if log are sent to an S3 bucket
 - Has access to both the S3 bucket and the KMS CMK restricted to the bare minimum number of staff and roles, either by resource policies or by IAM roles
-- The S3 bucket used should be hosted in a dedicated logging or management account, to minimise the risk of someone compromising the main account and altering logs. 
+- The S3 bucket used should be hosted in a dedicated logging or management account, to minimise the risk of someone compromising the main account and altering logs.
 
 CloudTrail should ideally be integrated with CloudWatch and a secondary, real-time log delivery mechanism to bypass the delivery delays associated with S3. A common pattern is combining CloudWatch with Kinesis for delivery into a SIEM.
 

@@ -11,7 +11,7 @@ AWS' Managed Active Directory Service (LDAP+Kerberos+etc). Built on the Microsof
 * `aws ds describe-directories` - Get list of created Directory Service servers. The `DirectoryDescriptions[*].Name` field is a Domain Name.
   * Possible `DirectoryDescriptions[*].Type` values are:
     * `SimpleAD` - based on Samba 4
-      Simple AD is compatible with the following AWS applications: 
+      Simple AD is compatible with the following AWS applications:
       * Amazon WorkSpaces
       * Amazon WorkDocs
       * Amazon QuickSight
@@ -28,14 +28,14 @@ AWS' Managed Active Directory Service (LDAP+Kerberos+etc). Built on the Microsof
 
   * `DirectoryDescriptions[*].AccessUrl` - if not null, may point to Amazon WorkDocs service (kind of a SharePoint).
   * `DirectoryDescriptions[*].DnsIpAddrs` - if not null, points to every Domain Controller responsible for maintaining that AD/LDAP/GC.
-  * `DirectoryDescriptions[*].VpcSettings` - if not null, binds these domain controllers to specified VPC. 
+  * `DirectoryDescriptions[*].VpcSettings` - if not null, binds these domain controllers to specified VPC.
   * Investigate whether Domain Controllers are actually bound to any VPC cause this would prevent accessing them from WAN.
   * `DirectoryDescriptions[*].SsoEnabled` - states whether that AD instance is a subject for Single-Sign On feature*
   * `DirectoryDescriptions[*].VpcSettings.SecurityGroupId` - points to ID of a Security Group defining allowed access to these DCs. In order to further investigate those security groups, you can use the commands listed below:
 
 ```bash
-$ SG=$(aws ds describe-directories --query "DirectoryDescriptions[*].VpcSettings.SecurityGroupId" --output text)
-$ aws ec2 describe-security-groups --group-ids $SG
+SG=$(aws ds describe-directories --query "DirectoryDescriptions[*].VpcSettings.SecurityGroupId" --output text)
+aws ec2 describe-security-groups --group-ids $SG
 ```
 
 * `aws ds describe-shared-directories` - Described shared directories exposed by Directory Service. Among the worth checking fields are:
@@ -56,18 +56,18 @@ By default, the AWS configures following passwords policy on it's managed Direct
 |:--------------------------------------------|:--------------------------|
 | Enforce password history                    | 24 passwords remembered   |
 | Maximum password age                        | 42 days                   |
-| Minimum password age	                      | 1 day                     |
+| Minimum password age                       | 1 day                     |
 | *Minimum password length*                   | *7 characters*            |
 | Password must meet complexity requirements  | Enabled                   |
 | Store passwords using reversible encryption | Disabled                  |
 
-(source: https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_password_policies.html )
+(source: <https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_password_policies.html> )
 
 It is worth checking whether the customer altered these defaults in order to harden up his AD deployment.
 
 ## Operational Notes
 
-It may be worth to connect to the tested Directory Service (via connecting with the VPC it was deployed within, through for instance AWS Direct Connect vpn profiles). After obtaining successful connection, regular LDAP/MS-RPC/Kerberos auditing tools will apply. 
+It may be worth to connect to the tested Directory Service (via connecting with the VPC it was deployed within, through for instance AWS Direct Connect vpn profiles). After obtaining successful connection, regular LDAP/MS-RPC/Kerberos auditing tools will apply.
 
 One may go for:
 

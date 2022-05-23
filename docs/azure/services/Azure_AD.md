@@ -19,16 +19,18 @@ As discussed, Azure AD is Microsoft's cloud-based identity and access management
 
 Now in terms of access within Azure AD there isn't, in theory, a global admin that has access to all resources across all subscriptions *by default*. So, to get a better idea of how Azure manages access please refer to this diagram provided by Microsoft in their Azure documentation [located here](https://docs.microsoft.com/en-gb/azure/role-based-access-control/media/rbac-and-directory-admin-roles/rbac-admin-roles.png).
 
-The two boxes that we care about are the green and the blue box. The green Azure AD roles (aka Administrative roles) refer to the level of access a user has to Azure AD specifically. What that means is that that level of access does not translate to the underlying projects and resources (VMs, storage, subnets, etc.) deployed in Azure. 
-* They are only meant to manage permisions for _identities_ in AD itself
+The two boxes that we care about are the green and the blue box. The green Azure AD roles (aka Administrative roles) refer to the level of access a user has to Azure AD specifically. What that means is that that level of access does not translate to the underlying projects and resources (VMs, storage, subnets, etc.) deployed in Azure.
+
+* They are only meant to manage permisions for *identities* in AD itself
 * They cannot be set to groups by default - if you really need to give, say, Security Admin privileges to users of a group, you need to assign them to each individual user
   * A new `isAssignable` property can be set when creating a group, which will allow it to be assigned an Azure AD role
 
-The blue box refers to Azure (resource) roles (aka RBAC roles). As such it represents a high-level representation of access to Azure projects within a given tenant. This is where all the deployed resources and services would be found within a given subscription. 
+The blue box refers to Azure (resource) roles (aka RBAC roles). As such it represents a high-level representation of access to Azure projects within a given tenant. This is where all the deployed resources and services would be found within a given subscription.
+
 * They are meant for the resources and subscriptions containing these resources
 * They can be assigned to both users and groups
 
-Normally the Azure RBAC roles and Azure AD roles are separated to keep complete access away from one user at any given point in time. ***However***, a user with the Global Administrator role within Azure AD can elevate their privileges by enabling the "Access management for Azure resources" control in Azure AD > Properties. This would then assign them the "User Access Administrator" role at the root (/) level, which translates to *all* subscriptions in the tenant. With this, the GA can now assign themselves _or others_ any level of access to Azure resources.
+Normally the Azure RBAC roles and Azure AD roles are separated to keep complete access away from one user at any given point in time. ***However***, a user with the Global Administrator role within Azure AD can elevate their privileges by enabling the "Access management for Azure resources" control in Azure AD > Properties. This would then assign them the "User Access Administrator" role at the root (/) level, which translates to *all* subscriptions in the tenant. With this, the GA can now assign themselves *or others* any level of access to Azure resources.
 
 Here is a quick list of the most commonly encountered roles within Azure AD as well as the general level of permissions assigned to them. If you want to see specific details and permissions assigned to each you can check over [here](https://docs.microsoft.com/en-gb/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-permissions).
 
@@ -51,13 +53,14 @@ Now to compliment the list above, let us do a quick table of relevant roles with
 
 Before moving on, now that we've got a better understing of these basic concepts, there's a few more terms we need to introduce/explain better.
 It's usually valuable for services or apps to have identities. We all know devs get lazy, they end up putting creds in exposed config files to be able to authenticate. To address these issues Azure AD provides two methods:
+
 * **Service principals**
-  * An _identity_ is just a thing that can be authenticated (user with creds, app with keys/certs)
-  * A _principal_ is an identity acting with certain roles or claims, not really separate from identity; think of doing "sudo" in bash: you're still the same user, but you changed the role under which you execute. Groups can be considered principals as they have rights assigned to them
-  * A _*service principal*_ is an identity that is used by a service or application. And like other identities, it can be assigned roles
+  * An *identity* is just a thing that can be authenticated (user with creds, app with keys/certs)
+  * A *principal* is an identity acting with certain roles or claims, not really separate from identity; think of doing "sudo" in bash: you're still the same user, but you changed the role under which you execute. Groups can be considered principals as they have rights assigned to them
+  * A *service principal* is an identity that is used by a service or application. And like other identities, it can be assigned roles
 * **Managed identities for Azure services**
   * Creating service principals is a tedious process and they are difficult to maintain, Managed identities will do most of the work for you. MI can be created instantly for any Azure service supporting it. It's effectively creating an account on an organization's AD tenant
-  * The Azure infrastructure will take care of authenticating the service and managing the account, to then be used as any other Azure AD account, with access to other Azure resources 
+  * The Azure infrastructure will take care of authenticating the service and managing the account, to then be used as any other Azure AD account, with access to other Azure resources
 
 To get what user roles have been assigned to your account once you are logged into the Azure CLI. You can run:
 
@@ -82,7 +85,7 @@ It provides users with an approval-based role activation that can have a time-ba
 There are two general concepts relevant to PIM that would be crucial to understand what user has what access rights:
 
 * eligible - this is a role assignment to a user. They can perform an "activation" of that role when needed before being able to use it. They will need to perform *an* action as part of that activation (MFA check, business justification, or request approval, etc.). These settings are all decided when creating the role assignment in PIM.
-* ***active*** - this means the user does not have to perform any actions before being able to use the role, i.e. it's _directly assigned_ as active. This means that even if for instance the role would normally require the user to MFA, a user assigned an "active" role won't be required to MFA
+* ***active*** - this means the user does not have to perform any actions before being able to use the role, i.e. it's *directly assigned* as active. This means that even if for instance the role would normally require the user to MFA, a user assigned an "active" role won't be required to MFA
 * ***activated*** - this means that a user had an **eligible role assigned to them**, they requested it to be enabled, have performed the necessary actions, and it's now enabled. Slight, but important distinction from the "active" role above.
 
 In addition, despite PIM intending to restrict access to user role permissions to a given timeframe, it still allows administrators to set so called "permanent" attributes to the roles. This effectively could mean a user permanently can be eligible or have a role permanently be "active", thus removing the time limit component, but still keeping an audit log of assignments.
@@ -179,11 +182,13 @@ Connect-AzureAD -AccountId $AdminUPN -TenantId "xxxx-xxxx-xxxx-xxxx"
 Credentials and access via the CLI or PowerShell modules could persist for longer then you could expect and if not cleared up, you might end up running commands against client infrastructure when no longer on an engagement. As such, it is important to clear up your terminals after each engagement. Here is how to clear your shell/terminals from the various CLI or PowerShell modules discussed above:
 
 * Azure CLI
+
 ```bash
 az logout
 ```
 
 * Az PowerShell
+
 ```PowerShell
 Disconnect-AzAccount -Scope CurrentUser
 Clear-AzContext -Scope CurrentUser
@@ -191,6 +196,7 @@ Clear-AzDefault -Scope CurrentUser
 ```
 
 * AzureAD Powershell
+
 ```PowerShell
 Disconnect-AzureAD
 ```
@@ -353,23 +359,23 @@ Using it you can start off with all the marked high risk applications and compar
 
 How to fix these issues so you can help the client. You have a couple of options but usually a combination of all of them would be the best way to harden this potential attack vector:
 
-1. Set Policies
+#### Set Policies
 
 Use application consent policies to limit user consent to applications. One common scenario is to allow users to only consent to Microsoft verified applications or publishers requesting low risk permissions. These permissions are defined by the administrator of the tenant and can be modified based on company requirements. In addition, if the client is already using Microsoft Cloud App Security, then they can set an app permissions policy that would automatically revoke an app or a specific user from an app when risk is detected.
 
-2. Risk-based user step-up consent (enabled by default)
+#### Risk-based user step-up consent (enabled by default)
 
 When a risky request is detected, the request will be "stepped up" to require admin approval. Users will see the warning, but an admin will have to approve it. Admins should have a process in place when these requests come in, that they don’t just hang there – it is important to assign owners and take action based on what you see in your audit logs.  
 
-3. Detect risky OAuth applications
+#### Detect risky OAuth applications
 
 As a start, it would be useful for the organisation to frequently audit applications in the directory. One simple solution would be running the script from earlier, but that still involves some manual work. A better solution would be to configure some Azure Monitor alerts to send notifications to admins when an OAuth app has reached some criteria such as requiring high permissions or being authorized by more than 50 users. Ultimately the best solution would be to use Microsoft Cloud App Security and perform frequent hunts for dangerous apps.
 
-4. Developer training
+#### Developer training
 
 Although not really a useful recommendation for your run of the mill engagements. This ultimately would be a really useful one for clients that have a lot of internal apps with dangerous permissions enabled. Sometimes these apps would need these permissions but at the same time, it's possible that it's just devs being lazy and not using the granular permissions available in Azure AD and instead go for the all encompassing but easier perms.
 
-Here is a link for best practices for people using the Microsoft Graph API: https://docs.microsoft.com/en-us/graph/best-practices-concept
+Here is a link for best practices for people using the Microsoft Graph API: <https://docs.microsoft.com/en-us/graph/best-practices-concept>
 
 ### Device Management
 
@@ -406,9 +412,10 @@ If you are in the process of analysing policies, then exercise an educated judge
 
 #### Identity Protection
 
-AAD Identity Protection is Microsoft's attempt to perform some trend analytics and machine learning on sign-in attempts across all their services and use that to provide SIEM functionality to your directory. 
+AAD Identity Protection is Microsoft's attempt to perform some trend analytics and machine learning on sign-in attempts across all their services and use that to provide SIEM functionality to your directory.
 
 Some examples of risk events detection AAD Identity Protection has are:
+
 * Atypical travel
 * Anonymous IP address
 * Unfamiliar/suspicious sign-in properties (such as multiple failed logins followed by a success)
@@ -417,6 +424,7 @@ Some examples of risk events detection AAD Identity Protection has are:
 * Azure AD threat intelligence - slightly less descriptive but should use MS's internal and external threat intelligence sources regarding known attack paths
 
 Examples of vulnerabilities flagged by AAD Identity Protection:
+
 * Users without MFA
 * Weak authentication for a privileged role
 * Too many global admins
@@ -428,7 +436,7 @@ There is not much to be configured here from a security point of view as it is u
 
 Centralised portal where you can get alerts and recommendations on what actions are needed to improve the organization's security score. Really useful as a sort of starting point as it usually should pick up all sorts of low-hanging fruit. Just be sensible with recommendations especially around some low risk issues.
 
-An interesting feature of Security Center is that you get _alerts_ as we said, but it will also correlate data and create _incidents_, in which you can also see the set of alerts that are related to that individual incident, and gives analysts a better view into what happened and the set of actions that caused what. 
+An interesting feature of Security Center is that you get *alerts* as we said, but it will also correlate data and create *incidents*, in which you can also see the set of alerts that are related to that individual incident, and gives analysts a better view into what happened and the set of actions that caused what.
 
 One thing to keep in mind is that it can sometimes mistakenly complain about MFA not being setup, but that's only if they have the premium edition license for Azure AD. Azure AD free edition can still enforce MFA requirement for all users by using [Security defaults](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults), but Security Center will still complain that MFA is not enabled. So as mentioned before, for MFA as we will rarely get proper access to figure out whether it's implemented, worth just asking and discussing with client contact. Usually checking MFA status would require access to: (account.activedirectory.windowsazure.com)
 
@@ -448,7 +456,7 @@ As discussed before, the general configuration of users with MFA access can be s
   * Business-to-Customer (B2C) identity services - Customize and control how users sign up, sign in, and manage their profiles when using your apps with services.
   * Device Management - Manage how your cloud or on-premises devices access your corporate data.
 * Access to internal or external data is governed by policies and centralized rules.
-https://docs.microsoft.com/en-gb/learn/modules/intro-to-security-in-azure/3-identity-and-access
+<https://docs.microsoft.com/en-gb/learn/modules/intro-to-security-in-azure/3-identity-and-access>
 
 ### Old Assessment notes
 

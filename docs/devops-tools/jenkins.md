@@ -11,14 +11,14 @@ CI/CD tool - very popular, with a history of RCE and other high risk vulns being
   * How are they managing auth? If AD/Google Login/LDAP etc, what permissions are needed to get access to Jenkins?
   * Review the auth model - matrix-based is a minimum, project-based matrix is better
   * Review the auth matrix to ensure that the permissions model makes sense for their userbase and security model. Sensitive ones include:
-	  * Overall/Administer
+    * Overall/Administer
     * Overall/RunScripts
-	  * Overall/UploadPlugins
-	  * ConfigureUpdateCenter
+      * Overall/UploadPlugins
+      * ConfigureUpdateCenter
   * Is the CLI disabled?
-	  * Manage Jenkins > Configure Global Security > Agent protocols, disable the CLI protocols
+    * Manage Jenkins > Configure Global Security > Agent protocols, disable the CLI protocols
 * Build slaves, sometimes known as nodes, should be used, rather than running builds on the jenkins master
-	* Builds running on the master == code execution on the system with all the credentials for anyone with rights to create a build job
+  * Builds running on the master == code execution on the system with all the credentials for anyone with rights to create a build job
 * Check TLS
 * Check if it's running as root - it shouldn't be
 * Usual host build review stuff for Windows/Linux
@@ -34,11 +34,11 @@ CI/CD tool - very popular, with a history of RCE and other high risk vulns being
 
 ### Other
 
-* Chain CVE-2019-1003000 and CVE-2018-1999002 to get unauthenticated RCE - https://www.exploit-db.com/exploits/46453 - Vulnerable Plugins:
+* Chain CVE-2019-1003000 and CVE-2018-1999002 to get unauthenticated RCE - <https://www.exploit-db.com/exploits/46453> - Vulnerable Plugins:
   * Pipeline: Declarative Plugin up to and including 1.3.4
   * Pipeline: Groovy Plugin up to and including 2.61
   * Script Security Plugin up to and including 1.49
-* Jenkins version 2.32.1 - unauth code exec - https://www.exploit-db.com/exploits/41965
+* Jenkins version 2.32.1 - unauth code exec - <https://www.exploit-db.com/exploits/41965>
 
 ## Other Useful Tooling
 
@@ -48,7 +48,7 @@ Metasploit includes a module for command execution through the script console, i
 
 ### Jenkins Attack Framework
 
-https://github.com/Accenture/jenkins-attack-framework
+<https://github.com/Accenture/jenkins-attack-framework>
 
 Some of the things you can do:
 

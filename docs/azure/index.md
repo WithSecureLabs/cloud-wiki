@@ -1,6 +1,6 @@
 # Microsoft Azure
 
-Microsoft's cloud platform. Portal available at https://portal.azure.com
+Microsoft's cloud platform. Portal available at <https://portal.azure.com>
 
 ## Basics guides
 
@@ -11,7 +11,7 @@ Microsoft's cloud platform. Portal available at https://portal.azure.com
 * Azure Services List - [https://docs.microsoft.com/en-gb/learn/modules/welcome-to-azure/3-tour-of-azure-services](https://docs.microsoft.com/en-gb/learn/modules/welcome-to-azure/3-tour-of-azure-services)
 * AWS <-> Azure Services Naming Comparison Guide: [https://docs.microsoft.com/en-gb/azure/architecture/aws-professional/services](https://docs.microsoft.com/en-gb/azure/architecture/aws-professional/services).
 * Get started guide for Azure IT operators: [https://docsmsftpdfs.blob.core.windows.net/guides/azure/azure-ops-guide.pdf](https://docsmsftpdfs.blob.core.windows.net/guides/azure/azure-ops-guide.pdf).
-* *Pentesting Azure Application: The Definitive Guide to Testing and Securing Deployments* - Matt Burrough 
+* *Pentesting Azure Application: The Definitive Guide to Testing and Securing Deployments* - Matt Burrough
 * *Modern Authentication with Azure Active Directory for Web Applications* - Vittorio Bertocci (Deep dive into Azure AD)
 * Azure AD Fundamentals - [https://youtu.be/1xnOwKr7go0](https://youtu.be/1xnOwKr7go0)
 * [Attacking and Defending the Microsoft Cloud](https://adsecurity.org/wp-content/uploads/2019/10/2019-BSidesPR-AttackingAndDefendingTheMicrosoftCloud.pdf)

@@ -3,9 +3,9 @@ sidebar_position: 1
 slug: /
 id: home
 ---
-import Link from '@docusaurus/Link';
-
 # Cloud Security Wiki
+
+import Link from '@docusaurus/Link';
 
 A repository of all kinds of cloud security knowledge, curated by [WithSecure's](https://www.withsecure.com/en/home) cloud security consulting team.
 
@@ -15,7 +15,7 @@ Contributions are very much welcome. Details on how to contribute can be found h
 
 ## Cloud Providers
 
-- [AWS](aws/index) 
+- [AWS](aws/index)
 - [Azure](azure/index)
 
 ## Cloud/DevOps Tooling
@@ -26,6 +26,7 @@ Contributions are very much welcome. Details on how to contribute can be found h
 - [Hashicorp Vault](devops-tools/vault.md)
 
 ## SaaS Platforms
+
 - [Office 365](saas/o365)
 - [General SaaS Assessments](saas/methodology)
 
