@@ -56,7 +56,7 @@ We thank the following for their contributions to the wiki:
 | Lizelle Jaimangal      |                                                    |                                                         |
 | Mariusz Banach         |                                                    |                                                         |
 | Masande Mtintsilana    |                                                    |                                                         |
-| Mohit Gupta            |                                                    |                                                         |
+| Mohit Gupta            | [@Skybound1](https://github.com/Skybound1)         | [@_Skybound](https://twitter.com/_skybound)             |
 | Nick Jones             | [@NJonesUK](https://github.com/NJonesUK)           | [@nojonesuk](https://twitter.com/nojonesuk)             |
 | Robert Petesic         |                                                    |                                                         |
 | Sebastian Edmead       |                                                    |                                                         |
