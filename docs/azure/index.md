@@ -1,6 +1,8 @@
 # Microsoft Azure
 
-Microsoft's cloud platform. Portal available at <https://portal.azure.com>
+Microsoft's cloud platform. Main portal available at <https://portal.azure.com>
+
+A list of all the various Azure and Microsoft portals that would be of interest to people managing and administrating the different services can be found at the following website: <https://msportals.io/>
 
 ## Basics guides
 
