@@ -79,9 +79,9 @@ If you define a VPC where the instance tenancy is set to `dedicated` then the RD
 
 ### Useful CLI commands:
 
-- List all databases in a specific region:
+- List all databases in a specific region: \
 ```aws rds describe-db-instances --region eu-west-1```
-- List all snapshots for a specific DB instance:
+- List all snapshots for a specific DB instance: \
 ```aws rds describe-db-snapshots --region eu-west-1 --db-instance-identifier database-1```
-- List RDS security groups:
+- List RDS security groups: \
 ```aws rds describe-db-security-groups```
