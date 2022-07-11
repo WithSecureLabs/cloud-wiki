@@ -58,10 +58,10 @@ If you define a VPC where the instance tenancy is set to `dedicated` then the RD
 
 - Each Database type comes with a "default parameter group" to control the database options, these should be reviewed and changed as required to follow the principal of least privilege before deployment (https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html)
 - Option groups also supported to enable optional features of the specific database version.
-![image](/static/img/rds_parameter_group.png)
+![image](/img/rds_parameter_group.png)
 - Automated database backups available for up to 35 days, with the option to create manual snapshots when needed.
 - Aurora can support point in time recovery for the backups it holds, 11/01/2022 14:56:30 for example.
-![image](/static/img/aurora_point_in_time_restore.png)
+![image](/img/aurora_point_in_time_restore.png)
 - Full KMS support for data encryption at rest.
 
 ### Logging
