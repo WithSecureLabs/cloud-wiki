@@ -4,7 +4,7 @@
 
 CloudTrail logs all API calls made to the control plane for supported services. The vast majority of AWS services are supported, but the official list can be found at[CloudTrail Supported Services and Integrations - AWS CloudTrail](https://docs.aws.amazon.com/awsCloudTrail/latest/userguide/CloudTrail-aws-service-specific-topics.html). CloudTrail serves as the key log source for all control-plane activity within an AWS account.
 
-To list CloudTrails in the current account the following CLI command can be used:
+To list CloudTrails in the current account in the eu-west-1 region, the following CLI command can be used:
 
 ```
 aws cloudtrail list-trails --region eu-west-1
