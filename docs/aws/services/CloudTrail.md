@@ -2,7 +2,13 @@
 
 ## Service Details
 
-Cloudtrail logs all API calls made to the control plane for supported services. The vast majority of AWS services are supported, but the official list can be found at[CloudTrail Supported Services and Integrations - AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html). Cloudtrail serves as the key log source for all control-plane activity within an AWS account.
+CloudTrail logs all API calls made to the control plane for supported services. The vast majority of AWS services are supported, but the official list can be found at[CloudTrail Supported Services and Integrations - AWS CloudTrail](https://docs.aws.amazon.com/awsCloudTrail/latest/userguide/CloudTrail-aws-service-specific-topics.html). CloudTrail serves as the key log source for all control-plane activity within an AWS account.
+
+To list CloudTrails in the current account in the eu-west-1 region, the following CLI command can be used:
+
+```
+aws cloudtrail list-trails --region eu-west-1
+```
 
 ### Event Types
 
@@ -12,9 +18,15 @@ There are three key event types in CloudTrail: management, data and insights.
 
 Event logs of API calls made against the core AWS API to create, modify or delete AWS resources. Examples include creating EC2 instances, modifying an S3 bucket policy, or deleting a Lambda function.
 
+In addition, CloudTrail separates all events into either "read" or "write" actions. CloudTrail allows the configuration to log one or both type of events. 
+  - Read events can be defined as requests that do not make changes, listing EC2 instances for example.
+  - Write events can be defined as requests that do make changes, such as creating a new lambda function.
+
+Further information can be found at [Logging management events for trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html)
+
 #### Data events
 
-Event logs of operations _inside_ a resource, rather than against it. These are typically high volume, and are charged in addition to the standard CloudTrail At the time of last update, the following were recorded.
+Event logs operations _inside_ a resource, rather than against it. These are typically high volume, and are charged in addition to the standard CloudTrail. At the time of the last update, the following were recorded.
 
 - Amazon S3 object-level API activity (for example, GetObject, DeleteObject, and PutObject API operations) on buckets and objects in buckets
 - AWS Lambda function execution activity (the Invoke API)
@@ -33,7 +45,7 @@ Unusual API call rates or error rates can be logged by CloudTrail Insights, if e
 
 ### What gets logged?
 
-An example Cloudtrail log is included below.
+An example CloudTrail log is included below.
 
 ```json
 {"Records": [{
@@ -75,12 +87,12 @@ Key fields from a security perspective include:
 
 ### Key Caveats for CloudTrail
 
-- Delivery of events to S3 buckets is not real time. Events are delivered every 5 minutes, up to 15 minutes delay, for a theoretical max delay of 20 minutes. In practice, longer times have been observed on occasion.
-- CloudTrail is enabled for most recent 7 days as the account's event history, but it's not logged to somewhere you can access it out of the UI and cloudtrail APIs.
+- Delivery of events to S3 buckets is not done instantaneously and they are done in batches. Events are delivered every 5 minutes, up to 15 minutes delay, for a theoretical max delay of 20 minutes. In practice, longer times have been observed on occasion.
+- CloudTrail is enabled for the past 7 days as the account's event history, but it's not logged to somewhere you can access it out of the UI and CloudTrail APIs.
 
 ## Assessment Notes
 
-The best option is to have all AWS accounts owned by an organization in an [AWS Organization](./Organizations), and use an Organization-wide trail. This allows all logs to be centrally gathered across all AWS accounts. Every Organization should have at least one cloudtrail created that:
+The best option is to have all AWS accounts owned by an organization in an [AWS Organization](./Organizations), and use an Organization-wide trail. This allows all logs to be centrally gathered across all AWS accounts. Every Organization should have at least one CloudTrail created that:
 
 - Is configured to log all regions (is a multi-region trail)
 - Is configured to log global service events (which includes IAM, amongst other things)
@@ -88,7 +100,7 @@ The best option is to have all AWS accounts owned by an organization in an [AWS 
 - Is encrypted, preferably with a customer managed key (CMK) - marked as SSE-KMS in the UI.
 - Has MFA delete enabled on the S3 bucket, if possible
 - Is configured to retain for at least 3 months
-  - S3 object lifecycle management can be used to to purge or to move to glacier for long-term storage on a set schedule, if log are sent to an S3 bucket
+  - S3 object lifecycle management can be used to to purge or to move to Glacier for long-term storage on a set schedule, if logs are sent to an S3 bucket
 - Has access to both the S3 bucket and the KMS CMK restricted to the bare minimum number of staff and roles, either by resource policies or by IAM roles
 - The S3 bucket used should be hosted in a dedicated logging or management account, to minimise the risk of someone compromising the main account and altering logs.
 
