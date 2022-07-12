@@ -26,7 +26,7 @@ Further information can be found at [Logging management events for trails](https
 
 #### Data events
 
-Event logs of operations _inside_ a resource, rather than against it. These are typically high volume, and are charged in addition to the standard CloudTrail At the time of the last update, the following were recorded.
+Event logs operations _inside_ a resource, rather than against it. These are typically high volume, and are charged in addition to the standard CloudTrail. At the time of the last update, the following were recorded.
 
 - Amazon S3 object-level API activity (for example, GetObject, DeleteObject, and PutObject API operations) on buckets and objects in buckets
 - AWS Lambda function execution activity (the Invoke API)
