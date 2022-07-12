@@ -35,7 +35,7 @@ If you define a VPC where the instance tenancy is set to `dedicated` then the RD
 
 - Aurora supports querying the database directly in the console via the "Query Editor". However, this is only supported on Aurora Serverless databases and not provisioned aurora instances. 
 - Aurora supports provisioned capacity or serverless V1/V2,
-- provisioned or serverless V1 can be upgraded to V2 (https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.upgrade.html).
+- Provisioned or serverless V1 can be upgraded to V2 (https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.upgrade.html).
 - Aurora is fault tolerant by default. In addition, you can create read replica instances which can be promoted to their own independent database at a later date.
 - Other database types have the option to select the "multi-az" option which creates another instance in another AZ. This will only become active if the first instance fails - (it's constantly copying and data from the original database). 
 - If a database is "stopped" it will automatically restart after 7 seven days, there is no way to keep a database permanently stopped in RDS.
