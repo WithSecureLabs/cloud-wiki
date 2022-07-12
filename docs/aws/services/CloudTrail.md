@@ -87,7 +87,7 @@ Key fields from a security perspective include:
 
 ### Key Caveats for CloudTrail
 
-- Delivery of events to S3 buckets is not real time. Events are delivered every 5 minutes, up to 15 minutes delay, for a theoretical max delay of 20 minutes. In practice, longer times have been observed on occasion.
+- Delivery of events to S3 buckets is not done instantaneously and they are done in batches. Events are delivered every 5 minutes, up to 15 minutes delay, for a theoretical max delay of 20 minutes. In practice, longer times have been observed on occasion.
 - CloudTrail is enabled for the past 7 days as the account's event history, but it's not logged to somewhere you can access it out of the UI and CloudTrail APIs.
 
 ## Assessment Notes
