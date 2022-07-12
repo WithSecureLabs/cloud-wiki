@@ -21,15 +21,6 @@ The service is backed by EC2 instances.
 
 If you define a VPC where the instance tenancy is set to `dedicated` then the RDS instances created within said VPC are on single-tenant hypervisors - https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#Overview.RDSVPC.Create
 
-### Assessment Notes
-
-- Ensure that the database is being encrypted with KMS - This only applies to encryption at rest.
-    - In addition, check that snapshots are being encrypted by the service when created.
-- If encryption in transit is required database level controls will need to be enforced.    
-- Ensure the "public access" tick box is not ticked - security groups may prevent it from functioning but in the vast majority of cases it should be disabled.
-- Security groups are used to control traffic in and out, restrict with the principal of least privilege.
-- Ensure that access to "Query Editor" is appropriately restricted (Aurora only).
-
 
 ### Operational Notes
 
@@ -41,20 +32,28 @@ If you define a VPC where the instance tenancy is set to `dedicated` then the RD
 - If a database is "stopped" it will automatically restart after 7 seven days, there is no way to keep a database permanently stopped in RDS.
 - Reserved instances are available for sensitive workloads.
 
+### Assessment Notes
 
-### IAM Authentication
+- Ensure that the database is being encrypted with KMS - This only applies to encryption at rest.
+    - In addition, check that snapshots are being encrypted by the service when created.
+- If encryption in transit is required database level controls will need to be enforced.    
+- Ensure the "public access" tick box is not ticked - security groups may prevent it from functioning but in the vast majority of cases it should be disabled.
+- Security groups are used to control traffic in and out, restrict with the principal of least privilege.
+- Ensure that access to "Query Editor" is appropriately restricted (Aurora only).
+
+#### IAM Authentication
 
 - RDS for MySQL, PostgreSQL and Aurora can authenticate via IAM roles, consider this when reviewing/creating IAM permissions.
 - Master user account is added when the database is created. It should not be used for any application interaction with the database (https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.MasterAccounts.html)
 - Create database users for workloads and restrict with appropriate database level permission sets.
 
-### Networking
+#### Networking
 
 - Security groups in use for controlling network access.
 - Deployment into subnets (very similar to EC2).
 - 2 Subnets required for deployment in a VPC (each must be in a different AZ).
 
-### Data Security
+#### Data Security
 
 - Each Database type comes with a "default parameter group" to control the database options, these should be reviewed and changed as required to follow the principal of least privilege before deployment (https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html)
 - Option groups also supported to enable optional features of the specific database version.
@@ -64,12 +63,12 @@ If you define a VPC where the instance tenancy is set to `dedicated` then the RD
 ![image](/img/aurora_point_in_time_restore.png)
 - Full KMS support for data encryption at rest.
 
-### Logging
+#### Logging
 
 - Fully integrates with CloudWatch for advanced and standard monitoring.
 - CloudTrail support for service level monitoring.
 
-### Patching and Updates
+#### Patching and Updates
 
 - Options are available to specify a maintenance window (every Saturday between 01:00/04:00 for example).
 - If "Enable auto minor version upgrade" is enabled the database will be automatically patched during the maintenance window.
