@@ -100,7 +100,7 @@ The best option is to have all AWS accounts owned by an organization in an [AWS 
 - Is encrypted, preferably with a customer managed key (CMK) - marked as SSE-KMS in the UI.
 - Has MFA delete enabled on the S3 bucket, if possible
 - Is configured to retain for at least 3 months
-  - S3 object lifecycle management can be used to to purge or to move to glacier for long-term storage on a set schedule, if logs are sent to an S3 bucket
+  - S3 object lifecycle management can be used to to purge or to move to Glacier for long-term storage on a set schedule, if logs are sent to an S3 bucket
 - Has access to both the S3 bucket and the KMS CMK restricted to the bare minimum number of staff and roles, either by resource policies or by IAM roles
 - The S3 bucket used should be hosted in a dedicated logging or management account, to minimise the risk of someone compromising the main account and altering logs.
 
