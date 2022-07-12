@@ -11,7 +11,7 @@ This is Azure's central monitoring and logging service. From a high-level perspe
 
 An easy graphical way to visualise the service and the components in involves is in the following diagram from Microsoft's documentation (https://docs.microsoft.com/en-us/azure/azure-monitor/overview):
 
-![image](azure-monitor-overview-optm.svg)
+![image](../images/azure-monitor-overview-optm.svg)
 
 So, for some context, there are two main types of data that Azure Monitor processes and they are metrics and logs. Metrics are just numerical data that describe a given resource in Azure at a particular point in time. As such, they are not directly useful from a security perspective. They can provide some symptoms of compromise (high CPU percentages, more API calls then usual), but will not give necessary detail to figure out whether it is just a busy day or someone in your infrastructure.
 

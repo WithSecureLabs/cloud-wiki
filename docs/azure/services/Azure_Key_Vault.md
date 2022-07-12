@@ -26,7 +26,7 @@ Azure Key Vaults by their nature contain highly privileged information that can 
 
 Whilst Key Vault supports access control through Azure RBAC alone, it also possesses an additional layer of access control through the "Vault access policy" permission model. This is more commonly found and is the default for a newly created Key Vault. Where vault access policies are in place, these should be the first aspect to review as it can reveal many excessive privileges that may otherwise be missed. With "Reader" privileges, the number of Key, Secret, and Certificate permissions can be viewed in the Azure Portal as below for users, security groups and service principals:
 
-![](az-keyvault-access-policy-1.png)
+![](../images/az-keyvault-access-policy-1.png)
 
 This can be useful for quickly diagnosing blatantly over-privileged principals or situations where a large number of human users have significant and unnecessary access. Reader users can view the specific access granted to a principal through the CLI with the following command for each Key Vault:
 
