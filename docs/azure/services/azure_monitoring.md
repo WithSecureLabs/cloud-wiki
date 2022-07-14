@@ -4,10 +4,10 @@
 
 This is Azure's central monitoring and logging service. From a high-level perspective it can:
 
-* Collect metrics from solutions in Azure to support diagnostics of applications and their dependencies
-* Corelate and dive into logs with Log Analytics to perform more detailed analysis on what has occured with a given service
-* Help automate alert processing based on criteria for logs and metrics
-* Create visualisations of existing data
+- Collect metrics from solutions in Azure to support diagnostics of applications and their dependencies
+- Corelate and dive into logs with Log Analytics to perform more detailed analysis on what has occured with a given service
+- Help automate alert processing based on criteria for logs and metrics
+- Create visualisations of existing data
 
 An easy graphical way to visualise the service and the components in involves is in the following diagram from Microsoft's documentation (https://docs.microsoft.com/en-us/azure/azure-monitor/overview):
 
@@ -20,25 +20,25 @@ On the other hand, we have logs, which are detailed sets of data organized into 
 ## Operational Notes
 ### Data sources
 
-Azure Monitor has the capability to collect data from all sorts of sources, whether they are in the cloud or even on-premises. You can find an updated list of all internal services that support different logging here (https://docs.microsoft.com/en-us/azure/azure-monitor/monitor-reference). As a high-level list, the following types of logs are collected:
+Azure Monitor has the capability to collect data from all sorts of sources, whether they are in the cloud or even on-premises. As a high-level list, the following types of logs are collected:
 
-* Application monitoring data - performance and functionality data of applications
-* Guest OS monitoring data - data about the operating system on which your app is running
-* Azure resource monitoring data - data about the operation of an Azure resource
-* Azure subscription monitoring data - Data about the operation and management of an Azure subscription, as well as health and operation of Azure itself
-* Azure tenant monitoring data - data about operation of tenant-level Azure services, such as AAD
-* Custom sources - collect data from any REST client that uses the [Data Collector API](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collector-api).
+- Application monitoring data - performance and functionality data of applications
+- Guest OS monitoring data - data about the operating system on which your app is running. Can be any server and does not have to be in Azure
+- Azure resource monitoring data - data about the operation of an Azure resource. You can find an updated list of all internal services that support different logging here (https://docs.microsoft.com/en-us/azure/azure-monitor/monitor-reference)
+- Azure subscription monitoring data - data about the operation and management of an Azure subscription
+- Azure tenant monitoring data - data about operation of tenant-level Azure services, such as Azure AD
+- Custom sources - collect data from any REST client that uses the [Data Collector API](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collector-api).
 
-Let us go a bit more into the Azure Platform logs, which are the detailed diagnostic and auditing info for Azure resources and the platform they depend on. Generally, the various types of logs provided at the platform level can be categories into different layers. These layers would be at the resource, subscription, or tenant level.
+Let us go a bit more into the Azure Platform logs, which are the detailed diagnostic and auditing info for Azure resources and the platform they depend on. Generally, the various types of logs provided at the platform level can be categories into different layers. These layers can be broadly split at the resource, subscription, or tenant level.
 
 |Log|Layer|Description|
 |:--|:----|:----------|
 |Resource Logs|Azure Resources|Operations performed at the data plane within an Azure resource. These types of logs would vary based on the service and resource type. (E.g. getting key from a Key Vault)|
-|Activity Logs|Azure Subscription|Operations performed on each Azure resource in the subscription at the management plane. Determine who did what and when regarding any operations takes against resources in your subscription. |
-|Azure AD Logs|Azure Tenant|History of sign-in activity and audit trail of changes made in AAD|
+|Azure Activity Logs|Azure Subscription|Operations performed on each Azure resource in the subscription at the management plane. Determine who did what and when regarding any operations takes against resources in your subscription. |
+|Azure Active Directory Audit Logs|Azure Tenant|History of sign-in activity and audit trail of changes made in Azure AD|
 
+A more complete list of the various data sources can be seen here: https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-sources
 ### Log destinations
-
 Logs can generally be sent to several destinations depending on what you would like to do with them. They are the following three:
 
 * Log Analytics workspace - this is where you can retain a lot of your logs and run log queries and alerts based on some conditions. Although the alerts may not be as useful as Azure Security Center that can provide some better security related alerting, you can still technically do all relevant stuff from here. In regard to log queries, Log Analytics workspaces are used by Azure Sentinel as a backbone for the request processing bit.
