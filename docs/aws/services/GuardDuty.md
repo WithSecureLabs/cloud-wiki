@@ -6,7 +6,7 @@ Cloud native threat detection, with rulesets maintained by AWS.
 
 ## Assessment Notes
 
-The general recommendation is to enable GuardDuty in all regions in all accounts. The costs have reduced over time, and it provides a base level of detection that will spot some lower sophistication attacks. It also serves as an additional data source to feed into a SIEM to do better detection with. For more info on the rationale behind this, Scott Piper's blog lays it out pretty well - [https://summitroute.com/blog/2019/03/05/should_you_use_guardduty/](https://summitroute.com/blog/2019/03/05/should_you_use_guardduty/)
+The general recommendation is to enable GuardDuty in all regions in-use in all accounts. The costs have reduced over time, and it provides a base level of detection that will spot some lower sophistication attacks. It also serves as an additional data source to feed into a SIEM to do better detection with. For more info on the rationale behind this, Scott Piper's blog lays it out pretty well - [https://summitroute.com/blog/2019/03/05/should_you_use_guardduty/](https://summitroute.com/blog/2019/03/05/should_you_use_guardduty/)
 
 If GuardDuty is enabled:
 
