@@ -5,7 +5,7 @@ When looking at storage of data in Azure, we have 3 main categories:
 * Data to be stored in databases (SQL, CosmosDB, etc.);
 * Literally everything else we might want to store on the cloud - will fall under Azure Storage. This is the category that we'll explore in this article;
 
-The first important concept to know is that of a **Storage Account**. Think of them as a way of logically grouping storage-related resources. You can create multiple Storage Accounts, and because each of them is considered a resource in Azure, it needs to be assigned to a resource group at creation time, just like pretty much anything else in Azure.<br>
+The first important concept to know is that of a **Storage Account**. Think of them as a way of logically grouping storage-related resources. You can create multiple Storage Accounts, and because each of them is considered a resource in Azure, it needs to be assigned to a resource group at creation time, just like pretty much anything else in Azure.<br/>
 Regardless of that, Storage Accounts are to storage-related resources kind of like resource groups are to general resources.
 
 Once we've created a Storage Account, what kind of data can we store in them? Azure service names are interesting, so let's see what each term refers to.
@@ -17,7 +17,8 @@ Once we've created a Storage Account, what kind of data can we store in them? Az
 | Tables       | A NoSQL store for schemaless data, very structured and optimized for database searches. Here we can store flexible datasets like user data for web apps, address books, device information, or other types of metadata a service might require                                                                                                                                                                           |
 | Queues       | A messaging store for reliable, asynchronous messaging between application components. Queue messages can be up to 64 KB in size, and a queue can contain millions of messages                                                                                                                                                                                                                                           |
 
-Before we move onto securing storage resources, let's clarify a few things around Blob storage as this is somewhere that Microsoft's naming can get quite confusing. Let's take a step back and look at the structure of a mock link to a file in Azure Blob storage, to make sense of things: https://contoso.blob.core.windows.net/images/pic1.jpg
+Before we move onto securing storage resources, let's clarify a few things around Blob storage as this is somewhere that Microsoft's naming can get quite confusing. Let's take a step back and look at the structure of a mock link to a file in Azure Blob storage, to make sense of things: <br/>
+https://contoso.blob.core.windows.net/images/pic1.jpg
 * We have the Storage Account name - "contoso" in this case
 * The type of storage - indicated by "blob"
 * A Blob <u>Container</u>, i.e. a logical grouping of things (essentially an unorganized directory folder) - "/images/"
@@ -65,10 +66,10 @@ Every request to Azure Storage must be authorised (except in the instance of ano
 
 | Authorisation type                    | Data Services                            | Description                                                                                                                                                                                                                  |
 |:------------------------------------- |:---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Azure AD integration                  | Blobs <br> Tables <br> Queues            | Provides Azure role-based access control (Azure RBAC) over a client's access to resources in a Storage Account.                                                                                                              |
+| Azure AD integration                  | Blobs <br/> Tables <br/> Queues            | Provides Azure role-based access control (Azure RBAC) over a client's access to resources in a Storage Account.                                                                                                              |
 | Identity-based authorisation over SMB | Files (SMB only)                         | Azure Files supports identity-based authorisation over Server Message Block (SMB) through Azure AD DS. You can use Azure RBAC for fine-grained control over a client's access to Azure Files resources in a Storage Account. |
-| Authorisation with Shared Key         | Blobs <br> Files <br> Tables <br> Queues | A client using a Shared Key passes a header with every request that is signed using the Storage Account access key.                                                                                                          |
-| Shared Access Signatures (SAS)        | Blobs <br> Files <br> Tables <br> Queues | Limited delegated access to resources in a Storage Account. Adding constraints on the time interval for which the signature is valid or on permissions it grants provides flexibility in managing access.                    |
+| Authorisation with Shared Key         | Blobs <br/> Files <br/> Tables <br/> Queues | A client using a Shared Key passes a header with every request that is signed using the Storage Account access key.                                                                                                          |
+| Shared Access Signatures (SAS)        | Blobs <br/> Files <br/> Tables <br/> Queues | Limited delegated access to resources in a Storage Account. Adding constraints on the time interval for which the signature is valid or on permissions it grants provides flexibility in managing access.                    |
 | Anonymous access                      | Blobs                                    | Authorisation is not required to access the Blob container or any individual files within.                                                                                                                                   |
 
 
