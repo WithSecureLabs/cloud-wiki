@@ -125,7 +125,9 @@ When assessing a logic app, it’s important to think about the public access to
 
 Request-based triggers contain a Shared Access Signature in their URL. The following is an example of such URL:
 
+```
 https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>
+```
 
 There are three parts to this URL:
 
