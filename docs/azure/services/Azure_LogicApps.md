@@ -86,7 +86,7 @@ Additionally, the two roles specific to Azure Logic Apps are:
 
 A good way to check all the assigned roles to the assessed logic app or any other resource is to use the `-scope` flag:
 
-```bash
+```CLI
 az role assignment list -Scope <scope>
 ```
 ```PowerShell
@@ -96,7 +96,7 @@ Get-AzRoleAssignment -Scope <scope>
 
 -A special attention should be paid to `actions` and `dataActions` permissions, especially if they appear to be over permissive (*). This is especially the case with the custom roles. To retrieve role definitions for a specific scope, we can use the following commands:
 
-```bash
+```CLI
 az role definition list -Scope <scope> --custom-role-only true
 ```
 ```PowerShell
