@@ -187,13 +187,13 @@ To prevent this it's recommended to limit the Principal to the account you are w
 
 Note that most of the commands are under the `ec2` section of the CLI. This is from legacy AWS architecture. 
 
-List VPCs  \
+- List VPCs  \
 ```aws ec2 describe-vpcs```
-List VPC endpoints  \
+- List VPC endpoints  \
 ```aws ec2 describe-vpc-endpoints```
-List NAT gateways \
+- List NAT gateways \
 ```aws ec2 describe-nat-gateways```
-List Internet gateways
+- List Internet gateways
 ```aws ec2 describe-internet-gateways```
 
 
