@@ -193,7 +193,7 @@ Note that most of the commands are under the `ec2` section of the CLI. This is f
 ```aws ec2 describe-vpc-endpoints```
 - List NAT gateways \
 ```aws ec2 describe-nat-gateways```
-- List Internet gateways
+- List Internet gateways \
 ```aws ec2 describe-internet-gateways```
 
 
