@@ -51,7 +51,7 @@ Now you might be wondering what the difference is between the two since Log Anal
 
 Sentinel has the following general features that Log Analytics does not really have:
 
-* Wide scale data collection - has connectors for literally so many tools, SaaS products, Azure services,etc. More or less click a button and it will create a service principal and start gathering data.
+* Wide scale data collection - has connectors for literally so many tools, SaaS products, Azure services, etc. More or less click a button and it will create a service principal and start gathering data.
 * Detect previously undetected threats - minimising false positives using some MS's threat intelligence and probably some analytics.
 * Investigate threats with AI - hunt for suspicious activities at scale, most likely utilising some machine learning and MS's datasets on intrusions.
 * Respond to incidents rapidly - automation of common tasks, built-in orchestration.
