@@ -10,8 +10,8 @@ If the VPC creation wizard is used the following resources will be automatically
 
 - Connect two VPCs via direct network route using private IP addresses.
 - Resources behave as if on same private network.
-- It's possible to peer VPCs with VPCs in other AWS accounts.
-- No transitive peering (I.E A and B peered with C, A cannot communicate with B).
+- It's possible to peer VPCs across multiple AWS accounts.
+- No transitive peering (i.e. A and B peered with C, A cannot communicate with B).
 
 ### Reserved IP ranges
 In a subnet with a CIDR block of 10.0.0.0/24, the following five IP addresses are reserved:
@@ -30,7 +30,7 @@ AWS will always reserve five IP's within a subnet, the beginning of the IP addre
 - Stateful, if port 80 is open for inbound it will automatically be opened for outbound (no need to open ephemeral ports).
 - Can be attached to specific resources, such as EC2 instances.
 
-### Network ACLS
+### Network Access Control Lists (NACLs)
 - Max of 200 per VPC
 - Stateless, if port 80 is open for inbound, nothing will be opened for outbound (rule needs to be created for ephemeral ports)
 - Attached at the VPC/Subnet level rather than specific resources.
@@ -39,11 +39,13 @@ AWS will always reserve five IP's within a subnet, the beginning of the IP addre
 
 #### Key differences between Security Groups and NACLs
 
-NACLs vs Security groups (security groups should be the preferred choice where available due to better support for fine grain access control. )
+NACLs vs Security groups: 
 - Security groups are stateful and NACLs stateless.
 - NACLs require all outbound ephemeral ports to be open, where as security groups only require the original inbound port.
 - Each VPC supports 200 NACLs / no limit on security groups.
 - Default NACL allows all in and all out.
+
+**Security groups should be the preferred choice where available due to better support for fine grain access control**
 
 
 
@@ -143,7 +145,7 @@ Two types of endpoints are available.
     - Charged per hour.
     - Support security group attachment for fine grain access control.
 
-Which one should I choose?
+#### Gateway Endpoint vs. Interface Endpoint
 Normally, Interface endpoints would be the better choice because you can attach a security group which allows you to provide fine grain access control. However, they are considered expensive and will add significant cost to an AWS bill if using multiple. Make a best judgment call based on the workload, if its sensative data use an interface endpoint.
 
 Both interface endpoints and gateways will create a policy like below by default:
