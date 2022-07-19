@@ -38,7 +38,7 @@ module.exports = {
           type: 'doc',
           docId: 'home',
           position: 'left',
-          label: 'Saas',
+          label: 'SaaS',
         },
         {
           to: '/contributing',
