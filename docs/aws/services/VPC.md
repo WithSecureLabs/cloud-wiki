@@ -1,10 +1,10 @@
 # VPC 
 
-## Overview
+## Service Details
 
 Virtual Private Cloud. An (initially) private network created within AWS that allows you to deploy resources. All AWS accounts will be provided with a "default" VPC in each region. These should be reviewed or removed as required.
 
-If the VPN creation wizard is used the following resources will be automatically created:
+If the VPC creation wizard is used the following resources will be automatically created:
 
 ### VPC Peering
 
@@ -18,7 +18,7 @@ In a subnet with a CIDR block of 10.0.0.0/24, the following five IP addresses ar
 
 - 10.0.0.0: Network address.
 - 10.0.0.1: Reserved by AWS for the VPC router.
-- 10.0.0.2: Reserved by AWS. The IP address of the DNS server is always the base of the VPC network range plus two; however, we also reserve the base of each subnet range plus two. For VPCs with multiple CIDR blocks, the IP address of the DNS server is located in the primary CIDR. For more information, see Amazon DNS Server.-
+- 10.0.0.2: Reserved by AWS. The IP address of the DNS server is always the base of the VPC network range plus two; however, we also reserve the base of each subnet range plus two. For VPCs with multiple CIDR blocks, the IP address of the DNS server is located in the primary CIDR. For more information, see Amazon DNS Server.
 - 10.0.0.3: Reserved by AWS for future use.
 - 10.0.0.255: Network broadcast address. We do not support broadcast in a VPC, therefore we reserve this address.
 
