@@ -104,7 +104,7 @@ Note, it is not possible to replicate DynamoDB tables into other AWS accounts. E
 
 ## Useful CLI Commands
 
-`aws dyanmodb list-tables --region <region> --output table --query 'TableNames'` - List tables in region
-`aws dynamodb describe-table --region <region> --table-name <table-name> --query 'Table.SSEDescription'` - Get SSE details about table
+- `aws dyanmodb list-tables --region <region> --output table --query 'TableNames'` \ List tables in region
+- `aws dynamodb describe-table --region <region> --table-name <table-name> --query 'Table.SSEDescription'` \ Get SSE details about table
 
 If nothing is returned (ie null) it could be that it uses the default (SSE enabled - Default CMK used)
