@@ -23,24 +23,6 @@ module.exports = {
       },
       items: [
         {
-          type: 'doc',
-          docId: 'aws/index',
-          position: 'left',
-          label: 'AWS',
-        },
-        {
-          type: 'doc',
-          docId: 'azure/index',
-          position: 'left',
-          label: 'Azure',
-        },
-        {
-          type: 'doc',
-          docId: 'home',
-          position: 'left',
-          label: 'Saas',
-        },
-        {
           to: '/contributing',
           label: 'Contributing',
           position: 'right'
