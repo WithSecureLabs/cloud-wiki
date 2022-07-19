@@ -30,7 +30,7 @@ AWS will always reserve five IP's within a subnet, the beginning of the IP addre
 - Stateful, if port 80 is open for inbound it will automatically be opened for outbound (no need to open ephemeral ports).
 - Can be attached to specific resources, such as EC2 instances.
 
-### Network ACLS
+### Network Access Control Lists (NACLs)
 - Max of 200 per VPC
 - Stateless, if port 80 is open for inbound, nothing will be opened for outbound (rule needs to be created for ephemeral ports)
 - Attached at the VPC/Subnet level rather than specific resources.
