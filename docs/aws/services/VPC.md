@@ -39,11 +39,13 @@ AWS will always reserve five IP's within a subnet, the beginning of the IP addre
 
 #### Key differences between Security Groups and NACLs
 
-NACLs vs Security groups (security groups should be the preferred choice where available due to better support for fine grain access control. )
+NACLs vs Security groups: 
 - Security groups are stateful and NACLs stateless.
 - NACLs require all outbound ephemeral ports to be open, where as security groups only require the original inbound port.
 - Each VPC supports 200 NACLs / no limit on security groups.
 - Default NACL allows all in and all out.
+
+**Security groups should be the preferred choice where available due to better support for fine grain access control**
 
 
 
