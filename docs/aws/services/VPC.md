@@ -10,7 +10,7 @@ If the VPN creation wizard is used the following resources will be automatically
 
 - Connect two VPCs via direct network route using private IP addresses.
 - Resources behave as if on same private network.
-- It's possible to peer VPCs with VPCs in other AWS accounts.
+- It's possible to peer VPCs across multiple AWS accounts.
 - No transitive peering (I.E A and B peered with C, A cannot communicate with B).
 
 ### Reserved IP ranges
