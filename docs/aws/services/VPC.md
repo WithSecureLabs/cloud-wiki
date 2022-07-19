@@ -145,7 +145,7 @@ Two types of endpoints are available.
     - Charged per hour.
     - Support security group attachment for fine grain access control.
 
-Which one should I choose?
+#### Gateway Endpoint vs. Interface Endpoint
 Normally, Interface endpoints would be the better choice because you can attach a security group which allows you to provide fine grain access control. However, they are considered expensive and will add significant cost to an AWS bill if using multiple. Make a best judgment call based on the workload, if its sensative data use an interface endpoint.
 
 Both interface endpoints and gateways will create a policy like below by default:
