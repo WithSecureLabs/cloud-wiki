@@ -15,8 +15,8 @@ Contributions are very much welcome. Details on how to contribute can be found h
 
 ## Cloud Providers
 
-- [AWS](aws/index/)
-- [Azure](azure/index/)
+- [AWS](aws/)
+- [Azure](azure/)
 
 ## Cloud/DevOps Tooling
 
