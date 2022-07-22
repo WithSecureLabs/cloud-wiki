@@ -4,7 +4,7 @@ Portal is available at <https://aws.amazon.com/>
 
 ## Assessment Guide
 
-The [AWS Assessment Guide](./assessment-guide/Assessment-Guide) provides a basic methodology for performing security assessments against AWS estates.
+The [AWS Assessment Guide](./assessment-guide) provides a basic methodology for performing security assessments against AWS estates.
 
 ## Basics guides
 
