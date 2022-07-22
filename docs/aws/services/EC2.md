@@ -30,14 +30,12 @@ IMDSv2
 ```
 TOKEN=`curl -X PUT http://169.254.169.254/latest/api/token -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
 && curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/
-
 ```
 
 IMDSv1
 
 ```
 curl http://169.254.169.254/latest/meta-data/
-
 ```
 
 To decrease the attack surface, it's best to disable IMDS altogether. In cases where this is not possible it's recommended to use IMDSv2, avoid assigning roles to the instance when not needed and locking down IMDS to only specific operating system users.
@@ -51,28 +49,24 @@ Roles can be attached to EC2 instances. Each role has a policy document specifyi
 
 ```
 aws ec2 describe-iam-instance-profile-associations --filters Name=instance-id,Values=i-123456789
-
 ```
 
 The following command lists the inline policies for a specified role name retrieved from the previous command:
 
 ```
 aws iam list-role-policies --role-name my-instance-role-name
-
 ```
 
- Run the following command to list the non-inline policies for a specified role name retrieved from the previous command:
+Run the following command to list the non-inline policies for a specified role name retrieved from the previous command:
 
 ```
 aws iam list-attached-role-policies --role-name my-instance-role-name
-
 ```
 
 Run the following command to get the each policy for review:
 
 ```
 aws iam get-role-policy --role-name my-instance-role-name --policy-name attached-policy-name
-
 ```
 
 Just like with any service, any policies and roles should be reviewed and only given the minimum amount of privileges as per the policy of least principal.
@@ -88,14 +82,12 @@ To get more information on EC2's security groups, the following command can be u
 
 ```
 aws ec2 describe-security-groups
-
 ```
 
 To get more information on rules applied to each security group of an EC2 instance, the following command can be used:
 
 ```
 aws ec2 describe-security-group-rules --filter Name="group-id",Values="sg-testnumber"
-
 ```
 
 When reviewing security groups, it's recommended to ensure the following:
@@ -136,14 +128,12 @@ From a security perspective, EBS is not encrypted by default, however it can be 
 
 ```
 aws ec2 get-ebs-encryption-by-default
-
 ```
 
 The following command lists all the volumes attached against an EC2 instance and whether they are encrypted or not:
 
 ```
 aws ec2 describe-volumes
-
 ```
 
 When EBS encryption is enabled, the following is encrypted:
@@ -175,12 +165,10 @@ AMIs and snapshots of an EBS volumes are stored in Amazon S3 (In an AWS controll
 
 ```
 aws ec2 describe-snapshots --snapshot-ids snap-example
-
 ```
 
 ```
 aws ec2 describe-images --region us-east-1 --image-ids ami-1234567890EXAMPLE
-
 ```
 
 It's good to check if there are any backup policies assigned against the snapshot. More on backup policies can be found [here](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html).
