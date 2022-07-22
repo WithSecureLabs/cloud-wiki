@@ -13,7 +13,11 @@ module.exports = {
   organizationName: 'WithsecureLabs', // Usually your GitHub org/user name.
   projectName: 'cloud-wiki', // Usually your repo name.
   themeConfig: {
-    defaultMode: 'dark',
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
+    },
     navbar: {
       title: 'Cloud Security Wiki',
       logo: {
