@@ -2,8 +2,6 @@
 
 AWS Identity and Access Management (IAM) is the core authentication and authorization service used across all AWS services. It supports human and machine authentication to AWS APIs, Single Sign-On (SSO) and federated access, and access control to (almost) all resources within AWS.
 
-[TOC]
-
 ## Critical terms
 
 - [Policies](#policies) - A JSON document that defines a set of permissions that should be granted or denied, potentially based on a set of conditions.
