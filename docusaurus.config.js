@@ -5,7 +5,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 module.exports = {
   title: 'Cloud Security Wiki',
   tagline: 'Securing the Cloud, by WithSecure',
-  url: 'https://confident-wilson-c4de9b.netlify.app',
+  url: 'https://www.secwiki.cloud',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -56,7 +56,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} F-Secure Consulting. Built with Docusaurus.`,
+      copyright: `Built and maintained by the cloud consultancy team at WithSecure.`,
     },
     prism: {
       theme: lightCodeTheme,
@@ -73,7 +73,7 @@ module.exports = {
           routeBasePath: '/',
           // Please change this to your repo.
           editUrl:
-            'https://github.com/FSecureLABS/cloud-wiki/tree/main',
+            'https://github.com/withsecurelabs/cloud-wiki/tree/main',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
