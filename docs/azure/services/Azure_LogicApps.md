@@ -107,7 +107,7 @@ Get-AzRoleDefinition -Scope <scope> IsCustom=True
 
 -The reader role also allows reading of the previous logic app’s versions found under the “Development Tools” tab. Versions contain previous logic app runs and therefore all input and output information. In workflow’s lifetime, consider checking this output for sensitive data. There are two ways to control access to logic app’s versions:
 
-•	Restrict access by an IP address range – this is configured from “Workflow settings” tab.
+• Restrict access by an IP address range – this is configured from the “Workflow settings” tab.
 
 •	Secure data in “Runs history” by using obfuscation – enabled in workflow designer for secure inputs and outputs. It can also be enabled in workflow template using the `securestring` and `secureobject` types. It is important to note that Azure Logic Apps API for handling workflow history doesn’t return secured outputs. To find out more navigate to [here](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-resource-manager).
 
