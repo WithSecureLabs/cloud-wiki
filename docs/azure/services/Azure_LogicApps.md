@@ -105,7 +105,7 @@ Get-AzRoleDefinition -Scope <scope> IsCustom=True
 
 -The role “Logic App Reader” can read and steal confidential data such as authentication details and from there either escalate privileges or make lateral movements.
 
--Reader role also allows to read previous logic app’s versions found under “Development Tools” tab. Versions contain previous logic app runs and therefore all input and output information. In workflow’s lifetime, it’s very likely some credentials and sensitive data was used if anything but for testing purposes. There are two ways to control access to logic app’s versions:
+-The reader role also allows reading of the previous logic app’s versions found under the “Development Tools” tab. Versions contain previous logic app runs and therefore all input and output information. In workflow’s lifetime, consider checking this output for sensitive data. There are two ways to control access to logic app’s versions:
 
 •	Restrict access by an IP address range – this is configured from “Workflow settings” tab.
 
