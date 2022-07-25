@@ -90,7 +90,7 @@ In addition, the other key bit about Sentinel would be verifying what custom ana
 * Alert - collection of events that, when taken together, are significant from a security perspective. An alert could contain a single event or multiple ones.
 * Incidents - Sentinel creates incidents from alerts or groups of alerts based on internal logic. Incidents queue is where you find all the analytics done by Sentinel.
 
-When looking at configured alerts, take note of "Query scheduling" times and "Alert threshold". If you believe that a given rule is likely being misreported or is allowing too big of a window of allowed actions before raising a security alert, then discuss with the client about that.
+When looking at configured alerts, take note of "Query scheduling" times and "Alert threshold". If you believe that a given rule is likely being misreported or allows a large window of allowed actions before raising a security alert, then consider reviewing this and changing it if appropriate.
 
 ## External Links
 * https://docs.microsoft.com/en-us/azure/azure-monitor/logs/workspace-design
