@@ -8,7 +8,7 @@ EC2s are built on a shared responsibility model between AWS and a customer. In t
 ![image](/img/responsibility_model.jpeg)
 
 
-The following security controls affect security posture of an EC2 instance and as such should be reviewed:
+The following security controls can affect the security posture of an EC2 instance and as such should be reviewed:
 
 1.) IAM
 
