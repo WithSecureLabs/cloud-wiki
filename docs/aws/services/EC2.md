@@ -23,7 +23,7 @@ The following security controls can affect the security posture of an EC2 instan
  
 ## IMDS
 
-Instance Metadata Service is a collection of endpoints used for retrieval of data from within an EC2 instance. By sending an IMDS request, it's possible to retrieve information about the instance itself such as hostname, IP addresses, security groups and most importantly iam role credentials. There are two versions of IMDS, version one and two. The latter is recommended to use as it enforced HTTP headers and token use, which is efficient against Server-Side Request Forger (SSRF) attacks. The command to issue a token and IMDS request is as follows:
+Instance Metadata Service is a collection of endpoints used for retrieval of data from within an EC2 instance. By sending an IMDS request, it's possible to retrieve information about the instance itself such as hostname, IP addresses, security groups and most importantly IAM role credentials. There are two versions of IMDS, version one and two. Version two is recommended to use as it enforces HTTP headers and token use, which is efficient prevention against attacks where an attacker can call the metadata address from the instance (169.254.169.254). The commands to issue a token and IMDS request is as follows:
 
 IMDSv2
  
