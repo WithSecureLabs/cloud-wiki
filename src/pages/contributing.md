@@ -30,7 +30,7 @@ Not all services are the same, some just aren't very security-relevant, or are s
 
 The purpose of this wiki is to support cloud security professionals in their work, and is intended to serve as a reference rather than a location for blog-style content. For this purpose we encourage that article writing:
 
-* be factually accurate, grammarly correct and professional
+* be factually accurate, grammatically correct and professional
 * biases towards easy-to-skim content formats, making extensive use of bullets, tables and other similar styles to break the content up and make it easier to read.
 * presents facts and the topic in a light, concise yet more descriptive (where relevant), easy-to-follow, informal even, fashion.
   * this would logically apply better to the larger, core topics which would require more extensive articles.
@@ -66,11 +66,11 @@ It is essential that these articles continue to serve their purpose of providing
 * Include more comprehensive descriptions about the service in question, referencing bits of information that could actually be useful:
   * to better understand the service and how it operates, or if there are multiple areas of it, how they interoperate
   * trivial aspects of it, areas that have changed over time and might be relevant during testing or for the recommendations to be given
-  * elements that might interest the client, lesser-known areas/features useful in discussions with them
+  * elements that might interest organisations, lesser-known areas/features useful in discussions with them
 * Continue using bullet point-style statements for clear and simple information
   * We don't want to make a service page pointlessly overly-descriptive
   * Also helps break the flow when reading
-* Make use of tables, images, or any other medium that can help better drive across/highlight the bits that are beign discussed
+* Make use of tables, images, or any other medium that can help better drive across/highlight the bits that are being discussed
 * Include any interesting information from experiences on engagements
 * Huge topics such as IAM, or Azure Storage Accounts, which might have multiple services contributing to them, are better structured to:
   * Be presented in a general page discussing the service, perhaps written in the "larger article" style
@@ -80,9 +80,9 @@ It is essential that these articles continue to serve their purpose of providing
 
 ### Examples
 
-Check the pages for [Azure MFA](azure/assessment-guide/service-guides/Azure_MFA) and [AWS KMS](aws/assessment-guide/service-guides/KMS) for examples of "larger" articles.
+Check the pages for [Azure MFA](docs/azure/services/azure_mfa) and [Azure AD](docs/azure/services/Azure_AD) for examples of "larger" articles.
 
-* The former is a great example of the maximum length, descriptiveness and informal style that coudl/should be present
+* The former is a great example of the maximum length, descriptiveness and informal style that could/should be present
 * The latter is a bit less descriptive and it's even more bullet-to-the-pointy, yet also conveying the idea of structure that we're aiming at
 
-For an idea of a complete article of the "minimalistic" kind, have a look at [AWS CloudTrail](aws/assessment-guide/service-guides/CloudTrail) instead. This shows the minimum info we should aim at having in an article that's not _that_ big requiring too much explanation.
+For an idea of a complete article of the "minimalistic" kind, have a look at [AWS CloudTrail](/docs/aws/services/CloudTrail) instead. This shows the minimum info we should aim at having in an article that's not _that_ big requiring too much explanation.

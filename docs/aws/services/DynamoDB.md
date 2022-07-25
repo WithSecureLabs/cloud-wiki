@@ -1,12 +1,14 @@
 # DynamoDB
 
-## Service Details
+## Overview
 
 DynamoDB is a fully managed, key-value, and document database that delivers single-digit-millisecond performance at any scale.
 
 DynamoDB charges for reading, writing, and storing data in your DynamoDB tables, along with any optional features you choose to enable. DynamoDB has on-demand capacity mode and provisioned capacity mode, and these modes have pricing for processing reads and writes on your tables.
 
 DynamoDB has full support for VPC endpoints (both interface and gateway)
+
+## Assessment notes
 
 ### Exports To S3
 
@@ -48,7 +50,6 @@ Amazon Kinesis Data Streams for DynamoDB captures item-level changes in your tab
 - DynamoDB stream
 Captures item-level changes in your table, and pushes the changes to a DynamoDB stream. You then can access the change information through the DynamoDB Streams API.
 
-
 ### Backups
 
 DynamoDB also integrates with the AWS Backup service which allows you to create backups from the console by going to:
@@ -65,7 +66,7 @@ Ensure that backups are being encrypted at rest with a KMS key. However, this wi
 
 Reserved capacity is a billing feature that allows you to obtain discounts on your provisioned throughput capacity in exchange for a one-time, up-front payment and commitment to a minimum monthly usage level. Reserved capacity applies within a single AWS Region and can be purchased with one-year or three-year terms.
 
-## Access Controls
+### Access Controls
 
 For the vast majority of cases DynamoDB will always be integrating with another AWS service that is storing data in DynamoDB. It's important to ensure that access controls are correctly applied to ensure data is limited to the specific services that require access. In addition, DynamoDB does not support resource based policies. This means it will always be the other resource specifically granting permission (a resource based policy applied to another resource or an IAM role.)
 
@@ -74,7 +75,7 @@ Always apply the principal of least privilege and treat DynamoDB permissions the
 A full list of DynamoDB actions can be found at https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazondynamodb.html
 
 
-## Encryption Support
+### Encryption Support
 
 DynamoDB support two types of encryption:
 
@@ -88,14 +89,13 @@ KMS functions the same way as other services, you have the choice of using AWS m
 
 CMK's would always be the preferred choice from a security perspective as it guarantees full control over your data. However, in the vast majority of accounts and workloads this won't be a major cause for concern if an AWS managed key is being used.
 
-## PartiQL editor
+### PartiQL editor
 
 The PartiQL editor is a new feature that has been added to DynamoDB to allows users to query tables directly in the console. It's important to restrict access to this as required so data within the tables is not accidentally exposed.
 
 ![image](/img/dynamodb_query_editor.png)
 
-
-## Global Tables
+### Global Tables
 
 Global tables allow you to create replicas of your DynamoDB tables in other regions. As with any form of cross region replication, ensure there are not over permissive resources in that region that will have access to the replica. 
 
@@ -107,4 +107,4 @@ Note, it is not possible to replicate DynamoDB tables into other AWS accounts. E
 - `aws dyanmodb list-tables --region <region> --output table --query 'TableNames'` \ List tables in region
 - `aws dynamodb describe-table --region <region> --table-name <table-name> --query 'Table.SSEDescription'` \ Get SSE details about table
 
-If nothing is returned (ie null) it could be that it uses the default (SSE enabled - Default CMK used)
+If nothing is returned (i.e. null) it could be that it uses the default (SSE enabled - Default CMK used)
