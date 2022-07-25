@@ -43,7 +43,7 @@ When assessing the security posture of a logic app, it’s good to think about t
 
 -Every logic app has its own ARM template which describes the infrastructure and configuration of the logic app. This template includes each workflow’s configuration such as triggers and actions.
 
--Reviewing logic app’s templates can be a good way to check if certain security policies have been applied on workflow’s actions and triggers such as `IncludeAuthorizationHeadersInOutputs` and `NotAfter` keys. 
+-Reviewing a logic app’s templates can be a good way to check if certain security policies have been applied on workflow’s actions and triggers such as `IncludeAuthorizationHeadersInOutputs` and `NotAfter` keys.
 
 -In Azure portal, this template is accessible from the “Overview” tab of the assessed logic app for both Standard and Consumption plans.
 
