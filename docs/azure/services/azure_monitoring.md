@@ -84,7 +84,7 @@ As mentioned earlier, Microsoft Defender for Cloud does provide a lot more detai
 
 If you are doing a review of Microsoft Sentinel, check the types of connectors that are currently enabled and what tables they are passing to Sentinel. Following that, a discussion with the security team can establish whether all relevant services are connected or if there are some that aren't at the moment. This would help establish the difference between the current and an ideal state and allow the organisation to begin plans to improve telemetry generation.
 
-In addition, the other key bit about Sentinel would be verifying what custom analytics rules they have configured within the service. One thing to keep in mind about Microsoft Sentinel is the following difference in entities that you would process:
+In addition, the other important part to remember about Sentinel would be verifying what custom analytics rules they have configured within the service. One thing to keep in mind about Microsoft Sentinel is the following difference in entities that you would process:
 
 * Events - description of a single occurrence that is significant from a security perspective. E.g. a single entry in a log file could count as an event.
 * Alert - collection of events that, when taken together, are significant from a security perspective. An alert could contain a single event or multiple ones.
