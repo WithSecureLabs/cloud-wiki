@@ -1,7 +1,7 @@
 # Azure Virtual Machines:
 
 
-## General Security Notes:
+## Overview
 
 Azure Virtual Machines (VMs) are Microsoft Azure’s Infrastructure-as-a-Service (IaaS) computing resource offerings built on Azure Hypervisor, which is a customised version of Microsoft Hyper-V. VMs are often a central and indispensable resource, used for hosting and deploying business critical resources both for external and internal use. It is important to configure them in a secure way to prevent unauthorised access movement and downtime across the cloud estate. 
 
@@ -16,9 +16,9 @@ To properly assess the security posture of a standalone VM, the following contro
 •	Audit Logging
 
 
-## Assessment Notes:
+## Assessment Notes
 
-### Getting started:
+### Getting started
 
 Apart from the web console, there are couple of other ways of interacting with Azure environment such as: Azure CLI, PowerShell, REST API, etc.
 
@@ -47,7 +47,7 @@ More detailed explanation on subscription management can be found on following U
 •	[Manage Azure Subscriptions CLI](https://docs.microsoft.com/en-us/cli/azure/manage-azure-subscriptions-azure-cli)
 •	[Manage Azure Subscriptions PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.accounts/set-azcontext?view=azps-8.0.0)
 
-### Reconnaissance:
+### Reconnaissance
 
 The most basic enumeration, which can provide some useful configuration information, can be done via running the following command:
 
@@ -94,7 +94,7 @@ To find out more about Azure IMDS, check out the following links:
 •	[Azure IMDS - John Savill](https://www.youtube.com/watch?v=M5BO91VOfXo)
 
 
-### Access Controls:
+### Access Controls
 
 Managing the VM access can be done by using Azure Role Based Access Control (RBAC). 
 RBAC uses roles with predefined scope and permissions to limit the access to Azure resources.
@@ -155,7 +155,7 @@ Get-AzRoleDefinition -scope <scope> IsCustom=True
 
 Azure RBAC roles are often inherited from the resource groups or subscriptions and as such cannot be removed from the scope. A good thing to watch out is if overall access control is over permissive. If "Virtual Machine Administrator" role is assigned against the subscription and is over permissive, then resource groups and resources within these will inherit this role. 
 
-### Network Access Controls:
+### Network Access Controls
 
 When assessing the network access controls, it’s good to keep in mind two situations:
 •	If an attacker is trying to gain access.
@@ -163,7 +163,7 @@ When assessing the network access controls, it’s good to keep in mind two situ
 
 The couple of things to look out for in both cases are: are improperly configured Network Security Groups (NSGs), absence of services such as Just-in-Time Access/Bastion and internal routing.
 
-#### Network Security Groups:
+#### Network Security Groups
 
 Network Security Groups (NSGs) are Azure resources containing rules on traffic towards/from a subnet or a VM. More on NSGs and their functionalities can be found [here](https://www.youtube.com/watch?v=K8ePZdLfU7M). Network Security Groups and rules attached to them can be accessed from the "Networking" tab under a selected VM or programmatically. The following commands can also be used to query the NSGs:
 
@@ -223,7 +223,7 @@ How JIT works can be found [here](https://docs.microsoft.com/en-us/azure/defende
 
 An additional solution which could be used to protect the exposure of the management ports is Azure Bastion. Bastion creates a private connection over TLS to the specified VM. It is deployed on a VNet level, therefore all the VMs inside a VNet will be able to benefit from it. When it comes to configuration of Bastion, there are certain controls that can/can’t be enabled depending on a Bastion SKU selected. For example, users opting for Standard SKU can disable copy/paste and file upload/download options. Documentation of Bastion can be found [here](https://docs.microsoft.com/en-us/azure/bastion/).
 
-#### Routing:
+#### Routing
 
 It's important to check the routing configuration for the subnet VM lives in as it can provide an unnecessary route for incoming or outgoing traffic from/to the VM. 
 
@@ -254,7 +254,7 @@ With the custom defined routes, it’s important to look out for any Network Vir
 
 Network Security Groups and Routing could be good measures applied at the network and transport layers of the OSI model. To secure a protection at higher levels, a deployment of Virtual Network Appliances (NVAs) is recommended. These can include but not limited to: Firewalls, IDS/IPS, Web filtering, Antivirus, etc. Therefore, it’s always good to check if these have been deployed. 
 
-### Disks:
+### Disks
 
 Virtual Machines can have three disk types attached:
 
@@ -267,7 +267,7 @@ It's important to assess the following:
 - Disk Encryption
 - Disk Backup
 
-#### Disk Encryption:
+#### Disk Encryption
 
 Data in Azure managed disks is encrypted using 256-bit AES encryption. There are three options to encrypt the VM’s disks in Azure:
 
@@ -295,7 +295,7 @@ Get-AzVmDiskEncryptionStatus --resource-group <resource group name> --name <vm n
 
 Additionally, these commands show the encryption secret URL, Key Encryption Key URL, resource IDs of the Key Vaults where the encryption key and key encryption key are present. When reviewing the disk configuration, it’s important to pay attention to the roles assigned in relation to disk management as explained in the Access Controls section above.
 
-### Backup:
+### Backup
 
 Virtual machines and their workloads can backed up by using the backup extension. The backups are stored inside a recovery services vault. Configuring the backup and recovery services is of crucial importance in safeguarding the data.
 
@@ -304,7 +304,7 @@ To check whether Backup Service is active for the relevant VM, we can navigate t
 All data travelling to recovery services vault is going through Microsoft Backbone networking using HTTPS. More about the encryption of backup using customer managed keys can be found [here](https://docs.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal).
 
 
-### Audit:
+### Audit
 
 Recommended use of Microsoft Defender for Cloud for insights on security monitoring and policy management as well as security recommendations on updates, NSGs, disk encryption etc. It can provide a really good set of native detection logic for suspicious activity at the VM level.
 
