@@ -1,4 +1,4 @@
-# Azure Logic Apps:
+# Azure Logic Apps
 
 ## General Security Notes:
 
@@ -23,17 +23,17 @@ Which plan to choose will depend on the organisational needs, policies and proce
 
 When assessing the security posture of a logic app, it’s good to think about two scenarios:
 
-•	External access to logic app 
-    o	What triggers the workflow?
-    o	Are there any limitations to workflow triggers?
-    o	What data is passed to the workflow?
-    o	How is authentication implemented?
-    o	Are there any known vulnerabilities enterprise applications have that could affect the workflow? 
-•	Internal access to logic app
-    o	IAM roles
-    o	Are there any locks on the Logic App’s history?
-    o	How does a workflow authenticate against other Azure services and third-party applications?
-    o	Is private endpoint implemented?
+-	External access to logic app 
+    -	What triggers the workflow?
+    -	Are there any limitations to workflow triggers?
+    -	What data is passed to the workflow?
+    -	How is authentication implemented?
+    -	Are there any known vulnerabilities enterprise applications have that could affect the workflow? 
+-	Internal access to logic app
+    -	IAM roles
+    -	Are there any locks on the Logic App’s history?
+    -	How does a workflow authenticate against other Azure services and third-party applications?
+    -	Is private endpoint implemented?
 
 
 
