@@ -96,7 +96,7 @@ When reviewing security groups, it's recommended to ensure the following:
 
  -Security groups shouldn't be left unassigned due to increased risk of them being accidentally assigned to a resource.
 
- -Security groups shouldn't be reused on different instances because future changes may impact instances which shouldn't be impacted.
+-Security groups shouldn't be reused on different instances because future changes may impact instances which do not require the new change. Additionally, if this method is used, security groups will likely be over-permissive as not all instances require the same port/ip ranges to be allowed.
 
  -Make sure that no management ports (RDP and SSH) are opened to the public internet.
 
