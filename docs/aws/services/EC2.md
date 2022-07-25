@@ -84,7 +84,7 @@ To get more information on EC2's security groups, the following command can be u
 aws ec2 describe-security-groups
 ```
 
-To get more information on rules applied to each security group of an EC2 instance, the following command can be used:
+To get more information on rules applied to a specific security group, the following command can be used:
 
 ```
 aws ec2 describe-security-group-rules --filter Name="group-id",Values="sg-testnumber"
