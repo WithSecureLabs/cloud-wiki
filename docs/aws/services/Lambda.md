@@ -1,6 +1,5 @@
 # Lambda
 
-TODO: References to hackingthe.cloud Lambda persistence and credential theft
 
 ## Service Details
 
