@@ -92,7 +92,7 @@ aws ec2 describe-security-group-rules --filter Name="group-id",Values="sg-testnu
 
 When reviewing security groups, it's recommended to ensure the following:
 
- -Wide IP and port ranges for incoming/outgoing traffic should be avoided where possible. It's always good to ensure that 0.0.0.0/0 IP range has not been included in either inbound or outbound rules.
+-Wide IP and port ranges for incoming/outgoing traffic should be avoided where possible. It's always good to ensure that the 0.0.0.0/0 IP range has not been included in either inbound or outbound rules.
 
  -Security groups shouldn't be left unassigned due to increased risk of them being accidentally assigned to a resource.
 
