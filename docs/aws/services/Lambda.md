@@ -35,6 +35,8 @@ Maintaining persistence inside a Lambda function you've exploited can be challen
 * Repeatedly exploit the initial flaw
 * Pivot out into the broader AWS environment using the Lambda function's IAM role, by stealing the access keys from the relevant environment variables.
 
+Further information about this topic can be found [here](https://hackingthe.cloud/aws/post_exploitation/lambda_persistence/).
+
 ### Configuration review
 
 * Review all IAM policies attached to Lambda roles and ensure they meet principle of least privilege
