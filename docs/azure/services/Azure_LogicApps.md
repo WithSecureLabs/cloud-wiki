@@ -116,7 +116,7 @@ Get-AzRoleDefinition -Scope <scope> IsCustom=True
 -Another example could be if contributor role scopes to a resource group which has an established API Connection to a resource running under a different scope. A new logic app can be created to attempt to manipulate that connection. 
 
 - Azure Policies provides an option to block using the connectors for services in logic apps. This can also be a good way to mitigate the scenarios mentioned above. More can be found [here](https://docs.microsoft.com/en-us/azure/logic-apps/block-connections-connectors).
--To avoid use of credentials, secrets, or Azure AD tokens when authenticating to access other Azure resources, it’s possible to use managed identities. Managed identities can be enabled under “Identity” section of “Settings” tab.
+-To avoid use of credentials, secrets, or Azure AD tokens when authenticating to access other Azure resources, it’s possible to use managed identities. Managed identities can be enabled under the “Identity” section of “Settings” tab.
 
 
 ## External Connections:
