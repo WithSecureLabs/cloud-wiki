@@ -29,7 +29,7 @@ Azure Monitor has the capability to collect data from all sorts of sources, whet
 - Azure tenant monitoring data - data about operation of tenant-level Azure services, such as Azure AD
 - Custom sources - collect data from any REST client that uses the [Data Collector API](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collector-api).
 
-Let us go a bit more into the Azure Platform logs, which are the detailed diagnostic and auditing info for Azure resources and the platform they depend on. Generally, the various types of logs provided at the platform level can be categories into different layers. These layers can be broadly split at the resource, subscription, or tenant level.
+Focusing further on the Azure Platform logs, which are the detailed diagnostic and auditing info for Azure resources and the platform they depend on. Generally, the various types of logs provided at the platform level can be categorised into different layers. These layers can be broadly split at the resource, subscription, or tenant level.
 
 |Log|Layer|Description|
 |:--|:----|:----------|
