@@ -80,7 +80,7 @@ More on Logic App commands, properties and templates can be found:
 
 Additionally, the two roles specific to Azure Logic Apps are:
 
-•	Logic App Contributor – ability to manage Logic Apps, but not change access to them
+• Logic App Contributor – provides the ability to manage Logic Apps, but not change access to them
 
 •	Logic App Reader – ability to read, enable and disable Logic Apps
 
