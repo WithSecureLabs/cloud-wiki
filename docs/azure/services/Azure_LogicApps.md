@@ -45,7 +45,7 @@ When assessing the security posture of a logic app, it’s good to think about t
 
 -Reviewing a logic app’s templates can be a good way to check if certain security policies have been applied on workflow’s actions and triggers such as `IncludeAuthorizationHeadersInOutputs` and `NotAfter` keys.
 
--In Azure portal, this template is accessible from the “Overview” tab of the assessed logic app for both Standard and Consumption plans.
+-In the Azure portal, this template is accessible from the “Overview” tab of the assessed logic app for both Standard and Consumption plans.
 
 -To review workflow configuration only using Azure portal, navigate to “Code View” inside Logic App’s designer.
 
