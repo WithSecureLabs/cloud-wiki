@@ -156,7 +156,7 @@ The snapshots created from an encrypted volume are encrypted with the same KMS k
 
 ## Backup
 
-From security perspective, it's important to have an EC2 backup configured in a secure way. If compromise was to happen, backups should be safeguarded.
+From a security perspective, it's important to have an EC2 backup configured in a secure way. If compromise was to happen, backups should be safeguarded.
 
 Data and operating system files can be backed up using EBS Snapshots and Amazon Machine Images (AMI). Snapshots backup a specific EBS volume whilst AMI is a backup of an entire EC2 instance.
 
