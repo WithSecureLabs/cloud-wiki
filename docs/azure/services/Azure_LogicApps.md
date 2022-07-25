@@ -47,7 +47,7 @@ When assessing the security posture of a logic app, it’s good to think about t
 
 -In the Azure portal, this template is accessible from the “Overview” tab of the assessed logic app for both Standard and Consumption plans.
 
--To review workflow configuration only using Azure portal, navigate to “Code View” inside Logic App’s designer.
+-To review workflow configuration only using the Azure portal, navigate to “Code View” inside Logic App’s designer.
 
 -When assessing multiple Logic Apps, it can be useful to find this information programmatically. However, it’s worth mentioning that this feature is only available for Logic Apps created with a Consumption plan.
 
