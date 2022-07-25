@@ -74,7 +74,7 @@ Overall, as with other bits, being sensible is the key bit especially with log c
 
 Azure Key Vaults are some important services that need to be checked that they are being logged. The main advantage being that using those logs you can figure out who is getting access to the stored secrets. Make sure that generated logs are useful from a security perspective by trying to perform actions that grab secrets and see what types of telemetry is generated.
 
-As mentioned slightly earlier, Microsoft Defender for Cloud does provide a lot more detailed security alerting across your subscription by default but if you want to configure custom alerts for various actions you do so by going to "Monitor" -> "Alerts" and then "Manage alert rules". In here you can establish whether any custom alerting rules have been configured. Some baseline recommendations for custom alerts would be the following type of operations:
+As mentioned earlier, Microsoft Defender for Cloud does provide a lot more detailed security alerting across your subscription by default but if you want to configure custom alerts for various actions you do so by going to "Monitor" -> "Alerts" and then "Manage alert rules". Here you can establish whether any custom alerting rules have been configured. Some baseline recommendations for custom alerts would be the following type of operations:
 
 * microsoft.authorization/policyassignments/write
 * microsoft.network/networksecuritygroups/write or microsoft.network/networksecuritygroups/delete
