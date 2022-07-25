@@ -98,7 +98,7 @@ When reviewing security groups, it's recommended to ensure the following:
 
 -Security groups shouldn't be reused on different instances because future changes may impact instances which do not require the new change. Additionally, if this method is used, security groups will likely be over-permissive as not all instances require the same port/ip ranges to be allowed.
 
- -Make sure that no management ports (RDP and SSH) are opened to the public internet.
+-Make sure that no management ports (RDP and SSH) are opened to the public internet. If access is required, consider using AWS System Manager as this requires no further rules in the security group. 
 
  
 AWS Bastion is a service which prevents unnecessary public exposure of hosts within a VPC. For EC2s, this could be useful in cases where public access to the EC2 is needed, however it's routed primarily via a Bastion host thus not running a risk of a publicly exposed EC2.
