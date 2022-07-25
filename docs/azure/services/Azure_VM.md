@@ -1,4 +1,4 @@
-# Azure Virtual Machines:
+# Azure Virtual Machines
 
 
 ## Overview
