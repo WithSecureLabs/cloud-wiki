@@ -62,3 +62,5 @@ We thank the following for their contributions to the wiki:
 | Sebastian Edmead       |                                                    |                                                         |
 | Szymon Grzybowski      |                                                    |                                                         |
 | Toni Jarvinen          |                                                    |                                                         |
+| Matthew Keogh          | [matthewkeogh50](https://github.com/matthewkeogh50)|                                                         |
+| Anela Tiro             | [elatiro77](https://github.com/elatiro77)          |                                                         |
