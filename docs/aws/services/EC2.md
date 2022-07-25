@@ -3,7 +3,7 @@
 
 Amazon Elastic Compute Cloud (EC2) is Amazon Web Service's virtual computer service offering used to host different applications, run compute workloads and provide the backbone for the RDS service, Amazon Fargate and Docker services. The instances are based on a KVM hypervisor, called "Nitro". EC2s are often central and indispensable resource, and as such it is important to configure them in a secure way to prevent downtime, unauthorised access and movement across the cloud estate.
 
-EC2s are built on a shared responsibility model between AWS and a customer. In terms of security, this means that both parties share a responsibility to set up and configure the instances in a safe manner. For customers this means management of the guest operating system, applications as well as configuration of instance itself and other services which may impact the EC2s. AWS is responsible for global hardware and software as per the diagram below:
+EC2s are built on a shared responsibility model between AWS and a customer. In terms of security, this means that both parties share a responsibility to set up and safely configure the instances. For customers this means management of the guest operating system, applications as well as configuration of the instance itself and other services which may impact the EC2s. AWS is responsible for global hardware and software (specifically related to the instance, like the hypervisor for example). More information can be found in the diagram below.
 
 ![image](/img/responsibility_model.jpeg)
 
