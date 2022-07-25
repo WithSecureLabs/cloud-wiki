@@ -111,7 +111,7 @@ Get-AzRoleDefinition -Scope <scope> IsCustom=True
 
 •	Secure data in “Runs history” by using obfuscation – enabled in workflow designer for secure inputs and outputs. It can also be enabled in workflow template using the `securestring` and `secureobject` types. It is important to note that Azure Logic Apps API for handling workflow history doesn’t return secured outputs. To find out more navigate to [here](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-resource-manager).
 
-- “Logic App Contributor” role allows for editing the logic app. A good example would be a logic app which has an established connection with Azure Key Vault. Due to the possibility to edit the workflow, it would be possible to further manipulate the connection and exfiltrate additional sensitive information. 
+- The “Logic App Contributor” role allows for editing the logic app. A good example would be a logic app which has an established connection with Azure Key Vault. Due to the possibility to edit the workflow, it would be possible to further manipulate the connection and exfiltrate additional sensitive information.
 
 -Another example could be if contributor role scopes to a resource group which has an established API Connection to a resource running under a different scope. A new logic app can be created to attempt to manipulate that connection. 
 
