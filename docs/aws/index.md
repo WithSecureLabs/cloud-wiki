@@ -34,7 +34,7 @@ A much more comprehensive list is maintained by Toni de la Fuente at [https://gi
 
 ## Benchmarks, Best Practices Guides etc
 
-* CIS Benchmark for AWS - [https://www.cisecurity.org/benchmark/azure/](https://www.cisecurity.org/benchmark/azure/)
+* CIS Benchmark for AWS - [https://www.cisecurity.org/benchmark/amazon_web_services](https://www.cisecurity.org/benchmark/amazon_web_services)
 * AWS Security Best Practices - [https://aws.amazon.com/whitepapers/aws-security-best-practices/](https://aws.amazon.com/whitepapers/aws-security-best-practices/)
 * AWS Security Guidance - [https://aws.amazon.com/security/guidance/](https://aws.amazon.com/security/guidance/)
 * Cloud Conformity Ruleset, good list of things to check for various services with associated risk levels - [https://www.cloudconformity.com/conformity-rules/](https://www.cloudconformity.com/conformity-rules/)
