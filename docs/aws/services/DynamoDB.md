@@ -85,7 +85,7 @@ DynamoDB encryption is a completely transparent encryption service that is fully
 - KMS encryption
 KMS functions the same way as other services, you have the choice of using AWS managed keys or your own customer managed keys. Both of these options will use incur KMS based charges.
 
-![image](/img/dynamodb_encryption.png)
+![image](/static/img/dynamodb_encryption.png)
 
 CMK's would always be the preferred choice from a security perspective as it guarantees full control over your data. However, in the vast majority of accounts and workloads this won't be a major cause for concern if an AWS managed key is being used.
 
@@ -93,7 +93,7 @@ CMK's would always be the preferred choice from a security perspective as it gua
 
 The PartiQL editor is a new feature that has been added to DynamoDB to allows users to query tables directly in the console. It's important to restrict access to this as required so data within the tables is not accidentally exposed.
 
-![image](/img/dynamodb_query_editor.png)
+![image](/static/img/dynamodb_query_editor.png)
 
 ### Global Tables
 
