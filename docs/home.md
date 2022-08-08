@@ -36,7 +36,9 @@ We thank the following for their contributions to the wiki:
 
 | Name                   | Github Handle                                      | Twitter Handle                                          |
 | ---------------------- | -------------------------------------------------- | ------------------------------------------------------- |
+| Aled Mehta             | [@x-delfino](https://github.com/x-delfino)          | [@x\_delfino](https://twitter.com/x_delfino) 
 | Andrea Amendola        |                                                    |                                                         |
+| Anela Tiro             | [@elatiro77](https://github.com/elatiro77)          |                                                         |
 | Antti Vähä-Sipilä      | [@anttivs](https://github.com/anttivs)             | [@anttivs](https://twitter.com/anttivs)                 |
 | Apostolos Mastoris     |                                                    |                                                         |
 | Christian Philipov     | [@chrisphilipov](https://github.com/chrisphilipov) | [@chrispy_sec](https://twitter.com/chrispy_sec)         |
@@ -56,11 +58,10 @@ We thank the following for their contributions to the wiki:
 | Lizelle Jaimangal      |                                                    |                                                         |
 | Mariusz Banach         |                                                    |                                                         |
 | Masande Mtintsilana    |                                                    |                                                         |
-| Mohit Gupta            | [@Skybound1](https://github.com/Skybound1)         | [@_Skybound](https://twitter.com/_skybound)             |
+| Matthew Keogh          | [@matthewkeogh50](https://github.com/matthewkeogh50)|                                                         |
+| Mohit Gupta            | [@Skybound1](https://github.com/Skybound1)         | [@\_Skybound](https://twitter.com/\_skybound)             |
 | Nick Jones             | [@NJonesUK](https://github.com/NJonesUK)           | [@nojonesuk](https://twitter.com/nojonesuk)             |
 | Robert Petesic         |                                                    |                                                         |
 | Sebastian Edmead       |                                                    |                                                         |
 | Szymon Grzybowski      |                                                    |                                                         |
 | Toni Jarvinen          |                                                    |                                                         |
-| Matthew Keogh          | [matthewkeogh50](https://github.com/matthewkeogh50)|                                                         |
-| Anela Tiro             | [elatiro77](https://github.com/elatiro77)          |                                                         |
