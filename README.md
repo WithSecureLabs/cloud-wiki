@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/644e83bc-c87f-4dda-9976-e14f5342f923/deploy-status)](https://app.netlify.com/sites/confident-wilson-c4de9b/deploys)
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
 This is the git repository containing the source for [https://secwiki.cloud](https://secwiki.cloud), a cloud security knowledge base curated by the cloud security team at WithSecure. Secwiki.cloud is intended to be an open cloud security knowledge base, covering both defensive and offensive topics across most common cloud platforms and cloud-adjacent tooling. It's been built following a set of core principles:
 

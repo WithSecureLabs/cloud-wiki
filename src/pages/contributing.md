@@ -14,7 +14,7 @@ Drop Nick Jones, Christian Philipov, Matthew Keogh or Mohit Gupta a line on the 
 
 ## Code of Conduct
 
-All contributors must follow our [code of conduct](../../CODE_OF_CONDUCT.md).
+All contributors must follow our [code of conduct](https://github.com/WithSecureLabs/cloud-wiki/blob/main/CODE_OF_CONDUCT.md).
 
 ## Style Guide
 
