@@ -11,7 +11,7 @@ The general recommendation is to enable GuardDuty in all regions in-use in all a
 If GuardDuty is enabled:
 
 - Check whether GuardDuty findings are being ingested anywhere, and whether that's being monitored
-- Check whether they're monitoring for alterations to GuardDuty's state via [CloudTrail](./CloudTrail) or [Config](./Config)
+- Check whether they're monitoring for alterations to GuardDuty's state via [CloudTrail](./CloudTrail) or AWS Config
 - If they're using multiple AWS account, they should have GuardDuty for each account enrolled into a master account. The master account should have very heavily restricted access, ideally to only a few key security people.
   - For details on multi-account GuardDuty: <https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_accounts.html>
 

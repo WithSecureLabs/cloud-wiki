@@ -350,9 +350,9 @@ Kinnaird McQuade maintains a list of AWS API calls that generate and return cred
 
 ## Service Control Policy (SCP)
 
-A feature of [AWS Organizations](./Organizations) that supports blocking actions across entire accounts or OUs in the organization. They operate in a similar manner to permission boundaries with regards to limiting the maximum permissions a role may have. They can block even the root user in an account from taking particular actions.
+A feature of AWS Organizations that supports blocking actions across entire accounts or OUs in the organization. They operate in a similar manner to permission boundaries with regards to limiting the maximum permissions a role may have. They can block even the root user in an account from taking particular actions.
 
-See the [Organizations](./Organizations) page for more detail, but in summary, SCPs:
+See the Organization page for more detail, but in summary, SCPs:
 
 - Control maximum available permissions for all accounts in the organization.
 - Block even the root user from performing actions.

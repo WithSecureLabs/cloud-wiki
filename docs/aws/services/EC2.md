@@ -104,7 +104,7 @@ When reviewing security groups, it's recommended to ensure the following:
 
 Additionally, VPC/subnet route table rules, peering connections, PrivateLinks and endpoints should also be reviewed as they could provide an access to an EC2 instance. More can be found:
 
-[AWS VPC](../VPC)
+[AWS VPC](/aws/services/VPC)
 
 [AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html)
 
