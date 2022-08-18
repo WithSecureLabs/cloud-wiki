@@ -41,8 +41,10 @@ We thank the following for their contributions to the wiki:
 | Anela Tiro             | [@elatiro77](https://github.com/elatiro77)           |                                                         |
 | Antti Vähä-Sipilä      | [@anttivs](https://github.com/anttivs)               | [@anttivs](https://twitter.com/anttivs)                 |
 | Apostolos Mastoris     |                                                      |                                                         |
-| Christian Philipov     | [@chrisphilipov](https://github.com/chrisphilipov)   | [@chrispy_sec](https://twitter.com/chrispy_sec)         |
-| Colman Mbuya           | [@colman-mbuya](https://github.com/colman-mbuya)     | [@uid_zer0](https://twitter.com/uid_zer0)               |
+| Behzad Jabbari         | [@behzadnj](https://github.com/behzadnj)             | [@\_G4ru\_](https://twitter.com/_G4RU_)                 |
+| bob-bot                | [@bob-bot](https://github.com/bob-bot)               |                                                         |
+| Christian Philipov     | [@chrisphilipov](https://github.com/chrisphilipov)   | [@chrispy\_sec](https://twitter.com/chrispy_sec)        |
+| Colman Mbuya           | [@colman-mbuya](https://github.com/colman-mbuya)     | [@uid\_zer0](https://twitter.com/uid_zer0)              |
 | Connor Taylor          |                                                      |                                                         |
 | Craig Boyle            |                                                      |                                                         |
 | Daniel Milnes          |                                                      |                                                         |
@@ -50,7 +52,7 @@ We thank the following for their contributions to the wiki:
 | David Yates            |                                                      |                                                         |
 | Emanuele Cesari        |                                                      |                                                         |
 | Emilian Cebuc          |                                                      |                                                         |
-| James Cleverley-Prance | [@jpts](https://github.com/jpts)                     | [@jpts_](https://twitter.com/jpts_)                     |
+| James Cleverley-Prance | [@jpts](https://github.com/jpts)                     | [@jpts\_](https://twitter.com/jpts_)                    |
 | Javan Mnjama           |                                                      |                                                         |
 | Jean DeSmidt           |                                                      |                                                         |
 | Jonathan Adler         |                                                      |                                                         |
@@ -59,9 +61,12 @@ We thank the following for their contributions to the wiki:
 | Mariusz Banach         |                                                      |                                                         |
 | Masande Mtintsilana    |                                                      |                                                         |
 | Matthew Keogh          | [@matthewkeogh50](https://github.com/matthewkeogh50) |                                                         |
+| Michele Pittoni        | [@mpitt](https://github.com/mpitt)                   | [@mpitt79](https://twitter.com/mpitt79)                 |
 | Mohit Gupta            | [@Skybound1](https://github.com/Skybound1)           | [@\_Skybound](https://twitter.com/\_skybound)           |
 | Nick Jones             | [@NJonesUK](https://github.com/NJonesUK)             | [@nojonesuk](https://twitter.com/nojonesuk)             |
+| Patrick Hannah         | [@patrickhannah](https://github.com/patrickhannah)   | [@pjhannah1](https://twitter.com/pjhannah1)             |
 | Robert Petesic         |                                                      |                                                         |
 | Sebastian Edmead       |                                                      |                                                         |
 | Szymon Grzybowski      |                                                      |                                                         |
 | Toni Jarvinen          |                                                      |                                                         |
+| uname223               | [@uname223](https://github.com/uname223)             |                                                         |
