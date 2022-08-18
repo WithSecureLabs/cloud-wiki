@@ -14,7 +14,7 @@ Drop Nick Jones, Christian Philipov, Matthew Keogh or Mohit Gupta a line on the 
 
 ## Code of Conduct
 
-All contributors must follow our [code of conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
+All contributors must follow our [code of conduct](../../CODE_OF_CONDUCT.md).
 
 ## Style Guide
 
@@ -34,6 +34,12 @@ The purpose of this wiki is to support cloud security professionals in their wor
 * biases towards easy-to-skim content formats, making extensive use of bullets, tables and other similar styles to break the content up and make it easier to read.
 * presents facts and the topic in a light, concise yet more descriptive (where relevant), easy-to-follow, informal even, fashion.
   * this would logically apply better to the larger, core topics which would require more extensive articles.
+
+### Preferred Language Usage
+
+All the reviewers appreciate any commits that will help other people in the cloud security community with either small corrections to existing pages or new pages entirely. To support that, we're happy for people to add and commit information in any way that is easier for them, based on the type of English language they are most comfortable with.
+
+However, for the purposes of consistency we'd ask that people consider using American English spelling when uncertain on how to spell certain words that are ambiguous and can be spelt in different ways (e.g. socialise vs socialize, organisation vs organization, etc...). All provided PRs will be reviewed primarily for technical content and its accuracy, whereas specific wording and spelling will be a secondary concern in review process.
 
 ### Template guidelines for the "minimalistic" style service pages
 
