@@ -10,7 +10,7 @@ A cloud "data warehouse" - large scale SQL-based data store designed for holding
 
 * IAM-backed authentication should be used for Redshift users, either by using the Redshift JDBC or ODBC drivers which handle it natively, or by making use of the  `GetClusterCredentials` API call to request database credentials associated with the current IAM user or role
 * Ensure the IAM roles that have access to the cluster are supposed to, and that they're configured with sensible permissions according to the principle of least privilege
-* IAM roles assigned to Redshift can be used to access [S3](./S3), [Athena](./Athena), [Glue](./Glue), and [Lambda](./Lambda). Ensure any roles assigned to the cluster only grant permissions to the specific buckets, functions etc that are required for the cluster to function.
+* IAM roles assigned to Redshift can be used to access [S3](./S3), Athena, Glue, and [Lambda](./Lambda). Ensure any roles assigned to the cluster only grant permissions to the specific buckets, functions etc that are required for the cluster to function.
 * Master user should be renamed when cluster is created.
   * Default master user username is `awsuser`
   * `aws redshift create-cluster --master-username [USERNAME]` to specify a different master user on creation
@@ -36,7 +36,7 @@ This depends on use case, but the following should be considered:
 ### Data Security
 
 * Enforce encryption at rest
-  * Server-side encryption preferable in most use cases due to lower overhead, this uses KMS under the hood and encrypts/decrypts transparently. See [KMS](./KMS) for key handling details
+  * Server-side encryption preferable in most use cases due to lower overhead, this uses KMS under the hood and encrypts/decrypts transparently. See AWS KMS for key handling details
   * [https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html) for details of how the cluster-level server side encryption works
   * `aws redshift describe-clusters --cluster-identifier [CLUSTERNAME]` , look for `Encrypted` parameter
 * Enforce encryption in transit

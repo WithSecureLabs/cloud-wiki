@@ -42,7 +42,7 @@ Let us start outside of an Azure AD organization first. Within AAD you can have 
 
 Now inside an Azure AD tenant, we have two domains where MFA methods are selected and enabled. The one where users can set their own authentication defaults and secondary verification methods would be the [mysignins.microsoft.com](https://mysignins.microsoft.com/) one. Although you cannot disable MFA or configure settings you can set other methods that are allowed in your Azure tenant.
 
-The main one for administrative management, would be the [account.activedirectory.windowsazure.com](account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx) domain. In here, you can enable or disable the ability for users to create app passwords (enabled by default), setup trusted IPs where you can bypass MFA request generation, enable default MFA verification options or set an upper-limit for how long can users avoid doing MFA on devices they trusted (1-60 days range).
+The main one for administrative management, would be the [account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx) domain. In here, you can enable or disable the ability for users to create app passwords (enabled by default), setup trusted IPs where you can bypass MFA request generation, enable default MFA verification options or set an upper-limit for how long can users avoid doing MFA on devices they trusted (1-60 days range).
 
 But the more important bit is the "Users" tab which displays all users in your Azure AD tenant and what their MFA status is. The MFA status can be one of three settings:
 

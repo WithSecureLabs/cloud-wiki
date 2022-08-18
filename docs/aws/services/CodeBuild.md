@@ -28,7 +28,7 @@ Service for executing build processes - compiling applications etc. Commonly dep
   * <https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html>
   * <https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-permissions-reference.html>
 * Build Artefacts
-  * These are written to an S3 bucket that is protected by [KMS](./KMS) with a CMK
+  * These are written to an S3 bucket that is protected by AWS KMS with a CMK
   * Check S3 bucket and KMS key permissions per their service guides
   * <https://docs.aws.amazon.com/codebuild/latest/userguide/security-key-management.html>
 * Logging/Auditing/Monitoring
