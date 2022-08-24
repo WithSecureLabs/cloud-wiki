@@ -35,6 +35,8 @@ A list of all the various Azure and Microsoft portals that would be of interest 
 * Cloud security Suite: One stop tool for auditing the security posture of AWS/GCP/Azure infrastructure - [https://github.com/SecurityFTW/cs-suite](https://github.com/SecurityFTW/cs-suite)
 * Powerzure: PowerShell script to interact with Azure - [https://github.com/hausec/PowerZure](https://github.com/hausec/PowerZure)
 * Microsoft's Attack Surface Analyzer - [https://github.com/Microsoft/AttackSurfaceAnalyzer](https://github.com/Microsoft/AttackSurfaceAnalyzer)
+* AzureHound: The BloodHound data collector for Microsoft Azure [https://github.com/BloodHoundAD/AzureHound](https://github.com/BloodHoundAD/AzureHound)
+
 
 ## Training Resources
 
