@@ -14,6 +14,6 @@
 
 Run `docker build . -t cloud-wiki` from the root directory of the repo.
 
-Once it is done building, run `docker run -p 3000:3000 --network host --name cloud-wiki -it cloud-wiki`.
+Once it is done building, run `docker run -p 3000:3000 --name cloud-wiki -it cloud-wiki`.
 
 The wiki should now be locally accessible on `http://localhost:3000`.
