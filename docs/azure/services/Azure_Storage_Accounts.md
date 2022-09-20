@@ -196,7 +196,7 @@ These combinations of service-level permissions, and Storage Account-level ones,
 
 To check the public access setting for all containers in a Storage Account (PowerShell):
 
-```PowerShell
+```powerShell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName <resourcegroup-name> -Name <storageaccount-name>
 $ctx = $storageAccount.Context
 
@@ -220,13 +220,13 @@ Controls that are commonly insecurely configured include:
 
 #### Is encryption at rest enforced?
 PowerShell:
-```Powershell
+```powershell
 (Get-AzResource -ResourceGroupName <resourcegroup-name> -ResourceType Microsoft.Storage/storageAccounts -Name <storageaccount-name>).Properties.encryption | ConvertTo-Json
 ```
 
 #### Are HTTPS-only connections enforced?
 PowerShell:
-```Powershell
+```powershell
 Get-AzStorageAccount -Name <storageaccount-name> -ResourceGroupName <resourcegroup-name> | Select-Object StorageAccountName, EnableHttpsTrafficOnly
 ```
 
@@ -237,7 +237,7 @@ az storage account list --query [*].[name,enableHttpsTrafficOnly] -o table --sub
 
 #### Are insecure TLS versions permitted?
 PowerShell:
-```Powershell
+```powershell
 Get-AzStorageAccount -Name <storageaccount-name> -ResourceGroupName <resourcegroup-name> | Select-Object StorageAccountName, MinimumTlsVersion
 ```
 
