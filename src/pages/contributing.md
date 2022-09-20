@@ -1,6 +1,8 @@
 # Contributing
 
 import Link from '@docusaurus/Link';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Thank you for considering contributing to this knowledge base! We welcome all input from the community.  If you'd like to contribute but aren't sure where to start, pick an open issue from the GitHub repository on a topic you know something about and begin work there. Alternatively, if you see a page that needs improvement or want to add a new one all together then please go right ahead!
 
@@ -92,3 +94,58 @@ Check the pages for [Azure MFA](/azure/services/azure_mfa) and [Azure AD](/azure
 * The latter is a bit less descriptive and it's even more bullet-to-the-pointy, yet also conveying the idea of structure that we're aiming at
 
 For an idea of a complete article of the "minimalistic" kind, have a look at [AWS CloudTrail](/aws/services/CloudTrail) instead. This shows the minimum info we should aim at having in an article that's not _that_ big requiring too much explanation.
+
+### Code Tabs Usage
+
+This Wiki supports [Tabs](https://docusaurus.io/docs/markdown-features/tabs) which provide a great way to format code examples for different languages. Usage is nice and simple and ends up with an object looking like this:
+
+<Tabs>
+  <TabItem value="bash" label="bash">
+
+```bash
+printf "Cloud Wiki"
+```
+
+  </TabItem>
+  <TabItem value="posh" label="PowerShell">
+
+```powershell
+Write-Host "Cloud Wiki"
+```
+
+  </TabItem>
+</Tabs>
+
+
+First you'll need to import the required components by placing this at the top of your markdown page:
+
+```javascript
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+Then we can build the tab object. A couple of things to bear in mind:
+- The `label` is the value that will appear as the tab name.
+- The blank line before and after the code block within the `TabItem` is required.
+- Don't indent your code block (the code block itself, you can indent code within the block as required).
+
+``````markdown
+<Tabs>
+  <TabItem value="bash" label="bash">
+
+```bash
+printf "Cloud Wiki"
+```
+
+  </TabItem>
+  <TabItem value="posh" label="PowerShell">
+
+```powershell
+Write-Host "Cloud Wiki"
+```
+
+  </TabItem>
+</Tabs>
+``````
+
+For more examples, you can check the [Azure Storage](/azure/services/azure_storage) page.
