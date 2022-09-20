@@ -65,7 +65,7 @@ module.exports = {
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
-      additionalLanguages: ['powershell','http','hcl', 'bicep'],
+      additionalLanguages: ['powershell','http','hcl','bicep'],
     },
   },
   presets: [
