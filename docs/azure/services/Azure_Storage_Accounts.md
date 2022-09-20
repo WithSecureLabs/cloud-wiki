@@ -196,7 +196,7 @@ These combinations of service-level permissions, and Storage Account-level ones,
 
 To check the public access setting for all containers in a Storage Account (PowerShell):
 
-```powerShell
+```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName <resourcegroup-name> -Name <storageaccount-name>
 $ctx = $storageAccount.Context
 
