@@ -1,10 +1,14 @@
 # Lambda
 
+
 ## Service Details
 
-* Functions as a service
-* Called over HTTP through API gateway, or via triggers from other AWS services
-* When executed, AWS spins up a container with the code and runtimes and executes the function
+* Functions as a service.
+* AWS executes code you give it in a (usually) AWS-managed containerized environment.
+  * A number of standard runtime environments maintained by AWS
+  * Can provide your own as Docker/OCI images
+* Called over HTTP through API gateway, or via triggers from other AWS services.
+* When executed, AWS spins up a container with the code and runtimes and executes the function.
 
 ## Assessment Notes
 
@@ -20,7 +24,19 @@
 
 * Credentials associated with roles are loaded in as environment variables
 * Lambda calls `sts:AssumeRole` under the hood to acquire them, requests for 12 hour validity.
-* Credentials are not rotated for the duration of the MicroVM's existence, but [experimentation suggests they live for up to 2 hours if continually invoked](https://www.keithrozario.com/2020/06/access-keys-in-aws-lambda.html):
+* Credentials are not rotated for the duration of the MicroVM's existence, but [experimentation suggests they live for up to 2 hours if continually invoked](https://www.keithrozario.com/2020/06/access-keys-in-aws-lambda.html).
+
+If you are able to compromise a lambda function, it may be possible to steal these credentials out of lambda, use normal methods to retrieve them. Lambda also uses a data endpoint where the configuration of the function is actually passed to the VM on http://localhost:9001/2018-06-01/runtime/invocation/next. Check here for any secrets that have been stored in the code or other configuration.
+
+#### Persistence Inside Lambdas
+
+Maintaining persistence inside a Lambda function you've exploited can be challenging long term, given the short lifespan of any particular instance of a function. The three most common options here are:
+
+* Make repeated requests to a function in an attempt to keep the exploited container alive
+* Repeatedly exploit the initial flaw
+* Pivot out into the broader AWS environment using the Lambda function's IAM role, by stealing the access keys from the relevant environment variables.
+
+Further information about this topic can be found [here](https://hackingthe.cloud/aws/post_exploitation/lambda_persistence/).
 
 ### Configuration review
 
@@ -56,6 +72,10 @@ Call Lambdas directly via URL, instead of invoking via an AWS API call or integr
 
 This is documented in the AWS documentation at [https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html#urls-governance](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html#urls-governance)
 
+#### Lambda Function Versioning
+
+It's possible to set a particular version of a Lambda function as the version to execute. This allows the version of a function's code to be pinned and only updated when the function is intentionally redeployed. This is often set to `$LATEST`, whatever the newest version of the code uploaded is. [Aidan Steele wrote a great blog](https://awsteele.com/blog/2020/12/24/aws-lambda-latest-is-dangerous.html) explaining why `$LATEST` is a bad idea from a security perspective.
+
 ## External Links
 
 * <https://d1.awsstatic.com/whitepapers/Overview-AWS-Lambda-Security.pdf>
@@ -64,3 +84,4 @@ This is documented in the AWS documentation at [https://docs.aws.amazon.com/lamb
 * Gone in 60 Milliseconds - Rich Jones
   * <https://lab.dsst.io/slides/33c3/slides/7865.pdf>
   * <https://media.ccc.de/v/33c3-7865-gone_in_60_milliseconds>
+* [Access Keys in Lambda Functions](https://www.keithrozario.com/2020/06/access-keys-in-aws-lambda.html)

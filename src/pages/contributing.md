@@ -2,7 +2,7 @@
 
 import Link from '@docusaurus/Link';
 
-Thank you for considering contributing to this knowledge base! We welcome all input from the community.  If you'd like to contribute but aren't sure where to start, pick an open issue from the GitHub repository on a topic you know something about and begin work there.
+Thank you for considering contributing to this knowledge base! We welcome all input from the community.  If you'd like to contribute but aren't sure where to start, pick an open issue from the GitHub repository on a topic you know something about and begin work there. Alternatively, if you see a page that needs improvement or want to add a new one all together then please go right ahead!
 
 The contribution process is as follows:
 
@@ -10,11 +10,11 @@ The contribution process is as follows:
 * Make your changes to the appropriate files under `/docs`, following the style guide below where possible.
 * Open a merge request, and fill in the merge template
 
-Drop Nick Jones, Christian Philipov or Mohit Gupta a line on the Cloud Security Forum Slack workspace, or Twitter, if you have questions or need some support.
+Drop Nick Jones, Christian Philipov, Matthew Keogh or Mohit Gupta a line on the Cloud Security Forum Slack workspace, or Twitter, if you have questions or need some support.
 
 ## Code of Conduct
 
-All contributors must follow our [code of conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
+All contributors must follow our [code of conduct](https://github.com/WithSecureLabs/cloud-wiki/blob/main/CODE_OF_CONDUCT.md).
 
 ## Style Guide
 
@@ -30,10 +30,16 @@ Not all services are the same, some just aren't very security-relevant, or are s
 
 The purpose of this wiki is to support cloud security professionals in their work, and is intended to serve as a reference rather than a location for blog-style content. For this purpose we encourage that article writing:
 
-* be factually accurate, grammarly correct and professional
+* be factually accurate, grammatically correct and professional
 * biases towards easy-to-skim content formats, making extensive use of bullets, tables and other similar styles to break the content up and make it easier to read.
 * presents facts and the topic in a light, concise yet more descriptive (where relevant), easy-to-follow, informal even, fashion.
   * this would logically apply better to the larger, core topics which would require more extensive articles.
+
+### Preferred Language Usage
+
+All the reviewers appreciate any commits that will help other people in the cloud security community with either small corrections to existing pages or new pages entirely. To support that, we're happy for people to add and commit information in any way that is easier for them, based on the type of English language they are most comfortable with.
+
+However, for the purposes of consistency we'd ask that people consider using American English spelling when uncertain on how to spell certain words that are ambiguous and can be spelt in different ways (e.g. socialise vs socialize, organisation vs organization, etc...). All provided PRs will be reviewed primarily for technical content and its accuracy, whereas specific wording and spelling will be a secondary concern in review process.
 
 ### Template guidelines for the "minimalistic" style service pages
 
@@ -66,11 +72,11 @@ It is essential that these articles continue to serve their purpose of providing
 * Include more comprehensive descriptions about the service in question, referencing bits of information that could actually be useful:
   * to better understand the service and how it operates, or if there are multiple areas of it, how they interoperate
   * trivial aspects of it, areas that have changed over time and might be relevant during testing or for the recommendations to be given
-  * elements that might interest the client, lesser-known areas/features useful in discussions with them
+  * elements that might interest organisations, lesser-known areas/features useful in discussions with them
 * Continue using bullet point-style statements for clear and simple information
   * We don't want to make a service page pointlessly overly-descriptive
   * Also helps break the flow when reading
-* Make use of tables, images, or any other medium that can help better drive across/highlight the bits that are beign discussed
+* Make use of tables, images, or any other medium that can help better drive across/highlight the bits that are being discussed
 * Include any interesting information from experiences on engagements
 * Huge topics such as IAM, or Azure Storage Accounts, which might have multiple services contributing to them, are better structured to:
   * Be presented in a general page discussing the service, perhaps written in the "larger article" style
@@ -80,9 +86,9 @@ It is essential that these articles continue to serve their purpose of providing
 
 ### Examples
 
-Check the pages for [Azure MFA](azure/assessment-guide/service-guides/Azure_MFA) and [AWS KMS](aws/assessment-guide/service-guides/KMS) for examples of "larger" articles.
+Check the pages for [Azure MFA](/azure/services/azure_mfa) and [Azure AD](/azure/services/Azure_AD) for examples of "larger" articles.
 
-* The former is a great example of the maximum length, descriptiveness and informal style that coudl/should be present
+* The former is a great example of the maximum length, descriptiveness and informal style that could/should be present
 * The latter is a bit less descriptive and it's even more bullet-to-the-pointy, yet also conveying the idea of structure that we're aiming at
 
-For an idea of a complete article of the "minimalistic" kind, have a look at [AWS CloudTrail](aws/assessment-guide/service-guides/CloudTrail) instead. This shows the minimum info we should aim at having in an article that's not _that_ big requiring too much explanation.
+For an idea of a complete article of the "minimalistic" kind, have a look at [AWS CloudTrail](/aws/services/CloudTrail) instead. This shows the minimum info we should aim at having in an article that's not _that_ big requiring too much explanation.

@@ -92,7 +92,7 @@ Key fields from a security perspective include:
 
 ## Assessment Notes
 
-The best option is to have all AWS accounts owned by an organization in an [AWS Organization](./Organizations), and use an Organization-wide trail. This allows all logs to be centrally gathered across all AWS accounts. Every Organization should have at least one CloudTrail created that:
+The best option is to have all AWS accounts owned by an organization in an AWS Organization, and use an Organization-wide trail. This allows all logs to be centrally gathered across all AWS accounts. Every Organization should have at least one CloudTrail created that:
 
 - Is configured to log all regions (is a multi-region trail)
 - Is configured to log global service events (which includes IAM, amongst other things)

@@ -5,7 +5,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 module.exports = {
   title: 'Cloud Security Wiki',
   tagline: 'Securing the Cloud, by WithSecure',
-  url: 'https://confident-wilson-c4de9b.netlify.app',
+  url: 'https://www.secwiki.cloud',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -13,7 +13,11 @@ module.exports = {
   organizationName: 'WithsecureLabs', // Usually your GitHub org/user name.
   projectName: 'cloud-wiki', // Usually your repo name.
   themeConfig: {
-    defaultMode: 'dark',
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
+    },
     navbar: {
       title: 'Cloud Security Wiki',
       logo: {
@@ -22,24 +26,6 @@ module.exports = {
         srcDark: "img/logo-light.svg"
       },
       items: [
-        {
-          type: 'doc',
-          docId: 'aws/index',
-          position: 'left',
-          label: 'AWS',
-        },
-        {
-          type: 'doc',
-          docId: 'azure/index',
-          position: 'left',
-          label: 'Azure',
-        },
-        {
-          type: 'doc',
-          docId: 'home',
-          position: 'left',
-          label: 'Saas',
-        },
         {
           to: '/contributing',
           label: 'Contributing',
@@ -74,11 +60,12 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} F-Secure Consulting. Built with Docusaurus.`,
+      copyright: `Built and maintained by the cloud consultancy team at WithSecure.`,
     },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
+      additionalLanguages: ['powershell','http','hcl','bicep'],
     },
   },
   presets: [
@@ -91,7 +78,7 @@ module.exports = {
           routeBasePath: '/',
           // Please change this to your repo.
           editUrl:
-            'https://github.com/FSecureLABS/cloud-wiki/tree/main',
+            'https://github.com/withsecurelabs/cloud-wiki/tree/main',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
