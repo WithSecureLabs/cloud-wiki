@@ -132,13 +132,13 @@ Authorization="[SharedKey|SharedKeyLite] <AccountName>:<Signature>"
 
 It's important to know that you actually have 2 access keys associated with each Storage Account. The reason for this is to facilitate key rotation, a process that should be completed periodically to mitigate the impact in the instance of key compromise. This process is typically done by migrating apps or services to use the secondary key, allowing for the primary key to be regenerated. The same process is then repeated when needing to change the secondary key. Due to this key rotation process, it is necessary to clearly track access key usage to allow for key rotation without impacting services or applications.
 
-Rotation can be checked by looking at the activity logs, which log every action of interest. For instance, if there's not been an event related to "rotation" in the last 90 days, then it's unlikely that the keys are being rotated:
+Rotation can be checked by looking at the activity logs, which log every action of interest. For instance, if there's not been a key rotation event in the last 90 days, then it's unlikely that the keys are being rotated:
 
 <Tabs>
   <TabItem value="az" label="Azure CLI">
 
 ```bash
-az monitor activity-log list -g <resourceGroup> --offset 90d | grep -i "rotate"
+az monitor activity-log list --offset 90d --query "[?authorization.action=='Microsoft.Storage/storageAccounts/regenerateKey/action'].{Action:authorization.action, resourceId:resourceId, at:eventTimestamp, by:caller}"
 ```
 
   </TabItem>
