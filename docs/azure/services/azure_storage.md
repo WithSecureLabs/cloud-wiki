@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Azure Storage
 ## Overview
 When looking at storage of data in Azure, we have 3 main categories:
@@ -129,10 +132,17 @@ Authorization="[SharedKey|SharedKeyLite] <AccountName>:<Signature>"
 
 It's important to know that you actually have 2 access keys associated with each Storage Account. The reason for this is to facilitate key rotation, a process that should be completed periodically to mitigate the impact in the instance of key compromise. This process is typically done by migrating apps or services to use the secondary key, allowing for the primary key to be regenerated. The same process is then repeated when needing to change the secondary key. Due to this key rotation process, it is necessary to clearly track access key usage to allow for key rotation without impacting services or applications.
 
-Rotation can be checked by looking at the activity logs, which log every action of interest. For instance, if there's not been an event related to "rotation" in the last 90 days, then it's unlikely that the keys are being rotated:
+Rotation can be checked by looking at the activity logs, which log every action of interest. For instance, if there's not been a key rotation event in the last 90 days, then it's unlikely that the keys are being rotated:
+
+<Tabs>
+  <TabItem value="az" label="Azure CLI">
+
 ```bash
-az monitor activity-log list -g <resourceGroup> --offset 90d | grep -i "rotate"
+az monitor activity-log list --offset 90d --query "[?authorization.action=='Microsoft.Storage/storageAccounts/regenerateKey/action'].{Action:authorization.action, resourceId:resourceId, at:eventTimestamp, by:caller}"
 ```
+
+  </TabItem>
+</Tabs>
 
 Storage Account Keys are typically enticing to attackers as they provide a means of accessing storage resources without multifactor authentication, and without key expiry (except in the instance of key rotation as outlined above). These keys are also often insecurely stored in source code, with common indicators and areas to check being:
   * Usage of the StorageCredentials class
@@ -194,7 +204,10 @@ These combinations of service-level permissions, and Storage Account-level ones,
 - Want publicly accessible files in different directories? Put them in a Storage Account with "public access" enabled, and into a Blob container with access permissions set to "Container" - fully open;
 - Want to only allow anonymous access to specific files, but not everything? Put them into a Storage Account with "public access" enabled, but the access control for the Container holding them set to "Blob"; any other containers should be set to be "Private";
 
-To check the public access setting for all containers in a Storage Account (PowerShell):
+To check the public access setting for all containers in a Storage Account:
+
+<Tabs>
+  <TabItem value="posh" label="PowerShell">
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName <resourcegroup-name> -Name <storageaccount-name>
@@ -202,6 +215,9 @@ $ctx = $storageAccount.Context
 
 Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
 ```
+
+  </TabItem>
+</Tabs>
 
 Due to the lack of authorisation requirements enforced in anonymous access, it is vital that anonymous access is only permitted for blobs and containers that do not contain sensitive information, and explicitly require anonymous access to satisfy intended usage requirements.
 
@@ -219,32 +235,54 @@ Encryption <u>at rest</u> is done by default with a MS-managed key
 Controls that are commonly insecurely configured include: 
 
 #### Is encryption at rest enforced?
-PowerShell:
+
+<Tabs>
+  <TabItem value="posh" label="PowerShell">
+
 ```powershell
 (Get-AzResource -ResourceGroupName <resourcegroup-name> -ResourceType Microsoft.Storage/storageAccounts -Name <storageaccount-name>).Properties.encryption | ConvertTo-Json
 ```
 
+  </TabItem>
+</Tabs>
+
 #### Are HTTPS-only connections enforced?
-PowerShell:
+
+<Tabs>
+  <TabItem value="posh" label="PowerShell">
+
 ```powershell
 Get-AzStorageAccount -Name <storageaccount-name> -ResourceGroupName <resourcegroup-name> | Select-Object StorageAccountName, EnableHttpsTrafficOnly
 ```
 
-Az CLI:
+  </TabItem>
+  <TabItem value="az" label="Azure CLI">
+
 ```bash
-az storage account list --query [*].[name,enableHttpsTrafficOnly] -o table --subscription <subcription>; 
+az storage account list --query [*].[name,enableHttpsTrafficOnly] -o table --subscription <subscription>; 
 ```
 
+  </TabItem>
+</Tabs>
+
 #### Are insecure TLS versions permitted?
-PowerShell:
+
+<Tabs>
+  <TabItem value="posh" label="PowerShell">
+
 ```powershell
 Get-AzStorageAccount -Name <storageaccount-name> -ResourceGroupName <resourcegroup-name> | Select-Object StorageAccountName, MinimumTlsVersion
 ```
 
-Az CLI:
+  </TabItem>
+  <TabItem value="az" label="Azure CLI">
+
 ```bash
-az storage account list --query '[].{name: name, resourceGroup: resourceGroup, minimumTlsVersion: minimumTlsVersion}' --subscription <subscription> -o tsv;
+az storage account list --query '[].{name: name, resourceGroup: resourceGroup, minimumTlsVersion: minimumTlsVersion}' --subscription <subscription> -o table;
 ```
+
+  </TabItem>
+</Tabs>
 
 More information be found at the following locations:
   * [Encryption at rest](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption)
