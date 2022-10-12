@@ -79,4 +79,4 @@ Custom domain names can be created directly in API GW. An SSL certificate must e
 
 ## External References
 
-- API Gateway developer guide [https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html]
+- API Gateway developer guide [https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) 
