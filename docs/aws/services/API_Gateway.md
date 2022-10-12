@@ -18,6 +18,7 @@ Certain API endpoint types have different configuration available. For example, 
 - Integrations are what an API triggers upon invocation, for example an HTTP API may trigger a Lambda function. Care should be taken to make sure any downstream invocations are not exploitable in some way.
 - CloudTrail can be used to monitor API's that are invoking Lambda functions etc. In addition, CloudWatch support for other types of API level logging is available. 
 - If the gateway is intended to be behind an elastic load balancer or internal, then `endpointConfiguration`-> `types` should say `PRIVATE`
+- Ensure any resource based policies that are applied to an API is secure, ensure condition checks are in place.
 
 
 ## Operational Notes
@@ -46,16 +47,35 @@ API GW supports caching to reduce hits on API.
 - Resource based policies are supported in API GW, take care when configuring these and always enforce conditional checks.
 - Private API's can only be called from within the VPC.
 - API keys are supported for API's hosted in API GW.
+- Amazon Cognito user pools can be used for API auth.
+
+### API GW Authorizers
+
+Authorizers provide the ability to authenticate users/systems with an API endpoint via a Lambda function or Cognito user pool. API GW will create a resource policy based on the chosen function or user pool.
 
 
 ### Networking
 
 - API GW does not support HTTP endpoints, all will be HTTPS by default.
 - Fully integrates with AWS WAF for endpoint protection.
+- VPC endpoints are available for private API's.
+- Cross-origin resource sharing (CORS) support for custom domains.
+
+#### Custom Domain Names
+
+Custom domain names can be created directly in API GW. An SSL certificate must exist with the `us-east-1` region which matches the domain name.
+- TLS will be enabled by default (1.2). However, TLS 1.0 can be used for REST API's.
+
+![image](/img/api_gw_domain_name.png)
+
+
 
 ### Data Security
 
-
+- REST API caching can be encrypted.
+- To ensure HTTP requests to your back-end services are originating from API Gateway, you can use Client Certificates to verify the requester's authenticity.
+- TLS and SSL support available. 
+- All endpoints are HTTPS by default.
 
 ## External References
 
