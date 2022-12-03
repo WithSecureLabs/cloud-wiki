@@ -34,7 +34,7 @@ Requests to API GW are throttled by default to prevent abuse.
 
 ![image](/img/api_gw_throttle.png)
 
-### Catching
+### Caching
 
 API GW supports caching to reduce hits on API.
 - Default cache time is 300 seconds
@@ -52,6 +52,13 @@ API GW supports caching to reduce hits on API.
 ### API GW Authorizers
 
 Authorizers provide the ability to authenticate users/systems with an API endpoint via a Lambda function or Cognito user pool. API GW will create a resource policy based on the chosen function or user pool.
+
+When a client makes a request to one of your API's methods, API Gateway calls your Lambda authorizer, which takes the caller's identity as input and returns an IAM policy as output.
+
+There are two types of Lambda authorizers:
+
+- A token-based Lambda authorizer (also called a TOKEN authorizer) receives the caller's identity in a bearer token, such as a JSON Web Token (JWT) or an OAuth token.
+- A request parameter-based Lambda authorizer (also called a REQUEST authorizer) receives the caller's identity in a combination of headers, query string parameters, stageVariables, and `$context` variables.
 
 
 ### Networking
@@ -74,7 +81,7 @@ Custom domain names can be created directly in API GW. An SSL certificate must e
 
 - REST API caching can be encrypted.
 - To ensure HTTP requests to your back-end services are originating from API Gateway, you can use Client Certificates to verify the requester's authenticity.
-- TLS and SSL support available. 
+- Support for TLS TLS-1-0 and TLS-1-2. Aim to use the latest available where possible.  
 - All endpoints are HTTPS by default.
 
 ## External References
