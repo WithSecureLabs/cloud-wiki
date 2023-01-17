@@ -6,6 +6,7 @@ Microsoft Purview Information Protection is compromised of the following standal
 * Microsoft 365 Information Protection, such as Microsoft 365 DLP
 * Windows Information Protection
 * Microsoft Defender for Cloud Apps
+
 Enterprises dealing with sensitive information such as financial, health and other personal records etc. are required to record and govern handling of this data, accordingly classify, label and control access to it. Most of the time, this data is scattered across several on-prem servers, employee devices, cloud-native applications, third-party applications and many other. Picture below shows four major capabilities offered by Purview Information Protection which should be followed to discover this data, protect it, prevent unauthorised distribution/loss and govern it for compliance purposes. 
 
 ![](../images/PurviewOverview.png)
@@ -16,7 +17,7 @@ There are three main ways data can be discovered using Purview:
 * Manually - done by users
 * Sensitive Info Type - Is a purview feature used to automatically discover sensitive data based on built-in or custom declared patterns. For example, Microsoft has over 200 built-in patterns to recognise different card, healthcare, identity information used across different regions. These patterns and their definitions can be found (here)[ https://learn.microsoft.com/en-gb/microsoft-365/compliance/sensitive-information-type-entity-definitions?view=o365-worldwide].
 * Machine learning - Trainable Classifiers is a Purview feature used to discover the data based on its content by examining any previous positive and negative data sample findings. More can be found (here)[ https://learn.microsoft.com/en-gb/microsoft-365/compliance/classifier-learn-about?view=o365-worldwide]
-The Data Classification tab contains sensitive Info type and trainable classifier configuration. From here, users can configure custom or review existing sensitive info types and patterns used for text recognition. 
+ 
 
 ## Data Protection
 
