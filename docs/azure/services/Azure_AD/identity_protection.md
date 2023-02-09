@@ -1,5 +1,5 @@
 
-# Azure AD Identity Protection
+# Identity Protection
 ## Service Details
 
 Service that uses Machine Learning and behavioural analysis, looking at users' login patterns, how they do it, location, MFA, etc. in an attempt to learn about user behaviours and help automate the detection of anomalous behaviour that wouldn't be easily noticeable by a human user looking at logs.
@@ -47,14 +47,14 @@ Lastly, the service also has several user risk detection types:
 - Self-remediation workflow – risk policies are used to automatically respond to detected threats for you.
   - You configure a policy to decide how you want Identity Protection to respond to a particular type of risk
   - Then you choose the action to user is asked to complete (self-service password reset, MFA enforcement, etc.)
-![](../images/id-protection-1.png)
+![](../../images/id-protection-1.png)
 
 - Administrator remediation workflow – you can have admins decide how a risk should be remediated when it's been detected by your risk policies. This allows for more tailored decisions
   - Here, the admin configures risk policies
   - Policies then monitor for identity risks
   - The admin gets notified of risks in a report
   - They can view it and take appropriate action to remediate this risk (ex. Sign-in is safe, so accept the risk
-![id-protection-2](../images/id-protection-2.png)
+![id-protection-2](../../images/id-protection-2.png)
 
 ### Risk policies
 
@@ -68,7 +68,7 @@ You configure a risk policy to decide how you want Identity Protection to respon
 
 An example sign-in remediation policy can be seen below:
 
-![id-protection-3](../images/id-protection-3.png)
+![id-protection-3](../../images/id-protection-3.png)
 
 **User risk policies** - Here, Identity Protection learns the user's normal behavioural patterns. Then, this knowledge is used to calculate the likely risk that the user's identity was compromised. Based on this risk, the admin can decide whether to allow access, block it, or allow access only after additional requirements are met such as a password reset.
 
