@@ -56,7 +56,7 @@ Lastly, there is one more way you can enable MFA for users in Azure (additionall
 
 ### Tales from the trenches
 
-The problem here that you might have noticed is that there are technically three levels at which MFA can be enabled in each Azure AD tenant. You might be thinking "Surely, there must be an easy way to verify?", but sadly there is not at the time of writing. You can look at the MFA status in the Azure [account.activedirectory.windowsazure.com](account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx) domain, but even if it all says "Disabled" this might not be representative of what is the reality of the situation.
+The problem here that you might have noticed is that there are technically three levels at which MFA can be enabled in each Azure AD tenant. You might be thinking "Surely, there must be an easy way to verify?", but sadly there is not at the time of writing. You can look at the MFA status in the Azure [account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx) domain, but even if it all says "Disabled" this might not be representative of what is the reality of the situation.
 
 Let us do a quick demonstration with a demo from an example tenant to illustrate why that might be so.
 
