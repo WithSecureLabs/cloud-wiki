@@ -86,4 +86,22 @@ module.exports = {
       },
     ],
   ],
+
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            from: '/azure/services/azure_mfa',
+            to: '/azure/services/azure_ad/multi_factor_authentication',
+          },
+          {
+            from: '/azure/services/azure_identity_protection',
+            to: '/azure/services/azure_ad/identity_protection',
+          },
+        ],
+      },
+    ],
+  ],
 };
