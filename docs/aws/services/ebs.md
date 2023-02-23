@@ -39,11 +39,11 @@ EBS volumes can be used to store a verity of content. However, EBS provides diff
  * It is not possible to change encryption settings after creation. If an EBS is accidentally created unencrypted, it must be snapshotted and then a new EBS created form the snapshot (with  encryption applied on the new EBS volume).
  * It is possible to enforce encryption at the account level, see Assessment Notes.
 
- ### Access Control
+### Access Control
 * EBS drives do not support resource based policies, so all permissions will be granted via IAM.
 * EBS drives can be tagged allowing for tag based access control.
 
- ### Fault Injection 
+### Fault Injection 
 
  * EBS provides the ability to fault test by either pausing I/O on a specified volume or using AWS Fault Injection Simulator (FIS). Disable this permission if you never intend to use it.
 
