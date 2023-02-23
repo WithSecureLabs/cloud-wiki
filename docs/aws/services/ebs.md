@@ -8,13 +8,14 @@ EBS volumes can be used to store a verity of content. However, EBS provides diff
 
 * SSD Based Volumes
 |Volume Name      |Max Size         |Max IOPS per volume|
+| --------------- | --------------- | ----------------- |
 |gp3 / gp2        |1 GiB - 16 TiB   |16,000             |
 |io2 Block Express|4 GiB - 64 TiB   |256,000            |
 |io2 / io1        |4 GiB - 16 TiB   |64,000             |
 
 * HDD Based Volumes
-
 |Volume Name      |Max Size         |Max IOPS per volume|
+| --------------- | --------------- | ----------------- |
 |st1              |125 GiB - 16 TiB |500                |
 |sc1              |125 GiB - 16 TiB |250                |
 
