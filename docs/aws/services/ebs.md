@@ -6,18 +6,20 @@ Amazon Elastic Block Store (Amazon EBS) provides block level storage volumes for
 
 EBS volumes can be used to store a verity of content. However, EBS provides different types of volumes depending on the main purpose of the storage media, the volume types available are:
 
-* SSD Based Volumes
-|Volume Name      |Max Size         |Max IOPS per volume|
-| --------------- | --------------- | ----------------- |
-|gp3 / gp2        |1 GiB - 16 TiB   |16,000             |
-|io2 Block Express|4 GiB - 64 TiB   |256,000            |
-|io2 / io1        |4 GiB - 16 TiB   |64,000             |
+SSD Based Volumes
 
-* HDD Based Volumes
-|Volume Name      |Max Size         |Max IOPS per volume|
-| --------------- | --------------- | ----------------- |
-|st1              |125 GiB - 16 TiB |500                |
-|sc1              |125 GiB - 16 TiB |250                |
+| Volume Name      | Max Size        | Max IOPS Per Volume |
+| ---------------- | --------------  | ------------------   |
+| gp3 / gp2        | 1 GiB - 16 TiB  | 16,000               |
+| io2 Block Express| 4 GiB - 64 TiB  | 256,000              |
+| io2 / io1        | 4 GiB - 16 TiB  | 64,000               |
+
+HDD Based Volumes
+
+| Volume Name      | Max Size         | Max IOPS Per Volume |
+| ---------------  | ---------------  | -----------------   |
+| st1              | 125 GiB - 16 TiB | 500                 |
+| sc1              | 125 GiB - 16 TiB | 250                 |
 
 * Any of the gp (general purpose) drives will suit the vast majority of workloads, but AWS provides options as required. 
 * More IOPS = more performance.
