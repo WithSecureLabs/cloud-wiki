@@ -88,7 +88,7 @@ It is essential that these articles continue to serve their purpose of providing
 
 ### Examples
 
-Check the pages for [Azure MFA](/azure/services/azure_mfa) and [Azure AD](/azure/services/Azure_AD) for examples of "larger" articles.
+Check the pages for [Azure MFA](/azure/services/azure_ad/multi_factor_authentication) and [Azure AD](/azure/services/Azure_AD) for examples of "larger" articles.
 
 * The former is a great example of the maximum length, descriptiveness and informal style that could/should be present
 * The latter is a bit less descriptive and it's even more bullet-to-the-pointy, yet also conveying the idea of structure that we're aiming at
