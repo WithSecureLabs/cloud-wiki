@@ -1,4 +1,4 @@
-# Azure Key Vault
+# Key Vault
 
 ## Service Details
 

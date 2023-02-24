@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Azure Storage
+# Storage
 ## Overview
 When looking at storage of data in Azure, we have 3 main categories:
 * Data used directly by VMs such as OS, installed programs, etc. (we would use Azure Disks to store this)
