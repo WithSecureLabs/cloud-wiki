@@ -1,3 +1,5 @@
+## Redirects for Azure services following restructures and filename changes
+
 [[redirects]]
   from = "/azure/services/azure_mfa"
   to = "/azure/services/azure_ad/multi_factor_authentication"
