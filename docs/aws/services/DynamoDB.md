@@ -72,7 +72,7 @@ For the vast majority of cases DynamoDB will always be integrating with another 
 
 Always apply the principal of least privilege and treat DynamoDB permissions the same as other databases E.g. apply only the specific actions a user or resource requires.
 
-A full list of DynamoDB actions can be found at [here](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazondynamodb.html).
+A full list of DynamoDB actions can be found [here](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazondynamodb.html).
 
 ### Encryption Support
 
