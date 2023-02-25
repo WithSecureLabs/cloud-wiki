@@ -9,7 +9,7 @@ This is Azure's central monitoring and logging service. From a high-level perspe
 - Help automate alert processing based on criteria for logs and metrics
 - Create visualisations of existing data
 
-An easy graphical way to visualise the service and the components in involves is in the following diagram from Microsoft's documentation (https://docs.microsoft.com/en-us/azure/azure-monitor/overview):
+An easy graphical way to visualise the service and the components in involves is in the following diagram from Microsoft's documentation (can be [found here](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)):
 
 ![image](../images/azure-monitor-overview-optm.svg)
 
@@ -18,13 +18,14 @@ So, for some context, there are two main types of data that Azure Monitor proces
 On the other hand, we have logs, which are detailed sets of data organized into records. This is where all sorts of events and traces are stored in addition to some performance data. This data can then be analysed with queries to retrieve and consolidate various events across the Azure tenant.
 
 ## Operational Notes
+
 ### Data sources
 
 Azure Monitor has the capability to collect data from all sorts of sources, whether they are in the cloud or even on-premises. As a high-level list, the following types of logs are collected:
 
 - Application monitoring data - performance and functionality data of applications
 - Guest OS monitoring data - data about the operating system on which your app is running. Can be any server and does not have to be in Azure
-- Azure resource monitoring data - data about the operation of an Azure resource. You can find an updated list of all internal services that support different logging here (https://docs.microsoft.com/en-us/azure/azure-monitor/monitor-reference)
+- Azure resource monitoring data - data about the operation of an Azure resource. You can find an updated list of all internal services that support different logging [here](https://docs.microsoft.com/en-us/azure/azure-monitor/monitor-reference)
 - Azure subscription monitoring data - data about the operation and management of an Azure subscription
 - Azure tenant monitoring data - data about operation of tenant-level Azure services, such as Azure AD
 - Custom sources - collect data from any REST client that uses the [Data Collector API](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collector-api).
@@ -37,13 +38,15 @@ Focusing further on the Azure Platform logs, which are the detailed diagnostic a
 |Azure Activity Logs|Azure Subscription|Operations performed on each Azure resource in the subscription at the management plane. Determine who did what and when regarding any operations takes against resources in your subscription. |
 |Azure Active Directory Audit Logs|Azure Tenant|History of sign-in activity and audit trail of changes made in Azure AD|
 
-A more complete list of the various data sources can be seen here: https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-sources
+A more complete list of the various data sources can be seen [here](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-sources).
+
 ### Log destinations
+
 Logs can generally be sent to several destinations depending on what you would like to do with them. They are the following three:
 
-* Log Analytics workspace - this is where you can retain a lot of your logs and run log queries and alerts based on some conditions. Although the alerts may not be as useful as Microsoft Defender for Cloud that can provide some better security related alerting, you can still technically do all relevant stuff from here. In regard to log queries, Log Analytics workspaces are used by Azure Sentinel as a backbone for the request processing bit.
-* Event hub - Send platform log data outside of Azure, for e.g. to a third-party SIEM or custom telemetry platform.
-* Azure Storage - long-term storage/archive of your logs for auditing or backup.
+- Log Analytics workspace - this is where you can retain a lot of your logs and run log queries and alerts based on some conditions. Although the alerts may not be as useful as Microsoft Defender for Cloud that can provide some better security related alerting, you can still technically do all relevant stuff from here. In regard to log queries, Log Analytics workspaces are used by Azure Sentinel as a backbone for the request processing bit.
+- Event hub - Send platform log data outside of Azure, for e.g. to a third-party SIEM or custom telemetry platform.
+- Azure Storage - long-term storage/archive of your logs for auditing or backup.
 
 ### Microsoft Sentinel vs Azure Log Analytics
 
@@ -51,10 +54,10 @@ Now you might be wondering what the difference is between the two since Log Anal
 
 Sentinel has the following general features that Log Analytics does not really have:
 
-* Wide scale data collection - has ready connectors for a lot of tools, SaaS products, Azure services, etc. More or less click a button and it will begin data ingestion.
-* Machine learning powered detection engine - minimising false positives using some Microsoft's threat intelligence and some learning models.
-* Investigate threats with AI - hunt for suspicious activities at scale.
-* Respond to incidents rapidly - automation of common tasks, built-in orchestration.
+- Wide scale data collection - has ready connectors for a lot of tools, SaaS products, Azure services, etc. More or less click a button and it will begin data ingestion.
+- Machine learning powered detection engine - minimising false positives using some Microsoft's threat intelligence and some learning models.
+- Investigate threats with AI - hunt for suspicious activities at scale.
+- Respond to incidents rapidly - automation of common tasks, built-in orchestration.
 
 ## Assessment Guide
 
@@ -76,23 +79,24 @@ Azure Key Vaults are some important services that need to be checked that they a
 
 As mentioned earlier, Microsoft Defender for Cloud does provide a lot more detailed security alerting across your subscription by default but if you want to configure custom alerts for various actions you do so by going to "Monitor" -> "Alerts" and then "Manage alert rules". Here you can establish whether any custom alerting rules have been configured. Some baseline recommendations for custom alerts would be the following type of operations:
 
-* microsoft.authorization/policyassignments/write
-* microsoft.network/networksecuritygroups/write or microsoft.network/networksecuritygroups/delete
-* microsoft.network/networksecuritygroups/securityrules/write
-* microsoft.security/policies/write
-* microsoft.sql/servers/firewallrules/
+- microsoft.authorization/policyassignments/write
+- microsoft.network/networksecuritygroups/write or microsoft.network/networksecuritygroups/delete
+- microsoft.network/networksecuritygroups/securityrules/write
+- microsoft.security/policies/write
+- microsoft.sql/servers/firewallrules/
 
 If you are doing a review of Microsoft Sentinel, check the types of connectors that are currently enabled and what tables they are passing to Sentinel. Following that, a discussion with the security team can establish whether all relevant services are connected or if there are some that aren't at the moment. This would help establish the difference between the current and an ideal state and allow the organisation to begin plans to improve telemetry generation.
 
 In addition, the other important part to remember about Sentinel would be verifying what custom analytics rules they have configured within the service. One thing to keep in mind about Microsoft Sentinel is the following difference in entities that you would process:
 
-* Events - description of a single occurrence that is significant from a security perspective. E.g. a single entry in a log file could count as an event.
-* Alert - collection of events that, when taken together, are significant from a security perspective. An alert could contain a single event or multiple ones.
-* Incidents - Sentinel creates incidents from alerts or groups of alerts based on internal logic. Incidents queue is where you find all the analytics done by Sentinel.
+- Events - description of a single occurrence that is significant from a security perspective. E.g. a single entry in a log file could count as an event.
+- Alert - collection of events that, when taken together, are significant from a security perspective. An alert could contain a single event or multiple ones.
+- Incidents - Sentinel creates incidents from alerts or groups of alerts based on internal logic. Incidents queue is where you find all the analytics done by Sentinel.
 
 When looking at configured alerts, take note of "Query scheduling" times and "Alert threshold". If you believe that a given rule is likely being misreported or allows a large window of allowed actions before raising a security alert, then consider reviewing this and changing it if appropriate.
 
 ## External Links
-* https://docs.microsoft.com/en-us/azure/azure-monitor/logs/workspace-design
-* https://posts.specterops.io/detecting-attacks-within-azure-bdc40f8c0766
-* https://www.datadoghq.com/blog/monitoring-azure-platform-logs/
+
+- [Microsoft - Azure Monitor - Workspace design](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/workspace-design)
+- [SpecterOps - Detecting attacks within Azure](https://posts.specterops.io/detecting-attacks-within-azure-bdc40f8c0766)
+- [Datadog - Monitoring Azure platform logs](https://www.datadoghq.com/blog/monitoring-azure-platform-logs/)

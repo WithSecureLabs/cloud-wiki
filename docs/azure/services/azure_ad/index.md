@@ -21,14 +21,14 @@ Now in terms of access within Azure AD there isn't, in theory, a global admin th
 
 The two boxes that we care about are the green and the blue box. The green Azure AD roles (aka Administrative roles) refer to the level of access a user has to Azure AD specifically. What that means is that that level of access does not translate to the underlying projects and resources (VMs, storage, subnets, etc.) deployed in Azure.
 
-* They are only meant to manage permissions for *identities* in AD itself
-* They cannot be set to groups by default - if you really need to give, say, Security Admin privileges to users of a group, you need to assign them to each individual user
-  * A new `isAssignable` property can be set when creating a group, which will allow it to be assigned an Azure AD role
+- They are only meant to manage permissions for *identities* in AD itself
+- They cannot be set to groups by default - if you really need to give, say, Security Admin privileges to users of a group, you need to assign them to each individual user
+  - A new `isAssignable` property can be set when creating a group, which will allow it to be assigned an Azure AD role
 
 The blue box refers to Azure (resource) roles (aka RBAC roles). As such it represents a high-level representation of access to Azure projects within a given tenant. This is where all the deployed resources and services would be found within a given subscription.
 
-* They are meant for the resources and subscriptions containing these resources
-* They can be assigned to both users and groups
+- They are meant for the resources and subscriptions containing these resources
+- They can be assigned to both users and groups
 
 Normally the Azure RBAC roles and Azure AD roles are separated to keep complete access away from one user at any given point in time. ***However***, a user with the Global Administrator role within Azure AD can elevate their privileges by enabling the "Access management for Azure resources" control in Azure AD > Properties. This would then assign them the "User Access Administrator" role at the root (/) level, which translates to *all* subscriptions in the tenant. With this, the GA can now assign themselves *or others* any level of access to Azure resources.
 
@@ -83,9 +83,9 @@ It provides users with an approval-based role activation that can have a time-ba
 
 There are two general concepts relevant to PIM that would be crucial to understand what user has what access rights:
 
-* eligible - this is a role assignment to a user. They can perform an "activation" of that role when needed before being able to use it. They will need to perform *an* action as part of that activation (MFA check, business justification, or request approval, etc.). These settings are all decided when creating the role assignment in PIM.
-* ***active*** - this means the user does not have to perform any actions before being able to use the role, i.e. it's *directly assigned* as active. This means that even if for instance the role would normally require the user to MFA, a user assigned an "active" role won't be required to MFA
-* ***activated*** - this means that a user had an **eligible role assigned to them**, they requested it to be enabled, have performed the necessary actions, and it's now enabled. Slight, but important distinction from the "active" role above.
+- eligible - this is a role assignment to a user. They can perform an "activation" of that role when needed before being able to use it. They will need to perform *an* action as part of that activation (MFA check, business justification, or request approval, etc.). These settings are all decided when creating the role assignment in PIM.
+- ***active*** - this means the user does not have to perform any actions before being able to use the role, i.e. it's *directly assigned* as active. This means that even if for instance the role would normally require the user to MFA, a user assigned an "active" role won't be required to MFA
+- ***activated*** - this means that a user had an **eligible role assigned to them**, they requested it to be enabled, have performed the necessary actions, and it's now enabled. Slight, but important distinction from the "active" role above.
 
 In addition, despite PIM intending to restrict access to user role permissions to a given timeframe, it still allows administrators to set so called "permanent" attributes to the roles. This effectively could mean a user permanently can be eligible or have a role permanently be "active", thus removing the time limit component, but still keeping an audit log of assignments.
 
@@ -118,15 +118,15 @@ If you are integrating with a Microsoft SaaS product, then you won't necessarily
 
 There are three main ways to interact with Azure programmatically apart from the web dashboard. This is done through the Azure CLI, Azure PowerShell cmdlets or the Azure REST API. Links to how to install and work with the three components can be seen below:
 
-* [AZ CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [AZ PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-4.5.0)
-* [AZ REST API](https://docs.microsoft.com/en-us/rest/api/azure/)
+- [AZ CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [AZ PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-4.5.0)
+- [AZ REST API](https://docs.microsoft.com/en-us/rest/api/azure/)
 
 Additionally, you should be aware that interacting with Azure Active Directory is done via a different set of PowerShell modules. Specifically it would be the following two, the first of which is the main one to use and the second is the older version which will be eventually deprecated:
 
-* [AzureAD PowerShell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
-* [MSOL PowerShell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)
-* [Microsoft Graph SDK for PowerShell](https://docs.microsoft.com/en-us/powershell/microsoftgraph/overview?view=graph-powershell-1.0)
+- [AzureAD PowerShell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+- [MSOL PowerShell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)
+- [Microsoft Graph SDK for PowerShell](https://docs.microsoft.com/en-us/powershell/microsoftgraph/overview?view=graph-powershell-1.0)
 
 One thing to keep in mind with the CLI and PowerShell modules is that commands that you run will by default be run against what is configured as a **default subscription**. A default subscription is assigned after you have logged in and created a valid access token for the CLI or PowerShell. Checking what is the current configured default can be done using:
 
@@ -179,13 +179,13 @@ Connect-AzureAD -AccountId $AdminUPN -TenantId "xxxx-xxxx-xxxx-xxxx"
 
 Credentials and access via the CLI or PowerShell modules could persist for longer then you could expect and if not cleared up, you might end up running commands against infrastructure that you don't own. As such, it is important to clear up your active sessions after each engagement or review. Here is how to clear your shell/terminals from the various CLI or PowerShell modules discussed above:
 
-* Azure CLI
+- Azure CLI
 
 ```bash
 az logout
 ```
 
-* Az PowerShell
+- Az PowerShell
 
 ```PowerShell
 Disconnect-AzAccount -Scope CurrentUser
@@ -193,7 +193,7 @@ Clear-AzContext -Scope CurrentUser
 Clear-AzDefault -Scope CurrentUser
 ```
 
-* AzureAD Powershell
+- AzureAD Powershell
 
 ```PowerShell
 Disconnect-AzureAD
@@ -259,57 +259,55 @@ A couple of things that can be configured improperly are part of the "User setti
 
 There are four general types of enterprise applications in Azure AD:
 
-* Azure AD Gallery applications - Applications that are prepared to integrate with Azure AD. A lot of SaaS applications with native support fall in this category. [Here](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/tutorial-list) is a list of them.
-* On-prem applications with Azure AD Application Proxy - integrated on-prem web apps using Application Proxy to support single sign-on (SSO). Some more detail on the [Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy) is available in their documentation.
-* Custom-developed apps - apps that are registered with Azure AD to support single sign-on
-* Non-Gallery apps - applications that support SSO using SAML or OpenID connect
+- Azure AD Gallery applications - Applications that are prepared to integrate with Azure AD. A lot of SaaS applications with native support fall in this category. [Here](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/tutorial-list) is a list of them.
+- On-prem applications with Azure AD Application Proxy - integrated on-prem web apps using Application Proxy to support single sign-on (SSO). Some more detail on the [Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy) is available in their documentation.
+- Custom-developed apps - apps that are registered with Azure AD to support single sign-on
+- Non-Gallery apps - applications that support SSO using SAML or OpenID connect
 
 If they would only expect certain users to on-board new applications that could use password single-sign on or should general users be able to perform so. Admittedly, I would argue that there should not be too many circumstances where these settings would be enabled to allow users to allow applications to access their data without being pre-vetted by administrators. But still, worth asking if unsure.
 
-One thing to keep note of is that a lot of times, organisations use a lot of applications that use Azure AD as an identity provider without even having been approved apps by administrators. There was an excellent talk by Mark and Michael from Microsoft on enterprise application phishing which was presented at a BSides event which can be seen here:
-
-- https://www.youtube.com/watch?v=mxOHcqHxpi8
+One thing to keep note of is that a lot of times, organisations use a lot of applications that use Azure AD as an identity provider without even having been approved apps by administrators. There was an excellent talk by Mark and Michael from Microsoft on enterprise application phishing which was presented at a BSides event which can be seen [here](https://www.youtube.com/watch?v=mxOHcqHxpi8).
 
 Some important notes from the talk can be seen below alongside with some stats:
 
-* 140 apps are used on average within an organisation
-* 80% of employees use non-approved apps for work
-* 87% of users can consent to applications
+- 140 apps are used on average within an organisation
+- 80% of employees use non-approved apps for work
+- 87% of users can consent to applications
 
 Ultimately, it's best to think about this in the same way as you think about mobile apps. When you install an app you often need to approve the permissions it will require for it's day-to-day operations. In the context of Azure AD, this would be the organisation data that an application can access through resource APIs that expose permissions. Ultimately, these permissions to access organisational data can be granted through application consent done by either an admin, or an end-user if they are allowed to.
 
 Here is a quick glossary of terms so that we are all on the same page here:
 
-* Client applications - application (mobile/web/background service) requesting access to data on behalf of the user
-* Resource application - the application or API that exposes data or functionality
-* Permissions - the ability for a client application to perform some action on data owned by a resource application (e.g. read emails in Exchange Online through Microsoft Graph API)
-* Consent prompt - the pop-up where a user is asked to grant an application the requested permissions
-* Consent grant - the result of saying "yes" to the consent prompt
-* Admin Consent - a slightly different method of giving consent within an organisation. An admin can grant an application access to requested permissions that cannot be granted by a regular user. Usually these would be dangerous permissions. However, admin consent can also be done to automatically consent to given permissions to an application for all users in an organisation(as such end-users would not have to faff around with granting consent themselves).
-* Applications - the definition of an application in Azure AD (Application registration)
-* Service principal - the representation of an app in a given tenant (Azure AD Enterprise application)
+- Client applications - application (mobile/web/background service) requesting access to data on behalf of the user
+- Resource application - the application or API that exposes data or functionality
+- Permissions - the ability for a client application to perform some action on data owned by a resource application (e.g. read emails in Exchange Online through Microsoft Graph API)
+- Consent prompt - the pop-up where a user is asked to grant an application the requested permissions
+- Consent grant - the result of saying "yes" to the consent prompt
+- Admin Consent - a slightly different method of giving consent within an organisation. An admin can grant an application access to requested permissions that cannot be granted by a regular user. Usually these would be dangerous permissions. However, admin consent can also be done to automatically consent to given permissions to an application for all users in an organisation(as such end-users would not have to faff around with granting consent themselves).
+- Applications - the definition of an application in Azure AD (Application registration)
+- Service principal - the representation of an app in a given tenant (Azure AD Enterprise application)
 
 There are two types of permissions in Azure AD, delegated and application permissions:
 
-* Delegated permissions
-  * More often used permission model.
-  * Used by apps that have a signed-in user present in order to make calls on behalf of that user
-  * Can be consented to by non-admin users, but high-privileged permissions will likely require explicit admin consent first.
-  * "Effective permissions" are the intersection of the User's permissions and what the application has been granted consent to do. (e.g. you might have the ability to read, write to OneDrive, but the application would only ask for read access. As such effectively, it only has your read permission to your OneDrive)
-* Application permissions
-  * Slightly less often, but definitely more dangerous
-  * used by apps that DO NOT require a signed-in user present (so imagine a daemon or background service)
-  * application has permissions to do what it was consented to (e.g. if you give it Read to the OneDrive service, it has read access to OneDrive as a whole. So any user in the organisation)
-  * Application permissions always require admin consent
+- Delegated permissions
+  - More often used permission model.
+  - Used by apps that have a signed-in user present in order to make calls on behalf of that user
+  - Can be consented to by non-admin users, but high-privileged permissions will likely require explicit admin consent first.
+  - "Effective permissions" are the intersection of the User's permissions and what the application has been granted consent to do. (e.g. you might have the ability to read, write to OneDrive, but the application would only ask for read access. As such effectively, it only has your read permission to your OneDrive)
+- Application permissions
+  - Slightly less often, but definitely more dangerous
+  - used by apps that DO NOT require a signed-in user present (so imagine a daemon or background service)
+  - application has permissions to do what it was consented to (e.g. if you give it Read to the OneDrive service, it has read access to OneDrive as a whole. So any user in the organisation)
+  - Application permissions always require admin consent
 
 Back to the applications now, it is key to mind the service principals in your tenant. Applications can be authorised to access data and as such, an application's service principal is also its security principal. Service principals can be granted access to various bits in the tenant using the following methods:
 
-* Azure role assignment
-* Azure AD role assignment
-* Owner of group, application or service principal
-* App-only permissions grants
-* Delegated permission grants
-* Azure Key Vault ACLs
+- Azure role assignment
+- Azure AD role assignment
+- Owner of group, application or service principal
+- App-only permissions grants
+- Delegated permission grants
+- Azure Key Vault ACLs
 
 Ultimately, applications can be an effective way of getting access to an organisation as an initial foothold. This is known as "consent phishing" where users are targeted with seemingly innocuous attachments that ask users to consent to application permissions. All in all the attack plays out as follows:
 
@@ -323,37 +321,37 @@ Ultimately, applications can be an effective way of getting access to an organis
 
 The key questions to ask yourself on an engagement and review of cloud apps in the following:
 
-* What is this? - where did this app come from, and who assigned it to people
-* Who is this assigned to? - if you know what this app is, then ask yourself whether it has been assigned to the correct people
-* What are these permissions? - if you know about this app, then are you aware of what sort of permissions it's asking from users in the directory
+- What is this? - where did this app come from, and who assigned it to people
+- Who is this assigned to? - if you know what this app is, then ask yourself whether it has been assigned to the correct people
+- What are these permissions? - if you know about this app, then are you aware of what sort of permissions it's asking from users in the directory
 
 So as a start, it would be useful to establish what high-privileged permissions are in use within an organisation's estate and make a list of them. As with a lot of stuff, these ones should be already expected, but it's always worth being safe and if you do find something that they aren't aware of it might be cause for concern. the following permissions are some stuff to look out for:
 
-* Mail.*
-* Mail.Send
-* MailboxSettings.*
-* Contacts.*
-* People.*
-* Files.*
-* Notes.*
-* Directory.AccessAsUser.All
-* Directory.ReadWrite.All
-* Application.ReadWrite.All
-* Domain.ReadWrite.All
-* EduRoster.ReadWrite.All
-* Group.ReadWrite.All
-* Member.Read.Hidden
-* RoleManagement.ReadWrite.Directory
-* User.ReadWrite.All
-* User.ManageCreds.All
-* user_impersonation
+- Mail.*
+- Mail.Send
+- MailboxSettings.*
+- Contacts.*
+- People.*
+- Files.*
+- Notes.*
+- Directory.AccessAsUser.All
+- Directory.ReadWrite.All
+- Application.ReadWrite.All
+- Domain.ReadWrite.All
+- EduRoster.ReadWrite.All
+- Group.ReadWrite.All
+- Member.Read.Hidden
+- RoleManagement.ReadWrite.Directory
+- User.ReadWrite.All
+- User.ManageCreds.All
+- user_impersonation
 
 Some common low-level permission are the following which should constitute an almost minimal required set of perms in order to allow apps to use SSO for login:
 
-* User.Read
-* open_id
-* email
-* profile
+- User.Read
+- open_id
+- email
+- profile
 
 So you're on an engagement and you want to have a look for suspicious apps. Well there are two general options. If there aren't that many apps and you know what you're looking for, then perhaps the most thorough way would be to go through the audit logs for apps and look for signs of suspicious activity. Stuff like "IsAdminConsent" set to True which indicated a global admin has granted an app broad permissions to data. Go through all the apps in the "Enterprise Apps" section in Azure AD and check audit logs.
 
@@ -397,20 +395,20 @@ Azure has several security controls commonly associated with AAD and used to enh
 
 Now if you've ever been greeted with a warning when attempting to login to an Azure AD account that says something like "oh you're not permitted to login with this device" or "oh you've signed in ok, but your device isn't allowed" then you've likely encountered a Conditional Access policy. At their core they are if-else statements that assess how a user attempts to access cloud resources and whether they can do so. Although simple as a concept, they can be surprisingly granular. Some general signals that CA policies can use to establish whether you can login is the following high-level areas:
 
-* User or group membership
-* IP address range
-* Device platform
-* Application
-* Real-time and calculated risk detection - used in conjunction to analytics provided by Azure ID Identity Protection
-* Microsoft Cloud App Security (MCAS) - enables user app access and sessions to be monitored and controlled in real time, increasing visibility and control over access to and activities performed within your cloud environment.
+- User or group membership
+- IP address range
+- Device platform
+- Application
+- Real-time and calculated risk detection - used in conjunction to analytics provided by Azure ID Identity Protection
+- Microsoft Cloud App Security (MCAS) - enables user app access and sessions to be monitored and controlled in real time, increasing visibility and control over access to and activities performed within your cloud environment.
 
 As for what decisions can come from this, you can either block on match or grant access on match. And in the event that you want to grant access you can still require some additional controls to be satisfied:
 
-* Require MFA
-* Require device to be marked as compliant
-* Require Hybrid Azure AD joined device
-* Require approved client app
-* Require app protection policy
+- Require MFA
+- Require device to be marked as compliant
+- Require Hybrid Azure AD joined device
+- Require approved client app
+- Require app protection policy
 
 If you are in the process of analysing policies, then exercise an educated judgement on whether policies seem reasonable and any that do not, should be discussed with IT as for what business case exists for it. And if none, then raise it as an issue if you feel it adds a realistic level of risk of compromise.
 
@@ -420,19 +418,19 @@ AAD Identity Protection is Microsoft's attempt to perform some trend analytics a
 
 Some examples of risk events detection AAD Identity Protection has are:
 
-* Atypical travel
-* Anonymous IP address
-* Unfamiliar/suspicious sign-in properties (such as multiple failed logins followed by a success)
-* Malware linked IP address
-* Leaked Credentials
-* Azure AD threat intelligence - slightly less descriptive but should use Microsoft's internal and external threat intelligence sources regarding known attack paths
+- Atypical travel
+- Anonymous IP address
+- Unfamiliar/suspicious sign-in properties (such as multiple failed logins followed by a success)
+- Malware linked IP address
+- Leaked Credentials
+- Azure AD threat intelligence - slightly less descriptive but should use Microsoft's internal and external threat intelligence sources regarding known attack paths
 
 Examples of vulnerabilities flagged by AAD Identity Protection:
 
-* Users without MFA
-* Weak authentication for a privileged role
-* Too many global admins
-* Unamanged apps
+- Users without MFA
+- Weak authentication for a privileged role
+- Too many global admins
+- Unamanged apps
 
 There is not much to be configured here from a security point of view as it is usually just block conditions based on how the risk level has been associated (Low, Medium, or High). There are however alerting policies that can be customised besides the default ones, so as long as they have some form of either alerting or blocking for High risk sign-ins then that should be fine. Be reasonable with suggestions here.
 

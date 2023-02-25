@@ -1,12 +1,10 @@
 # Elastic Compute Cloud (EC2)
 
-
 Amazon Elastic Compute Cloud (EC2) is Amazon Web Service's virtual computer service offering used to host different applications, run compute workloads and provide the backbone for the RDS service, Amazon Fargate and Docker services. The instances are based on a KVM hypervisor, called "Nitro". EC2s are often central and indispensable resource, and as such it is important to configure them in a secure way to prevent downtime, unauthorised access and movement across the cloud estate.
 
 EC2s are built on a shared responsibility model between AWS and a customer. In terms of security, this means that both parties share a responsibility to set up and safely configure the instances. For customers this means management of the guest operating system, applications as well as configuration of the instance itself and other services which may impact the EC2s. AWS is responsible for global hardware and software (specifically related to the instance, like the hypervisor for example). More information can be found in the diagram below.
 
 ![image](/img/responsibility_model.jpeg)
-
 
 The following security controls can affect the security posture of an EC2 instance and as such should be reviewed:
 
@@ -14,32 +12,30 @@ The following security controls can affect the security posture of an EC2 instan
 
 2.) Networking
 
-3.) Storage 
+3.) Storage
 
 4.) Backup and recovery
 
 5.) Monitoring
 
- 
 ## IMDS
 
 Instance Metadata Service is a collection of endpoints used for retrieval of data from within an EC2 instance. By sending an IMDS request, it's possible to retrieve information about the instance itself such as hostname, IP addresses, security groups and most importantly IAM role credentials. There are two versions of IMDS, version one and two. Version two is recommended to use as it enforces HTTP headers and token use, which is efficient prevention against attacks where an attacker can call the metadata address from the instance (169.254.169.254). The commands to issue a token and IMDS request is as follows:
 
 IMDSv2
- 
-```
+
+```bash
 TOKEN=`curl -X PUT http://169.254.169.254/latest/api/token -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
 && curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/
 ```
 
 IMDSv1
 
-```
+```bash
 curl http://169.254.169.254/latest/meta-data/
 ```
 
 To decrease the attack surface, it's best to disable IMDS altogether. In cases where this is not possible it's recommended to use IMDSv2, avoid assigning roles to the instance when not needed and locking down IMDS to only specific operating system users.
- 
 
 ## IAM
 
@@ -47,31 +43,30 @@ Identity Access Management provides a way to control access to AWS resources and
 
 Roles can be attached to EC2 instances. Each role has a policy document specifying the scope of its allowed actions. The following command lists the role names assigned against the queried EC2 instance:
 
-```
+```bash
 aws ec2 describe-iam-instance-profile-associations --filters Name=instance-id,Values=i-123456789
 ```
 
 The following command lists the inline policies for a specified role name retrieved from the previous command:
 
-```
+```bash
 aws iam list-role-policies --role-name my-instance-role-name
 ```
 
 Run the following command to list the non-inline policies for a specified role name retrieved from the previous command:
 
-```
+```bash
 aws iam list-attached-role-policies --role-name my-instance-role-name
 ```
 
 Run the following command to get the each policy for review:
 
-```
+```bash
 aws iam get-role-policy --role-name my-instance-role-name --policy-name attached-policy-name
 ```
 
 Just like with any service, any policies and roles should be reviewed and only given the minimum amount of privileges as per the policy of least principal.
 
- 
 ## Networking
 
 Each EC2 instance is placed inside a Virtual Private Cloud (VPC). VPCs provide a way to isolate AWS resources such as EC2s inside a virtual network. The main components that make up a VPC are IP addresses, subnets, route tables, gateways, network interfaces, endpoints, etc.
@@ -80,13 +75,13 @@ There are two types of firewalls which restrict access from and to an EC2 instan
 
 To get more information on EC2's security groups, the following command can be used:
 
-```
+```bash
 aws ec2 describe-security-groups
 ```
 
 To get more information on rules applied to a specific security group, the following command can be used:
 
-```
+```bash
 aws ec2 describe-security-group-rules --filter Name="group-id",Values="sg-testnumber"
 ```
 
@@ -98,9 +93,7 @@ When reviewing security groups, it's recommended to ensure the following:
 
 -Security groups shouldn't be reused on different instances because future changes may impact instances which do not require the new change. Additionally, if this method is used, security groups will likely be over-permissive as not all instances require the same port/ip ranges to be allowed.
 
--Make sure that no management ports (RDP and SSH) are opened to the public internet. If access is required, consider using AWS System Manager as this requires no further rules in the security group. 
-
- 
+-Make sure that no management ports (RDP and SSH) are opened to the public internet. If access is required, consider using AWS System Manager as this requires no further rules in the security group.
 
 Additionally, VPC/subnet route table rules, peering connections, PrivateLinks and endpoints should also be reviewed as they could provide an access to an EC2 instance. More can be found:
 
@@ -111,7 +104,6 @@ Additionally, VPC/subnet route table rules, peering connections, PrivateLinks an
 [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html)
 
 [VPC Routing](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html)
- 
 
 ## Storage
 
@@ -125,13 +117,13 @@ Amazon EBS (Elastic Block Storage) provides disk storage for EC2 instances. EBS 
 
 From a security perspective, EBS is not encrypted by default, however it can be enforced on the account level. The following command queries if the encryption is enforced on the account level:
 
-```
+```bash
 aws ec2 get-ebs-encryption-by-default
 ```
 
 The following command lists all the volumes attached against an EC2 instance and whether they are encrypted or not:
 
-```
+```bash
 aws ec2 describe-volumes
 ```
 
@@ -153,7 +145,6 @@ The snapshots created from an encrypted volume are encrypted with the same KMS k
 
 [AWS EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
 
-
 ## Backup
 
 From a security perspective, it's important to have an EC2 backup configured in a secure way. If compromise was to happen, backups should be safeguarded.
@@ -162,11 +153,11 @@ Data and operating system files can be backed up using EBS Snapshots and Amazon 
 
 AMIs and snapshots of an EBS volumes are stored in Amazon S3 (In an AWS controlled S3 bucket so you can't see it from the console). If encrypted, sharing these is only possible if customer-managed keys are used for the encryption. Unencrypted volumes can be shared publicly.
 
-```
+```bash
 aws ec2 describe-snapshots --snapshot-ids snap-example
 ```
 
-```
+```bash
 aws ec2 describe-images --region us-east-1 --image-ids ami-1234567890EXAMPLE
 ```
 

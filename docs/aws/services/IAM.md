@@ -6,8 +6,8 @@ AWS Identity and Access Management (IAM) is the core authentication and authoriz
 
 - [Policies](#policies) - A JSON document that defines a set of permissions that should be granted or denied, potentially based on a set of conditions.
 - [Roles](#roles) - The primary IAM entity assigned to resources, can be assumed by users.
-- [Users](#users) - A legacy mechanism for providing human or system access to AWS. To be avoided where at all possible.
-- [Groups](#Groups) - Collections of IAM users. Can have policies assigned to them, which will then apply to all IAM users in the group.
+- [Users](#iam-users) - A legacy mechanism for providing human or system access to AWS. To be avoided where at all possible.
+- Groups - Collections of IAM users. Can have policies assigned to them, which will then apply to all IAM users in the group.
 - Entities - a term used to refer to users, roles or groups as a collective.
 
 ## Policies
@@ -170,7 +170,7 @@ A role is an IAM entity that can be "assumed" by AWS resources, or by an externa
 Roles can be assumed by entities within the account, or from a different account. In order for a role to be assumed:
 
 - The assuming entity must have the `sts:AssumeRole` permission granted to allow them to assume the chosen role.
-- The [trust policy](#trust-policy) on the role being assumed must allow assumption by the assuming entity.
+- The [trust policy](#trust-policies) on the role being assumed must allow assumption by the assuming entity.
 
 **n.b** Not all tools take both these conditions into account, you’ll find some report false positives where they only analyse the trust policies.
 
@@ -243,7 +243,7 @@ AWS' solution to this is External IDs, where the third party provides a unique i
 
 ### Instance Profile
 
-[Instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) are a wrapper around IAM roles used to assign an IAM role to a particular EC2 instance. Software running on the instance can then access the associated credentials by speaking with the [Instance Metadata Service (IMDS)](#instance-metadata-service).
+[Instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) are a wrapper around IAM roles used to assign an IAM role to a particular EC2 instance. Software running on the instance can then access the associated credentials by speaking with the Instance Metadata Service (IMDS).
 
 ### Service-Linked Roles
 
