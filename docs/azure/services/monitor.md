@@ -1,4 +1,4 @@
-# Azure Monitor
+# Monitor
 
 ## Service Description
 

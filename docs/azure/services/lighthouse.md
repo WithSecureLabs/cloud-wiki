@@ -1,4 +1,4 @@
-# Azure Lighthouse
+# Lighthouse
 
 ## Overview
 
