@@ -1,3 +1,5 @@
+## Redirects for Azure services following restructures and filename changes
+
 [[redirects]]
   from = "/azure/services/azure_mfa"
   to = "/azure/services/azure_ad/multi_factor_authentication"
@@ -5,3 +7,27 @@
 [[redirects]]
   from = "/azure/services/azure_identity_protection"
   to = "/azure/services/azure_ad/identity_protection"
+
+[[redirects]]
+  from = "/azure/services/azure_key_vault"
+  to = "/azure/services/key_vault"
+
+[[redirects]]
+  from = "/azure/services/azure_logicapps"
+  to = "/azure/services/logic_apps"
+
+[[redirects]]
+  from = "/azure/services/azure_storage"
+  to = "/azure/services/storage"
+
+[[redirects]]
+  from = "/azure/services/azure_lighthouse"
+  to = "/azure/services/lighthouse"
+
+[[redirects]]
+  from = "/azure/services/azure_vm"
+  to = "/azure/services/virtual_machines"
+
+[[redirects]]
+  from = "/azure/services/azure_monitoring"
+  to = "/azure/services/monitor"

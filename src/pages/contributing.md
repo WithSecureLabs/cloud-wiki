@@ -148,4 +148,4 @@ Write-Host "Cloud Wiki"
 </Tabs>
 ``````
 
-For more examples, you can check the [Azure Storage](/azure/services/azure_storage) page.
+For more examples, you can check the [Azure Storage](/azure/services/storage) page.

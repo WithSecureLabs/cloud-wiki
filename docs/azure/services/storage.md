@@ -1,4 +1,4 @@
-# Azure Storage
+# Storage
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -241,7 +241,7 @@ More information about blob anonymous access can be found [here](https://docs.mi
 
 Encryption <u>in transit</u> is done via TLS, using a Microsoft SSL cert. This is done by default. There might be a need to revert to simple HTTP in certain cases, like for instance a static website that has content in that Storage Account, but in general HTTPS should be used always. Storage access requirements should be reviewed to determine whether encryption in transit is being enforced where possible;
 
-Encryption <u>at rest</u> is done by default with a MS-managed key  
+Encryption <u>at rest</u> is done by default with a MS-managed key
 
 - Rotation and backup for this default option is done by MS;
 - You can also have a customer-managed key, for e.g. regulatory compliance. This key has to be stored in the Key Vault, with the Storage Account given access to this KV;
@@ -274,7 +274,7 @@ Get-AzStorageAccount -Name <storageaccount-name> -ResourceGroupName <resourcegro
   <TabItem value="az" label="Azure CLI">
 
 ```bash
-az storage account list --query [*].[name,enableHttpsTrafficOnly] -o table --subscription <subscription>; 
+az storage account list --query [*].[name,enableHttpsTrafficOnly] -o table --subscription <subscription>;
 ```
 
   </TabItem>
