@@ -6,7 +6,7 @@ CloudTrail logs all API calls made to the control plane for supported services. 
 
 To list CloudTrails in the current account in the eu-west-1 region, the following CLI command can be used:
 
-```
+```bash
 aws cloudtrail list-trails --region eu-west-1
 ```
 
@@ -18,9 +18,10 @@ There are three key event types in CloudTrail: management, data and insights.
 
 Event logs of API calls made against the core AWS API to create, modify or delete AWS resources. Examples include creating EC2 instances, modifying an S3 bucket policy, or deleting a Lambda function.
 
-In addition, CloudTrail separates all events into either "read" or "write" actions. CloudTrail allows the configuration to log one or both type of events. 
-  - Read events can be defined as requests that do not make changes, listing EC2 instances for example.
-  - Write events can be defined as requests that do make changes, such as creating a new lambda function.
+In addition, CloudTrail separates all events into either "read" or "write" actions. CloudTrail allows the configuration to log one or both type of events.
+
+- Read events can be defined as requests that do not make changes, listing EC2 instances for example.
+- Write events can be defined as requests that do make changes, such as creating a new lambda function.
 
 Further information can be found at [Logging management events for trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html)
 

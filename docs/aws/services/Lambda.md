@@ -1,6 +1,5 @@
 # Lambda
 
-
 ## Service Details
 
 * Functions as a service.
@@ -26,7 +25,7 @@
 * Lambda calls `sts:AssumeRole` under the hood to acquire them, requests for 12 hour validity.
 * Credentials are not rotated for the duration of the MicroVM's existence, but [experimentation suggests they live for up to 2 hours if continually invoked](https://www.keithrozario.com/2020/06/access-keys-in-aws-lambda.html).
 
-If you are able to compromise a lambda function, it may be possible to steal these credentials out of lambda, use normal methods to retrieve them. Lambda also uses a data endpoint where the configuration of the function is actually passed to the VM on http://localhost:9001/2018-06-01/runtime/invocation/next. Check here for any secrets that have been stored in the code or other configuration.
+If you are able to compromise a lambda function, it may be possible to steal these credentials out of lambda, use normal methods to retrieve them. Lambda also uses a data endpoint where the configuration of the function is actually passed to the VM on `http://localhost:9001/2018-06-01/runtime/invocation/next`. Check here for any secrets that have been stored in the code or other configuration.
 
 #### Persistence Inside Lambdas
 

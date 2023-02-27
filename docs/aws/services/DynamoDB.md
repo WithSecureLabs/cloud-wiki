@@ -54,15 +54,15 @@ Captures item-level changes in your table, and pushes the changes to a DynamoDB 
 
 DynamoDB also integrates with the AWS Backup service which allows you to create backups from the console by going to:
 
-```DynamoDB -> Backups -> Create Backup```
+`DynamoDB -> Backups -> Create Backup`
 
 Or via the CLI with the following command:
 
-```aws dynamodb create-backup --table-name <value> --backup-name <value>```
+`aws dynamodb create-backup --table-name <value> --backup-name <value>`
 
 Ensure that backups are being encrypted at rest with a KMS key. However, this will be controlled by the AWS Backup Vault that is being used to store the backup.
 
-### Reserved Capacity 
+### Reserved Capacity
 
 Reserved capacity is a billing feature that allows you to obtain discounts on your provisioned throughput capacity in exchange for a one-time, up-front payment and commitment to a minimum monthly usage level. Reserved capacity applies within a single AWS Region and can be purchased with one-year or three-year terms.
 
@@ -70,10 +70,9 @@ Reserved capacity is a billing feature that allows you to obtain discounts on yo
 
 For the vast majority of cases DynamoDB will always be integrating with another AWS service that is storing data in DynamoDB. It's important to ensure that access controls are correctly applied to ensure data is limited to the specific services that require access. In addition, DynamoDB does not support resource based policies. This means it will always be the other resource specifically granting permission (a resource based policy applied to another resource or an IAM role.)
 
-Always apply the principal of least privilege and treat DynamoDB permissions the same as other databases E.g. apply only the specific actions a user or resource requires. 
+Always apply the principal of least privilege and treat DynamoDB permissions the same as other databases E.g. apply only the specific actions a user or resource requires.
 
-A full list of DynamoDB actions can be found at https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazondynamodb.html
-
+A full list of DynamoDB actions can be found [here](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazondynamodb.html).
 
 ### Encryption Support
 
@@ -97,10 +96,9 @@ The PartiQL editor is a new feature that has been added to DynamoDB to allows us
 
 ### Global Tables
 
-Global tables allow you to create replicas of your DynamoDB tables in other regions. As with any form of cross region replication, ensure there are not over permissive resources in that region that will have access to the replica. 
+Global tables allow you to create replicas of your DynamoDB tables in other regions. As with any form of cross region replication, ensure there are not over permissive resources in that region that will have access to the replica.
 
 Note, it is not possible to replicate DynamoDB tables into other AWS accounts. Exporting and re-importing the database in another account would be the only way to achieve this.
-
 
 ## Useful CLI Commands
 
