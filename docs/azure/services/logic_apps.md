@@ -1,4 +1,4 @@
-# Azure Logic Apps
+# Logic Apps
 
 ## General Security Notes
 
