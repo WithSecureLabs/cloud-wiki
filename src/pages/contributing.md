@@ -95,6 +95,10 @@ Check the pages for [Azure MFA](/azure/services/azure_ad/multi_factor_authentica
 
 For an idea of a complete article of the "minimalistic" kind, have a look at [AWS CloudTrail](/aws/services/CloudTrail) instead. This shows the minimum info we should aim at having in an article that's not _that_ big requiring too much explanation.
 
+### Linting
+
+This repository uses linting to ensure consistency in formatting across content. Linting checks will be run on modified markdown files in pull requests and pushes to the main branch based on the rules defined [here](https://github.com/WithSecureLabs/cloud-wiki/blob/main/.markdownlint.yaml). Depending on the text editor that you're using to modify content, there are a few ways to integrate a linter into your authoring workflow. There are extensions such as [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) for VS Code available, as well as CLI tools such as [markdownlint](https://github.com/markdownlint/markdownlint) that can be used to check your content for formatting issues before you submit them.
+
 ### Code Tabs Usage
 
 This Wiki supports [Tabs](https://docusaurus.io/docs/markdown-features/tabs) which provide a great way to format code examples for different languages. Usage is nice and simple and ends up with an object looking like this:
