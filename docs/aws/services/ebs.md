@@ -39,7 +39,7 @@ HDD Based Volumes
 
  * EBS volumes can be encrypted with AWS owned KMS keys or customer managed keys (CMKs)
  * Snapshots will be created with the same encryption method as the current EBS
- * It is not possible to change encryption settings after creation. If an EBS is accidentally created unencrypted, it must be snapshotted and then a new EBS created form the snapshot (with  encryption applied on the new EBS volume).
+ * It is not possible to change encryption settings after creation. If an EBS is accidentally created unencrypted, it must be snapshotted and then a new EBS created form the snapshot (with encryption applied on the new EBS volume).
  * It is possible to enforce encryption at the account level, see Assessment Notes.
 
 ### Access Control
@@ -54,7 +54,7 @@ HDD Based Volumes
 
 
 * Encryption at rest should be enabled
-  * Default encryption should be enabled for each region at the account level. - [https://aws.amazon.com/blogs/aws/new-opt-in-to-default-encryption-for-new-ebs-volumes/](https://aws.amazon.com/blogs/aws/new-opt-in-to-default-encryption-for-new-ebs-volumes/)
+  * Default encryption should be enabled for each region at the account level - [https://aws.amazon.com/blogs/aws/new-opt-in-to-default-encryption-for-new-ebs-volumes/](https://aws.amazon.com/blogs/aws/new-opt-in-to-default-encryption-for-new-ebs-volumes/)
   * In an ideal world, EBS volumes should be encrypted with CMKs with proper access controls configured in the key policies. This is, however, exceptionally low priority - [https://www.chrisfarris.com/post/cloud-encryption/](https://www.chrisfarris.com/post/cloud-encryption/)
 * Snapshots should not be public.
   *  [https://techcrunch.com/2019/08/09/aws-ebs-cloud-backups-leak/](https://techcrunch.com/2019/08/09/aws-ebs-cloud-backups-leak/)
