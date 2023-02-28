@@ -11,10 +11,10 @@ name: Lint Code Base
 #############################
 on:
   push:
-    branches: [master, main]
+    branches: [am_fixing_linting]
     # Remove the line above to run when pushing to master
   pull_request:
-    branches: [master, main]
+    branches: [am_fixing_linting]
 
 ###############
 # Set the Job #
