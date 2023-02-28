@@ -34,6 +34,7 @@ Albeit useful for context, the above was mostly to ease into what the general fl
 * [https://account.live.com/] - domain for MFA management of Microsoft accounts
 
 ## Assessment Notes
+
 ### Microsoft MFA
 
 Let us start outside of an Azure AD organization first. Within AAD you can have guest users that could join with a basic Microsoft account. This, for example, can be an account used for Skype, or for Xbox Game Pass or a Gmail account. These accounts albeit joined to an Azure AD as guests, the base account properties are managed at Microsoft rather than the Azure AD. As such, the choice of MFA methods and setup would be at the [Microsoft portal](https://account.live.com/).
