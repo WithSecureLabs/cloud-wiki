@@ -10,11 +10,12 @@ name: Lint Code Base
 # Start the job on all push #
 #############################
 on:
+  # Run on pushes to main
   push:
-    branches: [master, main]
-    # Remove the line above to run when pushing to master
+    branches: [main]
+  # Run on PRs to main
   pull_request:
-    branches: [master, main]
+    branches: [main]
 
 ###############
 # Set the Job #
@@ -50,5 +51,5 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_MARKDOWN: true
           MARKDOWN_CONFIG_FILE: '.markdownlint.yaml'
-          DEFAULT_BRANCH: master
+          DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
