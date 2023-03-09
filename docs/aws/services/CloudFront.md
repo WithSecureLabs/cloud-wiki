@@ -2,7 +2,7 @@
 
 ## Service Details
 
-Content deliverty network (CDN), used to provide low latency and high transfer speeds across the globe by caching assets close to those accessing it.
+Content delivery network (CDN), used to provide low latency and high transfer speeds across the globe by caching assets close to those accessing it.
 
 ## Assessment Notes
 

@@ -67,6 +67,7 @@ We thank the following for their contributions to the wiki:
 | Patrick Hannah         | [@patrickhannah](https://github.com/patrickhannah)   | [@pjhannah1](https://twitter.com/pjhannah1)             |
 | Robert Petesic         |                                                      |                                                         |
 | Sebastian Edmead       |                                                      |                                                         |
+| Shahnoor Kiani         | [@Snoarlax](https://github.com/Snoarlax)             |                                                         |
 | Szymon Grzybowski      |                                                      |                                                         |
 | Toni Jarvinen          |                                                      |                                                         |
 | uname223               | [@uname223](https://github.com/uname223)             |                                                         |
