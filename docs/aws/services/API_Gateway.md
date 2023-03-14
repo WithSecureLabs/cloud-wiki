@@ -9,7 +9,6 @@ API GW supports multiple endpoint types:
 - HTTP API
 - WebSocket API
 - REST API
-- REST API
 
 Certain API endpoint types have different configuration available. For example, a REST API can be authenticated with IAM but an HTTP API can't. This article will generalize assessment and operational notes to try and avoid confusion. However, each endpoint type should be validated against its specific configuration.
 
