@@ -522,8 +522,8 @@ The IAM credential report lists all IAM Users and the states of all their creden
 
 ## Common Tooling
 
+- <https://github.com/WithSecureLabs/iamspy> - An SMT solver that mimics the AWS IAM policy resolution engine, and will answer questions on who can do what in an AWS account.
 - <https://github.com/nccgroup/PMapper> - Graph-based IAM permissions analysis for individual accounts or Organizations.
-- <https://github.com/FSecureLABS/awspx> - A graph-based tool for visualizing effective access and resource relationships in an AWS account.
 - <https://github.com/duo-labs/parliament> - IAM linting library in python, looks for policy errors and bad practices.
 - <https://github.com/salesforce/cloudsplaining> - Identifies data exfiltration, infrastructure modification, resource exposure, and privilege escalation issues with policies in an account.
 - <https://github.com/salesforce/policy_sentry> - Least privilege policy generator.
@@ -531,11 +531,7 @@ The IAM credential report lists all IAM Users and the states of all their creden
 - <https://github.com/RhinoSecurityLabs/pacu> - AWS exploitation framework.
 - <https://github.com/lyft/cartography> - Cloud infrastructure relationship mapping, with good support for IAM.
 - <https://github.com/prisma-cloud/IAMFinder> - External enumeration of IAM users and roles.
-
-### Internal Tooling
-
-- [iamspy](https://git2.f-secure.com/cloud/aws/iamspy) - An SMT solver that mimics the AWS IAM policy resolution engine, and will answer questions on who can do what in an AWS account.
-- [iam-hunter](https://git2.f-secure.com/cloud/aws/iam-hunter) - Highlights dangerous roles across an entire AWS organization based on known privilege escalation techniques.
+- <https://github.com/WithSecureLabs/awspx> - A graph-based tool for visualizing effective access and resource relationships in an AWS account. Unmaintained, but still sometimes useful.
 
 ## External References
 
