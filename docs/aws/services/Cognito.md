@@ -7,7 +7,7 @@ AWS Cognito is a managed identity provider and user management service comprised
 - User pools
 - Identity pools
 
-A user pool is a directory of users . It integrates with other SSO providers such as Google, Amazon and Apple. This allows customers to create a user account in the user pool by simply authenticating with their chosen SSO provider. It uses OpenID Connect or SAML to delegate authentication to third party identity providers. Additionally, it can be used to store custom attributes about users. Users can be assigned read/ write permissions to these attributes when the user pool is configured.
+A user pool is a directory of users. It integrates with other SSO providers such as Google, Amazon and Apple. This allows customers to create a user account in the user pool by simply authenticating with their chosen SSO provider. It uses OpenID Connect or SAML to delegate authentication to third party identity providers. Additionally, it can be used to store custom attributes about users. Users can be assigned read/ write permissions to these attributes when the user pool is configured.
 
 An identity pool allows users to access the accounts AWS resources, by provisioning a specific IAM role which a person who is authenticated with a user pool can assume. It can also allow unauthenticated users to assume a different IAM role if configured to do so.
 
@@ -110,9 +110,9 @@ aws cognito-identity get-id --identity-pool-id <identity pool id> --login <ISS>=
 cognito-identity get-credentials-for-identity --identity-id <identity id> --login <ISS>=<Identity token>
 ```
 
-*\<ISS\> is equivalent to the issuer of the token, which can be found inside the payload of the ID token JWT*
+*ISS is equivalent to the issuer of the token, which can be found inside the payload of the ID token JWT.*
 
-**When configuring an identity pool, apply the principle of least privilege. Disable the unauthenticated role if possible, and apply the minimum privileges required for the authenticated role using IAM policies. See [here](https://docs.aws.amazon.com/cognito/latest/developerguide/role-based-access-control.html) for more details**
+**When configuring an identity pool, apply the principle of least privilege. Disable the unauthenticated role if possible, and apply the minimum privileges required for the authenticated role using IAM policies. See [here](https://docs.aws.amazon.com/cognito/latest/developerguide/role-based-access-control.html) for more details.**
 
 ## Operational Notes
 
